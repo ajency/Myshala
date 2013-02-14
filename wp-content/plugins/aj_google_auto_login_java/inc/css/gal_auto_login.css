@@ -1,0 +1,114 @@
+@CHARSET "ISO-8859-1";
+
+.gal-sidebar_widget{
+margin-top: 20px;
+background:#CCCCCC;
+width: 175px;
+padding: 8px;
+}
+
+.gal-rounded_cr{
+border-radius:5px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border:1px solid #BDBDBD;
+}
+
+.gal-left_div{
+float:left;
+margin-right: 5px;
+}
+
+.gal-right_div b{
+color:#686868;
+}
+
+.gal-right_div span.email{
+	font-size: 9px;
+}
+
+.gal-right_div span.name{
+	font-size: 11px;
+}
+
+.gal-email{
+text-decoration: none;
+font-size: 10px;
+color: #838383;
+}
+
+.gal-right_div{
+float: right;
+padding-left: 5px;
+width: 100px;
+overflow-x: hidden
+}
+
+a.gal-links {
+text-decoration:none;
+}
+
+.gal-profile_txt{
+font-size: 11px;
+font-weight: bold;
+color: #292929;line-height: 27px;
+}
+
+.gal-logout_txt{
+font-size: 11px;
+font-weight: bold;
+color: #006FFC;
+line-height: 27px;
+}
+
+div#gal-page_loader {
+position: absolute;
+top: 0;
+bottom: 0%;
+left: 0;
+right: 0%;
+z-index: 99;
+}
+.gal-login-google a {
+outline: none;
+text-indent: -5000px;
+display: block;
+width: 174px;
+height: 43px;
+background: url("../img/login.png") 0 0 no-repeat;
+margin-left: 2px;
+ }
+
+ .gal-login-google a:hover {
+ background-position: -173px 0;
+ }
+.gal-login-big-google a {
+outline: none;
+text-indent: -5000px;
+display: block;
+width: 250px;
+height: 60px;
+background: url("../img/loginbig.png") 0 0 no-repeat;
+margin-left: 6px;
+margin-bottom: 10px;
+ }
+
+div.gal-loader
+{
+	height: 25px;
+	background: url("../img/gal_loader.gif") 10px 0 no-repeat;
+	text-align: center;
+	width: 100%;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+span.gal-loader-text{
+margin-left: 30px;
+margin-top: 5px;
+display: inline-block;
+}
+
+ .gal-login-big-google a:hover {
+ background-position: -245px 0;
+ }

@@ -1,0 +1,152 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Picasa\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-07-13 15:23+0100\n"
+"PO-Revision-Date: 2012-07-13 15:55+0100\n"
+"Last-Translator: Ian Kennerley <iankennerley@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/cws-gpp-admin-init.php:38
+msgid "Are you sure you want to delete the cache?"
+msgstr "Sind Sie sicher, dass Sie den Cache löschen?"
+
+#: admin/cws-gpp-admin-init.php:53
+msgid "Google Picasa Pro Options"
+msgstr "Google Picasa Pro Optionen"
+
+#: admin/cws-gpp-admin-init.php:54
+msgid "Google Picasa Pro"
+msgstr "Google Picasa Pro"
+
+#: admin/cws-gpp-admin-init.php:75
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Sie verfügen nicht über ausreichende Berechtigungen, um diese Seite zu betreten."
+
+#: admin/cws-gpp-admin-init.php:142
+msgid "This is the preferred method of authenticating your Google Picasa account."
+msgstr "Dies ist die bevorzugte Methode zur Authentifizierung von Ihrem Google Picasa-Konto."
+
+#: admin/cws-gpp-admin-init.php:143
+msgid "All authentication is taken place on Google's secure servers."
+msgstr "All-Authentifizierung wird Platz auf sicheren Servern von Google übernommen."
+
+#: admin/cws-gpp-admin-init.php:146
+msgid "Clicking the \"Start the Login Process\" link will redirect you to a login page at Google.com."
+msgstr "Durch Klicken auf \"Start der Login-Prozess\"-Link führt Sie zu einer Login-Seite umleiten auf Google.com."
+
+#: admin/cws-gpp-admin-init.php:147
+msgid "After accepting the login there you will be returned here."
+msgstr "Nach der Übernahme des Login-dort werden Sie hier zurückgegeben werden."
+
+#: admin/cws-gpp-admin-init.php:219
+msgid "We want your feedback!"
+msgstr "Wir möchten Ihr Feedback!"
+
+#: admin/cws-gpp-admin-init.php:221
+msgid "If you have found a bug please email us"
+msgstr "Wenn Sie gefunden haben, einen Bug mailen Sie uns bitte"
+
+#: admin/cws-gpp-admin-init.php:225
+msgid "Check out this awesome WordPress Plugin I'm using - Google Picasa Viewer"
+msgstr "Schauen Sie sich diese awesome WordPress Plugin verwende ich - Google Picasa Viewer"
+
+#: admin/cws-gpp-admin-init.php:227
+msgid "Share it with your friends"
+msgstr "Teile ihn mit Ihren Freunden"
+
+#: admin/cws-gpp-admin-init.php:227
+msgid "Tweet It"
+msgstr "Tweet Es"
+
+#: admin/cws-gpp-admin-init.php:265
+msgid "Album thumbnail size (px)"
+msgstr "Album Thumbnail-Größe (px)"
+
+#: admin/cws-gpp-admin-init.php:271
+msgid "Number of image results per page"
+msgstr "Anzahl der Bilder pro Seite"
+
+#: admin/cws-gpp-admin-init.php:277
+msgid "Thumbnail size (px)"
+msgstr "Thumbnail-Größe (px)"
+
+#: admin/cws-gpp-admin-init.php:283
+msgid "Lightbox image size (px)"
+msgstr "Lightbox Bildgröße"
+
+#: admin/cws-gpp-admin-init.php:289
+msgid "Page to show album results on"
+msgstr "Seite zum Album zeigen die Ergebnisse auf"
+
+#: admin/cws-gpp-admin-init.php:295
+msgid "Select a page:"
+msgstr "Wählen Sie eine Seite:"
+
+#: admin/cws-gpp-admin-init.php:304
+msgid "This is the page to place the shortcode, [cws_gpp_album_images]"
+msgstr "Dies ist die Seite, um die Kurzwahl zu platzieren, [cws_gpp_album_images]"
+
+#: admin/cws-gpp-admin-init.php:308
+msgid "Show Private galleries"
+msgstr "Anzeigen Private Galerien"
+
+#: admin/cws-gpp-admin-init.php:311
+msgid "Delete cache after changing this setting!"
+msgstr "Löschen Sie Cache, nachdem Sie diese Einstellung ändern!"
+
+#: admin/cws-gpp-admin-init.php:315
+msgid "Show album titles"
+msgstr "Zeige Albumtitel"
+
+#: admin/cws-gpp-admin-init.php:321
+msgid "Show slider markers"
+msgstr "Zeige Schieberegler Marker"
+
+#: admin/cws-gpp-admin-init.php:327
+#: admin/cws-gpp-admin-init.php:329
+msgid "Delete cache"
+msgstr "Löschen Sie Cache"
+
+#: admin/cws-gpp-admin-init.php:333
+msgid "Enable FancyBox"
+msgstr "aktivieren FancyBox"
+
+#: admin/cws-gpp-admin-init.php:337
+msgid "Sometimes your theme will already include this FancyBox. If so you can disable FancyBox from being included by this plugin."
+msgstr "Manchmal wird Ihr Thema enthalten bereits diese FancyBox. Wenn ja können Sie FancyBox aus, von diesem Plugin enthalten deaktivieren."
+
+#: admin/cws-gpp-admin-init.php:344
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: classes/cws-gpp-admin.php:171
+msgid "Start the Login Process"
+msgstr "Starten Sie den Login-Prozess"
+
+#: widgets/widget-display-albums-carousel.php:96
+#: widgets/widget-display-albums.php:104
+msgid "Title:"
+msgstr "Titel:"
+
+#: widgets/widget-display-albums-carousel.php:100
+#: widgets/widget-display-albums.php:108
+msgid "Show album titles:"
+msgstr "Zeige Albumtitel:"
+
+#: widgets/widget-display-albums-carousel.php:105
+msgid "Show slider markers:"
+msgstr "Zeige Schieberegler Marker:"
+
+#: widgets/widget-display-albums.php:112
+msgid "Show albums:"
+msgstr "Zeige Alben:"
+
+#~ msgid "Number of Albums to Show:"
+#~ msgstr "Anzahl der Alben zu zeigen:"

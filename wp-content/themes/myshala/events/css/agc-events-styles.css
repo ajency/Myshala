@@ -1,0 +1,115 @@
+.agc-datetime-picker-wrap
+{
+	margin-top:10px;
+}
+.agc-datetime-picker-wrap span.agc-time-date-title{
+	font-size:12px;
+	font-style: italic;
+	padding-left:10px;
+	font-weight:bold;
+	color:#999;
+}
+.agc-datetime-picker-wrap div#datepicker
+{
+	margin-top:10px;
+}
+
+td.agc-time-date-label
+{
+	text-align:right;
+}
+
+.agc-datetime-picker-wrap input.agc_selected_date{
+	font-style: italic;
+	background-color: #CCD;
+	text-align: center;
+}
+.agc-datetime-picker-wrap img.ui-datepicker-trigger
+{
+	vertical-align:middle;
+	cursor: pointer;
+}
+.agc-event-textarea{
+	width:100%;
+	resize:vertical;
+	height:100px;
+}
+
+span.cleardate
+{
+	display: inline-block;
+	cursor: pointer;
+	position: absolute;
+	margin-top: 2px;
+	margin-left: -2px;
+}
+
+div.event_invitees_wrapper
+{
+	display:inline-block;
+	float:right;
+	margin-top: -1px;
+}
+div.event_invitees_wrapper img
+{
+	vertical-align:middle;
+	padding-right:10px;
+}
+label.event_invitees
+{
+	margin-right:20px;
+	font-size: 12px;
+}
+
+div.event_invitees_list{
+	height:300px;
+	overflow:auto;
+	background-color:#FFFFFF;
+	border:1px solid #ccc;
+	margin-top:10px;
+	border-radius:3px;
+	padding:10px;
+}
+
+div.event_invitees_list a.invitees_loadmore{
+	display:block;
+	text-align: center;
+	margin-top: 10px;
+}
+span.error-block{
+	font-size:10px;
+	color:red;
+}
+
+div#agc_event_data_desc h3.event_invitees_header{
+width: 100%;
+margin-left: -10px;
+}
+
+div.agc-event-send-invites-wrapper
+{
+	height: 35px;
+}
+a.agc-event-send-invites
+{
+	display: inline-block;
+	margin-top: 10px;
+	float: right;
+}
+
+div.agcSendInvitesConfirm
+{
+	width:90%;
+	height:150px;
+	position:absolute;
+	bottom:0;
+}
+img#ajax_send_invites_loading
+{
+	vertical-align:middle;
+	visibility:hidden;
+}
+a#agcSendInvitesConfirmButton
+{
+	display:inline-block;
+}
