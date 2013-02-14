@@ -141,6 +141,7 @@ jQuery(document).ready(function () {
 });
 </script>
 	
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 	<!-- mousewheel plugin -->
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.mousewheel.min.js"></script>
 	<!-- custom scrollbars plugin -->
