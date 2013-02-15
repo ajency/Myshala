@@ -223,6 +223,7 @@ if(!function_exists('om_enqueue_scripts')) {
 		wp_register_script('jPlayer', TEMPLATE_DIR_URI.'/js/jquery.jplayer.min.js', array('jquery'), false, true);
 		wp_register_script('prettyPhoto', TEMPLATE_DIR_URI.'/js/jquery.prettyPhoto.js', array('jquery'), false, true);
 		wp_register_script('omSlider', TEMPLATE_DIR_URI.'/js/jquery.omslider.min.js', array('jquery'), false, true);
+		wp_register_script('image-picker', TEMPLATE_DIR_URI.'/js/image-picker.js', array('jquery'), false, true);
 		wp_register_script('libraries', TEMPLATE_DIR_URI.'/js/libraries.js', array('jquery'), false, true);
 		wp_register_script('validate', TEMPLATE_DIR_URI.'/js/jquery.validate.min.js', array('jquery'), false, true);
 		wp_register_script('form', TEMPLATE_DIR_URI.'/js/jquery.form.min.js', array('jquery'), false, true);
@@ -241,6 +242,7 @@ if(!function_exists('om_enqueue_scripts')) {
 		wp_enqueue_script('jPlayer');
 		wp_enqueue_script('prettyPhoto');
 		wp_enqueue_script('omSlider');
+		wp_enqueue_script('image-picker');
 		wp_enqueue_script('libraries');
 		wp_enqueue_script('isotope');
 		wp_enqueue_script('validate');
@@ -250,6 +252,8 @@ if(!function_exists('om_enqueue_scripts')) {
 		// styles
 		wp_register_style('prettyPhoto', TEMPLATE_DIR_URI.'/css/prettyPhoto.css');
 		wp_enqueue_style('prettyPhoto');
+		wp_register_style('image-picker', TEMPLATE_DIR_URI.'/css/image-picker.css');
+		wp_enqueue_style('image-picker');
 	
   }
 
@@ -1028,3 +1032,46 @@ function agc_login_steps_goto_step()
 	endif;
 }
 add_action('wp_footer','agc_login_steps_goto_step');
+
+
+/*************************************************************************************
+ *	Photo Select Tab Function
+ *************************************************************************************/
+function my_photos_bp_nav()
+{
+    bp_core_new_nav_item(
+        array(
+            'name' => __('My Photos', 'buddypress'),
+            'slug' => 'my-photos',
+            'position' => 90,
+            'show_for_displayed_user' => true,
+            'screen_function' => 'my_photos_tab',
+            'item_css_id' => 'all-conversations'
+        ));
+        print_r($wp_filter); 
+}
+function my_photos_tab () {
+    //add title and content here - last is to call the members plugin.php template
+    add_action( 'bp_template_title', 'my_photos_tab_title' );
+    add_action( 'bp_template_content', 'my_photos_tab_content' );
+    bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
+}
+
+function my_photos_tab_title() {
+    echo 'My Photos';
+}
+function my_photos_tab_content() { 
+	echo '<form class="image-select-form">';
+	echo '<select multiple="multiple" class="image-picker show-labels show-html">
+			  <option data-img-src="http://placekitten.com/280/300" value="1">Cute Kitten 1</option>
+			  <option data-img-src="http://placekitten.com/280/150" value="2">Cute Kitten 2</option>
+			  <option data-img-src="http://placekitten.com/280/270" value="3">Cute Kitten 3</option>
+			  <option data-img-src="http://placekitten.com/280/320" value="4">Cute Kitten 4</option>
+			  <option data-img-src="http://placekitten.com/280/200" value="5">Cute Kitten 5</option>
+			  <option data-img-src="http://placekitten.com/280/170" value="6">Cute Kitten 6</option>
+		</select>';
+	echo '<input type="submit" class="" value="Choose Selected" />';
+	echo '</form>';
+	echo '<script>jQuery(document).ready(function(){jQuery("select.image-picker").imagepicker({show_label : true});});</script>';
+}
+add_action( 'bp_setup_nav', 'my_photos_bp_nav' );
