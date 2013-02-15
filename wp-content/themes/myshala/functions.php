@@ -1028,3 +1028,46 @@ function agc_login_steps_goto_step()
 	endif;
 }
 add_action('wp_footer','agc_login_steps_goto_step');
+
+/**
+ * Function to talk to the remote db in myshala
+ * @param string $query
+ * @return boolean|multitype:The output of the query
+ */
+function msh_remote_db_connection($query)
+{	
+	$host = (defined('MYSHALA_REMOTE_DB_HOST'))? MYSHALA_REMOTE_DB_HOST : '';
+	$user = (defined('MYSHALA_REMOTE_DB_USER'))? MYSHALA_REMOTE_DB_USER	: '';
+	$pass = (defined('MYSHALA_REMOTE_DB_PASSWORD'))? MYSHALA_REMOTE_DB_PASSWORD	: '';
+	$dbnm = (defined('MYSHALA_REMOTE_DB_NAME'))? MYSHALA_REMOTE_DB_NAME	: '';
+	
+	$myshala_query_result = array();
+	
+	$myshala_con = @new mysqli($host,$user,$pass,$dbnm);
+		
+	if ($myshala_con->connect_errno) {
+		return false;
+	}
+	else
+	{
+		$myshala_query = $query;
+		
+		if(!$result = $myshala_con->query($myshala_query,MYSQLI_USE_RESULT))
+		{
+			return false;
+		}
+		else
+		{
+			$num_rows = 0;
+			while ( $row = $result->fetch_object() ) {
+				$myshala_query_result[$num_rows] = $row;
+				$num_rows++;
+			}
+			
+		}
+		$result->close();
+	}
+	$myshala_con->close();
+	
+	return $myshala_query_result;
+}
