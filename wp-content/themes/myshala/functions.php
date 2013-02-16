@@ -660,7 +660,7 @@ add_action( 'bp_setup_nav', 'my_bp_nav_adder' );
 /*************************************************************************************
  *	Login Steps Functions
  *************************************************************************************/
-function agc_login_steps_css()
+function agc_login_steps_redirect_loggedin()
 {
 	if(is_page_template('template-login-steps.php'))
 	{
@@ -675,10 +675,16 @@ function agc_login_steps_css()
 			wp_redirect(get_bloginfo('url'));
 			exit;
 		}			
-		echo '<link href="'.TEMPLATE_DIR_URI.('/css/jquery.Jcrop.css' ).'" rel="stylesheet" type="text/css" />';
 	}
 }
-add_action('wp_head', 'agc_login_steps_css'); 
+add_action('template_redirect', 'agc_login_steps_redirect_loggedin');
+
+function agc_login_steps_css()
+{
+	echo '<link href="'.TEMPLATE_DIR_URI.('/css/jquery.Jcrop.css' ).'" rel="stylesheet" type="text/css" />';
+}
+add_action('wp_head', 'agc_login_steps_css');
+
 /**
  * Function to save the login step number for user
  */
@@ -707,18 +713,15 @@ function agc_login_steps_getset_step($step_number = 0,$set = false)
 function agc_login_steps_redirect($redirect_to, $url_redirect_to, $user)
 {
 	$login_steps  = get_user_meta($user->ID,'agc_login_steps_completed',true);
-	$primary_blog = get_user_meta($user->ID,'primary_blog',true);
+
 	if($login_steps && $login_steps == 'completed')
 	{
-		switch_to_blog($primary_blog);
-		$main_site = get_bloginfo('url');
+		$main_site = home_url();
 		return $main_site;
 	}
 	else
 	{
-		switch_to_blog(1);
-		$main_site = get_bloginfo('url');
-		restore_current_blog();
+		$main_site = home_url();
 		return $main_site . "/login-steps/";
 	}
 }
@@ -774,6 +777,35 @@ function agc_ajax_bp_xprofile_save()
 }
 add_action('wp_ajax_agc_ajax_bp_xprofile_save', 'agc_ajax_bp_xprofile_save');
 
+
+function agc_avatar_upload_dir( $directory = false, $user_id = 0 ) {
+
+	if ( empty( $user_id ) )
+		$user_id = bp_loggedin_user_id();
+
+	if ( empty( $directory ) )
+		$directory = 'avatars';
+
+	$path    = bp_core_avatar_upload_path() . '/avatars/' . $user_id;
+	$newbdir = $path;
+
+	if ( !file_exists( $path ) )
+		@wp_mkdir_p( $path );
+
+	$newurl    = bp_core_avatar_url() . '/avatars/' . $user_id;
+	$newburl   = $newurl;
+	$newsubdir = '/avatars/' . $user_id;
+
+	return apply_filters( 'agc_avatar_upload_dir', array(
+			'path'    => $path,
+			'url'     => $newurl,
+			'subdir'  => $newsubdir,
+			'basedir' => $newbdir,
+			'baseurl' => $newburl,
+			'error'   => false
+	) );
+}
+
 /**
  * Function to handle the cropping of the avatar via ajax and setting it to current user.
  */
@@ -781,14 +813,9 @@ function agc_set_core_avatar_image()
 {
 	global $bp;
 	header( "Content-Type: application/json" );
-	
-	//add_filter('bp_core_avatar_upload_path','agc_xprofile_avatar_upload_dir',1);
-	//add_filter('bp_core_avatar_url','agc_xprofile_avatar_upload_url',1);
-	//add_filter('bp_core_avatar_item_id', 'agc_bp_core_avatar_item_id',1,2);
-	
+		
 	if (! bp_core_avatar_handle_crop( array( 'avatar_dir' => 'avatars','item_id' => bp_loggedin_user_id() , 'original_file' => $_POST['image_src'], 'crop_x' => $_POST['x'], 'crop_y' => $_POST['y'], 'crop_w' => $_POST['w'], 'crop_h' => $_POST['h'] )))
-		$result = array('status' => 'fail', 'msg' => 'There was a problem cropping your avatar, please try uploading it again','upload_path' => bp_core_avatar_upload_path());
-
+		$result = array('status' => 'fail', 'msg' => 'There was a problem cropping your avatar, please try uploading it again','upload_path' => $_POST['image_src']);
 	else
 	{
 		$step 	 = $_POST['step'];
@@ -1060,17 +1087,36 @@ function my_photos_tab_title() {
     echo 'My Photos';
 }
 function my_photos_tab_content() { 
-	echo '<form class="image-select-form">';
-	echo '<select multiple="multiple" class="image-picker show-labels show-html">
-			  <option data-img-src="http://placekitten.com/280/300" value="1">Cute Kitten 1</option>
-			  <option data-img-src="http://placekitten.com/280/150" value="2">Cute Kitten 2</option>
-			  <option data-img-src="http://placekitten.com/280/270" value="3">Cute Kitten 3</option>
-			  <option data-img-src="http://placekitten.com/280/320" value="4">Cute Kitten 4</option>
-			  <option data-img-src="http://placekitten.com/280/200" value="5">Cute Kitten 5</option>
-			  <option data-img-src="http://placekitten.com/280/170" value="6">Cute Kitten 6</option>
+	
+	if(isset($_POST['msh_image_picker']) && !empty($_POST['msh_image_picker']))
+	{
+		update_user_meta(bp_displayed_user_id(),'photos_picked',$_POST['msh_image_picker']);
+	}	
+	echo '<form class="image-select-form" action="" method="post">';
+	echo '<select multiple="multiple" class="image-picker show-labels show-html" name="msh_image_picker[]">
+			  <option data-img-src="http://placehold.it/350x150" value="http://placehold.it/350x150">Image 1</option>
+			  <option data-img-src="http://placehold.it/150x150" value="http://placehold.it/150x150">Image 2</option>
+			  <option data-img-src="http://placehold.it/150x250" value="http://placehold.it/150x250">Image 3</option>
+			  <option data-img-src="http://placehold.it/250x250" value="http://placehold.it/250x250">Image 4</option>
+			  <option data-img-src="http://placehold.it/250x150" value="http://placehold.it/250x150">Image 5</option>
+			  <option data-img-src="http://placehold.it/250x150" value="http://placehold.it/250x150">Image 6</option>
 		</select>';
-	echo '<input type="submit" class="" value="Choose Selected" />';
+	echo '<input type="submit" class="msh-photo-select-submit" value="Choose Selected" />';
 	echo '</form>';
 	echo '<script>jQuery(document).ready(function(){jQuery("select.image-picker").imagepicker({show_label : true});});</script>';
+	?>
+	<script type="text/javascript">
+	jQuery(document).ready(function(){
+			jQuery('.msh-photo-select-submit').click(function(e){
+					e.preventDefault(); //dont submit the form untill confirmed
+					var check = confirm('Are you sure you want to select these photos?');
+					if(check == true)
+					{	
+						jQuery('.image-select-form').submit();
+					} 
+				});
+		});
+	</script>
+	<?php 
 }
 add_action( 'bp_setup_nav', 'my_photos_bp_nav' );

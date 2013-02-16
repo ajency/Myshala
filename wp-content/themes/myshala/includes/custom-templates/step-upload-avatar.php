@@ -15,10 +15,8 @@ if(isset($_POST['fileUploaded']))
 		{
 			if(bp_core_check_avatar_type($_FILES))
 			{
-				//add_filter('bp_core_avatar_upload_path','agc_xprofile_avatar_upload_dir',1);
-				//add_filter('bp_core_avatar_url','agc_xprofile_avatar_upload_url',1);
 				
-				$original = bp_core_avatar_handle_upload( $_FILES);
+				$original = bp_core_avatar_handle_upload($_FILES,'agc_avatar_upload_dir');
 	
 				// Check image size and shrink if too large
 				if ( $original)
@@ -156,7 +154,7 @@ if(isset($_POST['fileUploaded']))
 																	}
 																	else
 																	{
-																		//console.log(response);
+																		console.log(response);
 																		alert(response.msg);
 																		jQuery('#loading-step-1').hide();
 																		window.location.href = '<?php echo get_bloginfo('url');?>/login-steps/';

@@ -10,7 +10,6 @@ get_header(); ?>
 	<div class="block-inner">
 		<div id="log-info">
 			<div id="bubbles"></div>
-		
 			<div id="log-info-forms">
 				<!-- Upload Avatar Step -->
 				<?php include_once TEMPLATEPATH .'/includes/custom-templates/step-upload-avatar.php';?>
