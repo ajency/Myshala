@@ -224,6 +224,7 @@ if(!function_exists('om_enqueue_scripts')) {
 		wp_register_script('prettyPhoto', TEMPLATE_DIR_URI.'/js/jquery.prettyPhoto.js', array('jquery'), false, true);
 		wp_register_script('omSlider', TEMPLATE_DIR_URI.'/js/jquery.omslider.min.js', array('jquery'), false, true);
 		wp_register_script('image-picker', TEMPLATE_DIR_URI.'/js/image-picker.js', array('jquery'), false, true);
+		wp_register_script('masonry', TEMPLATE_DIR_URI.'/js/jquery.masonry.min.js', array('jquery'), false, true);
 		wp_register_script('libraries', TEMPLATE_DIR_URI.'/js/libraries.js', array('jquery'), false, true);
 		wp_register_script('validate', TEMPLATE_DIR_URI.'/js/jquery.validate.min.js', array('jquery'), false, true);
 		wp_register_script('form', TEMPLATE_DIR_URI.'/js/jquery.form.min.js', array('jquery'), false, true);
@@ -243,6 +244,7 @@ if(!function_exists('om_enqueue_scripts')) {
 		wp_enqueue_script('prettyPhoto');
 		wp_enqueue_script('omSlider');
 		wp_enqueue_script('image-picker');
+		wp_enqueue_script('masonry');
 		wp_enqueue_script('libraries');
 		wp_enqueue_script('isotope');
 		wp_enqueue_script('validate');
@@ -1061,6 +1063,7 @@ function my_photos_tab_title() {
     echo 'My Photos';
 }
 function my_photos_tab_content() { 
+	echo '<p>Please select photos by clicking on them, then click on choose selected below.</p>';
 	echo '<form class="image-select-form">';
 	echo '<select multiple="multiple" class="image-picker show-labels show-html">
 			  <option data-img-src="http://placekitten.com/280/300" value="1">Cute Kitten 1</option>
@@ -1070,8 +1073,30 @@ function my_photos_tab_content() {
 			  <option data-img-src="http://placekitten.com/280/200" value="5">Cute Kitten 5</option>
 			  <option data-img-src="http://placekitten.com/280/170" value="6">Cute Kitten 6</option>
 		</select>';
+	echo '<div class="display-select-info">You have selected: <span></span></div>';
 	echo '<input type="submit" class="" value="Choose Selected" />';
 	echo '</form>';
 	echo '<script>jQuery(document).ready(function(){jQuery("select.image-picker").imagepicker({show_label : true});});</script>';
+	echo '<script>jQuery(document).ready(function(){var $container = jQuery(".image_picker_selector");
+			$container.imagesLoaded( function(){
+			  $container.masonry({
+				itemSelector : "li"
+			  });
+			});});</script>';
+	echo '<script>
+	jQuery(document).ready(function(){
+        // This selector is called every time a select box is changed
+        jQuery("select.image-picker").change(function(){
+            // variable to hold string
+            var sel = "";
+            jQuery("select.image-picker option:selected").each(function(){
+                // when the select box is changed, we add the value text to the varible
+                sel += jQuery(this).html() + ",";
+            });
+            // then display it in the following class	
+            jQuery(".display-select-info span").html(sel);
+        });
+        });
+    </script>';
 }
 add_action( 'bp_setup_nav', 'my_photos_bp_nav' );

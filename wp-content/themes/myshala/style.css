@@ -6284,3 +6284,25 @@ a:hover.r-m-a{ color:#fff !important;}
 	width: 16px;
 	height: 16px;
 }
+
+/****Image Select Styles****/
+ul.thumbnails.image_picker_selector li .thumbnail {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	max-width: 180px;
+}
+ul.thumbnails.image_picker_selector li .thumbnail.selected p {
+	padding: 0 32px 0 0;
+	margin: 5px 0;
+	min-height: 32px;
+	background: url('img/select-img.png') no-repeat right top;
+}
+.display-select-info {
+	margin: 10px 0;
+	font-weight: bold;
+}
+.display-select-info span {
+	font-style: italic;
+	font-weight: normal;
+}
