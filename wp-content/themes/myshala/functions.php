@@ -212,8 +212,6 @@ include_once("widgets/testimonials/testimonials.php");
 // Apply Shortcodes for Widgets
 add_filter('widget_text', 'do_shortcode');
 
-//Include Theme Widgets
-require_once(TEMPLATEPATH . '/includes/widgets/widgets_inc.php');
 
 require_once(TEMPLATEPATH . '/includes/bp_activity.php');
 
@@ -723,7 +721,7 @@ function agc_login_steps_redirect($redirect_to, $url_redirect_to, $user)
 
 	if($login_steps && $login_steps == 'completed')
 	{
-		$main_site = home_url();
+		$main_site = home_url()."/millennium-community/";
 		return $main_site;
 	}
 	else
@@ -1209,5 +1207,5 @@ function fetch_from_local_db($data) {
 	return $return_value;
 		
 }
-//removed admin bar
+
 add_filter( 'show_admin_bar', '__return_false' );
