@@ -1209,3 +1209,5 @@ function fetch_from_local_db($data) {
 	return $return_value;
 		
 }
+//removed admin bar
+add_filter( 'show_admin_bar', '__return_false' );
