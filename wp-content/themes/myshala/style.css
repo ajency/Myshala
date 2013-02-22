@@ -4795,13 +4795,14 @@ ul#activity-stream {
 	font-size: 13px;
 }
 #activity-stream li .activity-avatar {
-	/*width: 50px;*/
+	width: 10%;
 	padding: 10px;
 	float: left;
 	margin-right: 20px;
+	text-align: right;
 }
 #activity-stream li .activity-content {
-	/*width: 478px;*/
+	width: 80%;
 	padding: 10px;
 	float: left;
 	border: 1px solid #E6E6E6;
@@ -6367,5 +6368,23 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected p {
 #members-widget ul.member-pane li.recent-style .user-activity .meta {
 	font-size: 11px;
 	color: #ccc;
+	font-style: italic;
+}
+
+/****Student Info Table Styles****/
+.custom-table-wrapper .profile-fields {
+	width: 100%;
+}
+.custom-table-wrapper .profile-fields th {
+	color:#4D6024;
+	font-size: 1.2em;
+	text-transform: uppercase;
+}
+.custom-table-wrapper .profile-fields td {
+	color: #333;
+}
+.custom-table-wrapper .profile-fields .table-label {
+	color: #4D6024;
+	font-weight: bold;
 	font-style: italic;
 }

@@ -16,7 +16,7 @@
 
 <li class="<?php bp_activity_css_class(); ?>" id="activity-<?php bp_activity_id(); ?>">
 	
-	<div class="activity-avatar one-sixth">
+	<div class="activity-avatar">
 		<a href="<?php bp_activity_user_link(); ?>">
 
 			<?php bp_activity_avatar(); ?>
@@ -24,7 +24,7 @@
 		</a>
 	</div>
 
-	<div class="activity-content two-third last" >
+	<div class="activity-content" >
 
 		<div class="activity-header">
 <span class="says"></span>

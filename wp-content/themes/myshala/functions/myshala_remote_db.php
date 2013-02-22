@@ -110,28 +110,28 @@ function msh_remote_into_tab_content() {
 				'refno' => $refid
 		);
 		$result = fetch_from_local_db($get_gathering_images);
-		$html = '<table class="profile-fields">';
+		$html = '<div class="custom-table-wrapper style-2"><table class="profile-fields">';
 		$html .= '<tbody>';
 
 		if($result)
 		{
-			$html .= sprintf('<tr><th class="label">Student Table Data</th></tr>');
-			$html .= sprintf('<tr><td class="label">Name</td><td class="data"><p>%s %s</p></td></tr>',$result[0]->FName,$result[0]->LName);
-			$html .= sprintf('<tr><td class="label">Address</td><td class="data"><p>%s<br>%s<br>%s</p></td></tr>',$result[0]->Addr1,$result[0]->Addr2,$result[0]->Addr3);
+			$html .= sprintf('<tr><th colspan=2>Student Table Data</th></tr>');
+			$html .= sprintf('<tr><td class="table-label">Name</td><td><p>%s %s</p></td></tr>',$result[0]->FName,$result[0]->LName);
+			$html .= sprintf('<tr><td class="table-label">Address</td><td><p>%s<br>%s<br>%s</p></td></tr>',$result[0]->Addr1,$result[0]->Addr2,$result[0]->Addr3);
 
-			$html .= sprintf('<tr><th class="label">Parent Table Data</th></tr>');
-			$html .= sprintf('<tr><td class="label">Fathers Name</td><td class="data"><p>%s %s %s</p></td></tr>',$result[0]->FthFName,$result[0]->FthMName,$result[0]->FthLName);
-			$html .= sprintf('<tr><td class="label">Mothers Name</td><td class="data"><p>%s %s</p></td></tr>',$result[0]->MthFName,$result[0]->MthLName);
-			$html .= sprintf('<tr><td class="label">Fathers Company Name</td><td class="data"><p>%s</p></td></tr>',$result[0]->FthCompanyName);
-			$html .= sprintf('<tr><td class="label">Fathers Profession</td><td class="data"><p>%s</p></td></tr>',$result[0]->FthProfMain);
-			$html .= sprintf('<tr><td class="label">Mothers Profession</td><td class="data"><p>%s</p></td></tr>',$result[0]->MthProfMain);
+			$html .= sprintf('<tr><th colspan=2>Parent Table Data</th></tr>');
+			$html .= sprintf('<tr><td class="table-label">Fathers Name</td><td><p>%s %s %s</p></td></tr>',$result[0]->FthFName,$result[0]->FthMName,$result[0]->FthLName);
+			$html .= sprintf('<tr><td class="table-label">Mothers Name</td><td><p>%s %s</p></td></tr>',$result[0]->MthFName,$result[0]->MthLName);
+			$html .= sprintf('<tr><td class="table-label">Fathers Company Name</td><td><p>%s</p></td></tr>',$result[0]->FthCompanyName);
+			$html .= sprintf('<tr><td class="table-label">Fathers Profession</td><td><p>%s</p></td></tr>',$result[0]->FthProfMain);
+			$html .= sprintf('<tr><td class="table-label">Mothers Profession</td><td><p>%s</p></td></tr>',$result[0]->MthProfMain);
 		}
 		else
 		{
 			$html .= '<tr><td>No data on record.</td></tr>';
 		}
 		$html .= '</tbody>';
-		$html .= '</table>';
+		$html .= '</table></div>';
 		echo $html;
 	}
 	else
