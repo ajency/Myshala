@@ -29,10 +29,7 @@ function gal_set_auth_defaults()
 	
 	$clientid	= '&client_id='.urlencode($opt_gal_client_id);
 	
-
-	$opt_gal_redirect_uri_to_ls = 'http://myshala.com/login-steps/';
-	
-	$redirect	= '&redirect_uri='.	urlencode($opt_gal_redirect_uri_to_ls);
+	$redirect	= '&redirect_uri='.	urlencode($opt_gal_redirect_uri);
 	
 	$type		= '&response_type='.urlencode('token');
 	
