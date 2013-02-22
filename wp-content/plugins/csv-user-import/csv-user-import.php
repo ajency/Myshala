@@ -88,7 +88,7 @@ function csvuserimport_page1() {
 				
 				if(is_wp_error($user_id))
 				{
-					if($user_id->get_error_code() == 'existing_user_login')
+					if($user_id->get_error_code() == 'existing_user_login' || $user_id->get_error_code() == 'existing_user_email' )
 					{
 						$existing_user = get_user_by('email',$user_email); 
 						csvuserimport_mailer_updater($user_refid,$existing_user->ID);

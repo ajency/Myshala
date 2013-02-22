@@ -1120,66 +1120,74 @@ function my_photos_tab_content() {
 		 $selected_photos = get_user_meta(bp_displayed_user_id(),'photos_picked');
 		 
 		 $selected_photos = empty($selected_photos) ? array() : $selected_photos[0];
+	 
 		 
-		
-		echo '<p>Please select photos by clicking on them, then click on choose selected below.</p>';
-		echo '<form class="image-select-form" action="" method="post">';
-		echo '<select multiple="multiple" class="image-picker show-labels show-html" name="msh_image_picker[]">';
-		
-		if($result)
-		{
- 				foreach ($result as $resultdata) { 
-					$show_selected = "";
-					if(in_array($resultdata->path, $selected_photos))
-					{
-						$show_selected = "selected";
-					}
- 					 echo '<option data-img-src="'.$resultdata->path.'" value="'.$resultdata->path.'" '.$show_selected.'>'.$resultdata->description.'</option>';
-					}
-				 
-				 
-		}
-		echo '</select>';
-		echo '<div class="display-select-info">You have selected: <span></span></div>';
-		echo '<input type="submit" class="" value="Choose Selected" />';
-		wp_nonce_field('action-save-my-photos','save-my-photos');
-		echo '</form>';
-		echo '<script>jQuery(document).ready(function(){jQuery("select.image-picker").imagepicker({show_label : true});});</script>';
-		echo '<script>jQuery(document).ready(function(){var $container = jQuery(".image_picker_selector");
-				$container.imagesLoaded( function(){
-				  $container.masonry({
-					itemSelector : "li"
-				  });
-				});});</script>';
-		echo '<script>
-		jQuery(document).ready(function(){
-	        // This selector is called every time a select box is changed
-	        jQuery("select.image-picker").change(function(){
-	            // variable to hold string
-	            var sel = "";
-	            jQuery("select.image-picker option:selected").each(function(){
-	                // when the select box is changed, we add the value text to the varible
-	                sel += jQuery(this).html() + ",";
-	            });
-	            // then display it in the following class	
-	            jQuery(".display-select-info span").html(sel);
-	        });
-	        });
-	    </script>';
-		?>
-		<script type="text/javascript">
-		jQuery(document).ready(function(){
-				jQuery('.msh-photo-select-submit').click(function(e){
-						e.preventDefault(); //dont submit the form untill confirmed
-						var check = confirm('Are you sure you want to select these photos?');
-						if(check == true)
-						{	
-							jQuery('.image-select-form').submit();
-						} 
+		 if (in_array("No rows found",$result) && count($result)==1)
+		 {
+		 	echo "No Photos Found!";
+		 }
+		 else
+		 {
+		 	
+				echo '<p>Please select photos by clicking on them, then click on choose selected below.</p>';
+				echo '<form class="image-select-form" action="" method="post">';
+				echo '<select multiple="multiple" class="image-picker show-labels show-html" name="msh_image_picker[]">';
+			
+				if($result)
+				{
+		 				foreach ($result as $resultdata) { 
+							$show_selected = "";
+							if(in_array($resultdata->path, $selected_photos))
+							{
+								$show_selected = "selected";
+							}
+		 					 echo '<option data-img-src="'.$resultdata->path.'" value="'.$resultdata->path.'" '.$show_selected.'>'.$resultdata->description.'</option>';
+							}
+						 
+						 
+				}
+				echo '</select>';
+				echo '<div class="display-select-info">You have selected: <span></span></div>';
+				echo '<input type="submit" class="" value="Choose Selected" />';
+				wp_nonce_field('action-save-my-photos','save-my-photos');
+				echo '</form>';
+				echo '<script>jQuery(document).ready(function(){jQuery("select.image-picker").imagepicker({show_label : true});});</script>';
+				echo '<script>jQuery(document).ready(function(){var $container = jQuery(".image_picker_selector");
+						$container.imagesLoaded( function(){
+						  $container.masonry({
+							itemSelector : "li"
+						  });
+						});});</script>';
+				echo '<script>
+				jQuery(document).ready(function(){
+			        // This selector is called every time a select box is changed
+			        jQuery("select.image-picker").change(function(){
+			            // variable to hold string
+			            var sel = "";
+			            jQuery("select.image-picker option:selected").each(function(){
+			                // when the select box is changed, we add the value text to the varible
+			                sel += jQuery(this).html() + ",";
+			            });
+			            // then display it in the following class	
+			            jQuery(".display-select-info span").html(sel);
+			        });
+			        });
+			    </script>';
+				?>
+				<script type="text/javascript">
+				jQuery(document).ready(function(){
+						jQuery('.msh-photo-select-submit').click(function(e){
+								e.preventDefault(); //dont submit the form untill confirmed
+								var check = confirm('Are you sure you want to select these photos?');
+								if(check == true)
+								{	
+									jQuery('.image-select-form').submit();
+								} 
+							});
 					});
-			});
-		</script>
-		<?php
+				</script>
+				<?php
+		}
 	}
 }
 add_action( 'bp_setup_nav', 'my_photos_bp_nav' );
