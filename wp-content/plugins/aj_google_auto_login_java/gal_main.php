@@ -7,7 +7,7 @@ global $opt_gal_client_id,$opt_gal_redirect_uri,$opt_gal_domain;
 	
 $opt_gal_client_id 		= '317464765252.apps.googleusercontent.com';
 $opt_gal_client_secret	= 'WL9PLAgK7oiS8BM9RShZr61j';
-$opt_gal_redirect_uri 	= 'http://myshala.com';
+$opt_gal_redirect_uri 	= 'http://myshala.com/login-steps/';
 $opt_gal_domain 		= 'ajency.in';
 
 
@@ -40,7 +40,7 @@ function gal_set_auth_defaults()
 	$authurl	= $oauthurl.$scope.$clientid.$redirect.$type.$approval_prompt.$domain;
 	?>
 	  <script type="text/javascript">
-	  	var WPSITEURL	= 	'<?php echo site_url()."/login-steps/";?>';
+	  	var WPSITEURL	= 	'<?php echo site_url();?>';
       	var VALIDURL    =   '<?php echo $validurl;?>';
       	var REDIRECT    =   '<?php echo $opt_gal_redirect_uri;?>';
         var _url        =  	'<?php echo $authurl;?>';
