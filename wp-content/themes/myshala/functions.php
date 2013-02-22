@@ -1211,3 +1211,27 @@ function fetch_from_local_db($data) {
 }
 //removed admin bar
 add_filter( 'show_admin_bar', '__return_false' );
+
+
+function dmt_login_redirect_subscriber ($redirect_to, $request, $user) {
+	if (isset($user->roles))
+	{
+		$login_steps  = get_user_meta($user->ID,'agc_login_steps_completed',true);
+	
+		if($login_steps && $login_steps == 'completed')
+		{
+			$main_site = home_url();
+			return $main_site;
+		}
+		else
+		{
+			$main_site = home_url();
+			return $main_site . "/login-steps/";
+		}
+	}
+
+	return $redirect_to;
+
+}
+
+add_filter('login_redirect', 'dmt_login_redirect_subscriber',10,3);
