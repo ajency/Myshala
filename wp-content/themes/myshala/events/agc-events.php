@@ -116,6 +116,13 @@ function agc_event_create_table()
 }
 add_action('agc_after_register_event_taxonomy', 'agc_event_create_table');
 
+function agc_events_page_redirect($page_template)
+{
+	if(is_page('Events') && get_page_by_title('Events'))
+	 locate_template(array('template-events-page.php'),true,true);
+
+}
+add_action('template_redirect', 'agc_events_page_redirect');
 ////////////////////////////////////////CSS AND JS///////////////////////////////////
 function agc_event_admin_css_js($hook)
 {

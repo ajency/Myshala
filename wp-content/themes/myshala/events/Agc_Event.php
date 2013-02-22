@@ -268,19 +268,10 @@ class Agc_Event
 	 * get the list of invitees
 	 */
 	public function get_invitee_list()
-	{
-		if($this->event_type == 'multi_chapters' || $this->event_type == 'chapter')
+	{ 
+		if($this->event_type == 'chapter')
 		{
-			$html = '<p>All members of '; 
-			foreach($this->invited_chapters as $chapter)
-			{
-				$blog_details = get_blog_details($chapter);
-				$html .= '<a href="'. $blog_details->siteurl . '">'. $blog_details->blogname . '</a>, ';
-			}	
-			
-			$html = trim($html,', ');
-			$html .= ' are invited.</p><br />';
-			
+			$html = '<p>Entire School </p>'; 
 			return $html;
 		}
 		else

@@ -212,6 +212,9 @@ include_once("widgets/testimonials/testimonials.php");
 // Apply Shortcodes for Widgets
 add_filter('widget_text', 'do_shortcode');
 
+
+require_once(TEMPLATEPATH . '/includes/bp_activity.php');
+
 /*************************************************************************************
  *	Front-end JS/CSS
  *************************************************************************************/
@@ -1089,58 +1092,110 @@ function my_photos_tab_title() {
     echo 'My Photos';
 }
 function my_photos_tab_content() { 
-	if(isset($_POST['msh_image_picker']) && !empty($_POST['msh_image_picker']))
+	
+	if (wp_verify_nonce($_POST['save-my-photos'],'action-save-my-photos')  )
 	{
-		update_user_meta(bp_displayed_user_id(),'photos_picked',$_POST['msh_image_picker']);
-	}	
-	echo '<p>Please select photos by clicking on them, then click on choose selected below.</p>';
-	echo '<form class="image-select-form" action="" method="post">';
-	echo '<select multiple="multiple" class="image-picker show-labels show-html" name="msh_image_picker[]">
-			  <option data-img-src="http://placekitten.com/280/300" value="1">Cute Kitten 1</option>
-			  <option data-img-src="http://placekitten.com/280/150" value="2">Cute Kitten 2</option>
-			  <option data-img-src="http://placekitten.com/280/270" value="3">Cute Kitten 3</option>
-			  <option data-img-src="http://placekitten.com/280/320" value="4">Cute Kitten 4</option>
-			  <option data-img-src="http://placekitten.com/280/200" value="5">Cute Kitten 5</option>
-			  <option data-img-src="http://placekitten.com/280/170" value="6">Cute Kitten 6</option>
-		</select>';
-	echo '<div class="display-select-info">You have selected: <span></span></div>';
-	echo '<input type="submit" class="" value="Choose Selected" />';
-	echo '</form>';
-	echo '<script>jQuery(document).ready(function(){jQuery("select.image-picker").imagepicker({show_label : true});});</script>';
-	echo '<script>jQuery(document).ready(function(){var $container = jQuery(".image_picker_selector");
-			$container.imagesLoaded( function(){
-			  $container.masonry({
-				itemSelector : "li"
-			  });
-			});});</script>';
-	echo '<script>
-	jQuery(document).ready(function(){
-        // This selector is called every time a select box is changed
-        jQuery("select.image-picker").change(function(){
-            // variable to hold string
-            var sel = "";
-            jQuery("select.image-picker option:selected").each(function(){
-                // when the select box is changed, we add the value text to the varible
-                sel += jQuery(this).html() + ",";
-            });
-            // then display it in the following class	
-            jQuery(".display-select-info span").html(sel);
-        });
-        });
-    </script>';
-	?>
-	<script type="text/javascript">
-	jQuery(document).ready(function(){
-			jQuery('.msh-photo-select-submit').click(function(e){
-					e.preventDefault(); //dont submit the form untill confirmed
-					var check = confirm('Are you sure you want to select these photos?');
-					if(check == true)
-					{	
-						jQuery('.image-select-form').submit();
-					} 
-				});
-		});
-	</script>
-	<?php
+		$msh_image_picker = (!isset($_POST['msh_image_picker']) || empty($_POST['msh_image_picker'])) ? array():$_POST['msh_image_picker'];
+		 
+		update_user_meta(bp_displayed_user_id(),'photos_picked',$msh_image_picker);
+	}
+	global $wpdb;
+	$refid = get_user_meta(bp_displayed_user_id(),'msh_remote_refid',true);
+	if($refid)
+	{	
+		$get_gathering_images = array(
+				'function' => "getGatheringImages",
+				'refno' => $refid
+		);
+		//$remote_query = $wpdb->prepare("select phataksir_events_attachments.* from phataksirkundalievent INNER JOIN phataksir_events_attachments where mgmtgroupid REGEXP  '(^|,)".$refid."($|,)' and   eventid =  phataksirkundalievent.id");
+	 
+	 	//$remote_query = $wpdb->prepare("SELECT * FROM `phataksir_events_attachments`");
+	 	
+		
+		$result = fetch_from_local_db($get_gathering_images);
+		 $selected_photos = array();
+		 
+		 $selected_photos = get_user_meta(bp_displayed_user_id(),'photos_picked');
+		 
+		 $selected_photos = empty($selected_photos) ? array() : $selected_photos[0];
+		 
+		
+		echo '<p>Please select photos by clicking on them, then click on choose selected below.</p>';
+		echo '<form class="image-select-form" action="" method="post">';
+		echo '<select multiple="multiple" class="image-picker show-labels show-html" name="msh_image_picker[]">';
+		
+		if($result)
+		{
+ 				foreach ($result as $resultdata) { 
+					$show_selected = "";
+					if(in_array($resultdata->path, $selected_photos))
+					{
+						$show_selected = "selected";
+					}
+ 					 echo '<option data-img-src="'.$resultdata->path.'" value="'.$resultdata->path.'" '.$show_selected.'>'.$resultdata->description.'</option>';
+					}
+				 
+				 
+		}
+		echo '</select>';
+		echo '<div class="display-select-info">You have selected: <span></span></div>';
+		echo '<input type="submit" class="" value="Choose Selected" />';
+		wp_nonce_field('action-save-my-photos','save-my-photos');
+		echo '</form>';
+		echo '<script>jQuery(document).ready(function(){jQuery("select.image-picker").imagepicker({show_label : true});});</script>';
+		echo '<script>jQuery(document).ready(function(){var $container = jQuery(".image_picker_selector");
+				$container.imagesLoaded( function(){
+				  $container.masonry({
+					itemSelector : "li"
+				  });
+				});});</script>';
+		echo '<script>
+		jQuery(document).ready(function(){
+	        // This selector is called every time a select box is changed
+	        jQuery("select.image-picker").change(function(){
+	            // variable to hold string
+	            var sel = "";
+	            jQuery("select.image-picker option:selected").each(function(){
+	                // when the select box is changed, we add the value text to the varible
+	                sel += jQuery(this).html() + ",";
+	            });
+	            // then display it in the following class	
+	            jQuery(".display-select-info span").html(sel);
+	        });
+	        });
+	    </script>';
+		?>
+		<script type="text/javascript">
+		jQuery(document).ready(function(){
+				jQuery('.msh-photo-select-submit').click(function(e){
+						e.preventDefault(); //dont submit the form untill confirmed
+						var check = confirm('Are you sure you want to select these photos?');
+						if(check == true)
+						{	
+							jQuery('.image-select-form').submit();
+						} 
+					});
+			});
+		</script>
+		<?php
+	}
 }
 add_action( 'bp_setup_nav', 'my_photos_bp_nav' );
+
+
+//function to get data from remote server
+function fetch_from_local_db($data) {
+
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, "http://121.243.24.194/apps/PhatakSirNew/PhatakSirDataServices-debug/Interface/interface.php");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_POST, TRUE);
+	curl_setopt($ch, CURLOPT_VERBOSE, TRUE);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+	$output = curl_exec($ch);
+	$info = curl_getinfo($ch);
+	curl_close($ch);
+	$return_value = unserialize($output);
+	return $return_value;
+		
+}

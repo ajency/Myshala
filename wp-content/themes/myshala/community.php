@@ -25,6 +25,7 @@ get_header(); ?>
 					</div>
 					<div class="clear page-h1-divider"></div>
 	      		
+				<?php echo agc_event_main_calender(); ?>
 	          <?php echo get_option(OM_THEME_PREFIX . 'code_after_page_h1'); ?>
 	
 						<?php while (have_posts()) : the_post(); ?>
@@ -44,7 +45,10 @@ get_header(); ?>
 <div class="activity" role="main">
 <?php locate_template( array( 'activity/activity-loop.php' ), true ); ?>
 </div>
+
 </div>
+<h2>BOOK REVIEWS</h2>
+<?php echo do_shortcode('[show_bookreview_view view_page=MY_REVIEWS]'); ?>
 			</div>
 			</div>
 

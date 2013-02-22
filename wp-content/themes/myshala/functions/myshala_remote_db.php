@@ -11,10 +11,10 @@
  */
 function msh_remote_db_connection($query)
 {
-	$host = (defined('MYSHALA_REMOTE_DB_HOST'))? MYSHALA_REMOTE_DB_HOST : '';
-	$user = (defined('MYSHALA_REMOTE_DB_USER'))? MYSHALA_REMOTE_DB_USER	: '';
+	$host = (defined('MYSHALA_REMOTE_DB_HOST'))? MYSHALA_REMOTE_DB_HOST : 'localhost';
+	$user = (defined('MYSHALA_REMOTE_DB_USER'))? MYSHALA_REMOTE_DB_USER	: 'root';
 	$pass = (defined('MYSHALA_REMOTE_DB_PASSWORD'))? MYSHALA_REMOTE_DB_PASSWORD	: '';
-	$dbnm = (defined('MYSHALA_REMOTE_DB_NAME'))? MYSHALA_REMOTE_DB_NAME	: '';
+	$dbnm = (defined('MYSHALA_REMOTE_DB_NAME'))? MYSHALA_REMOTE_DB_NAME	: 'myshala_external';
 
 	$myshala_query_result = array();
 
@@ -102,9 +102,14 @@ function msh_remote_into_tab_content() {
 	if($refid)
 	{
 		//Query to fetch the remote user data
-		$remote_query = $wpdb->prepare("SELECT * FROM `studentinfo` INNER JOIN `parentinfo` ON studentinfo.RefNo = parentinfo.RefNo WHERE studentinfo.RefNo = %d",$refid);
-		$result = msh_remote_db_connection($remote_query);
-
+		//$remote_query = $wpdb->prepare("SELECT * FROM `studentinfo` INNER JOIN `parentinfo` ON studentinfo.RefNo = parentinfo.RefNo WHERE studentinfo.RefNo = %d",$refid);
+		//$result = msh_remote_db_connection($remote_query);
+		
+		$get_gathering_images = array(
+				'function' => "getuserinfo",
+				'refno' => $refid
+		);
+		$result = fetch_from_local_db($get_gathering_images);
 		$html = '<table class="profile-fields">';
 		$html .= '<tbody>';
 

@@ -5,16 +5,16 @@
  * Define the global constants
  */
 if(!defined('WP_REMOTE_DB_HOST'))
-	define('WP_REMOTE_DB_HOST', 'localhost');
+	define('WP_REMOTE_DB_HOST', '');
 
 if(!defined('WP_REMOTE_DB_USER'))
-	define('WP_REMOTE_DB_USER', 'root');
+	define('WP_REMOTE_DB_USER', '');
 
 if(!defined('WP_REMOTE_DB_PASSWORD'))
 	define('WP_REMOTE_DB_PASSWORD','');
 
 if(!defined('WP_REMOTE_DB_NAME'))
-	define('WP_REMOTE_DB_NAME', 'myshala');
+	define('WP_REMOTE_DB_NAME', '');
 
 /**
  * Function to check if data is serialized.

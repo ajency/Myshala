@@ -171,8 +171,8 @@ function slider_init(){
 	
 	sliderCheckControl();
 	
-	var $box=jQuery('#big-slider-control .control-seek-box');
-	var $slidesInner=jQuery('#big-slider .big-slider-inner');
+	var jQuerybox=jQuery('#big-slider-control .control-seek-box');
+	var jQueryslidesInner=jQuery('#big-slider .big-slider-inner');
 	var initialPos=0;
 	var initialOffset=0;
 	var seekWidth=0;
@@ -192,20 +192,20 @@ function slider_init(){
 		
 		var percent=left/(seekWidth-boxWidth);
 			
-		$box.css('left',left+'px');
+		jQuerybox.css('left',left+'px');
 		var offset=(slidesPaneWidth-slidesWidth)*percent;
-		$slidesInner.css('margin-left',offset+'px');
+		jQueryslidesInner.css('margin-left',offset+'px');
 		
 		lastDirection=lastPageX-e.pageX;
 		lastPageX=e.pageX;
 	}
 	
 	
-	$box.mousedown(function(e){
+	jQuerybox.mousedown(function(e){
 		e.preventDefault();
 		initialPos=e.pageX;
-		initialOffset=parseInt($box.css('left'));
-		boxWidth=$box.width();
+		initialOffset=parseInt(jQuerybox.css('left'));
+		boxWidth=jQuerybox.width();
 		seekWidth=jQuery('#big-slider-control .control-seek').width();
 		
 		slidesWidth=jQuery('#big-slider .big-slider-uber-inner').width();
@@ -217,13 +217,13 @@ function slider_init(){
 	});
 
 	jQuery(document).mouseup(function(){
-		if($box.hasClass('pressed')){
-			$box.removeClass('pressed');
+		if(jQuerybox.hasClass('pressed')){
+			jQuerybox.removeClass('pressed');
 			jQuery(document).unbind('mousemove',movehandler);
 
-			var $fs=jQuery('#big-slider .big-slider-slide:first');
-			var sw=$fs.outerWidth()+parseInt($fs.css('margin-left'))+parseInt($fs.css('margin-right'));
-			var ml=parseInt($slidesInner.css('margin-left'));
+			var jQueryfs=jQuery('#big-slider .big-slider-slide:first');
+			var sw=jQueryfs.outerWidth()+parseInt(jQueryfs.css('margin-left'))+parseInt(jQueryfs.css('margin-right'));
+			var ml=parseInt(jQueryslidesInner.css('margin-left'));
 			if(lastDirection > 0) {
 				ml=Math.ceil(ml/sw)*sw;
 				if(ml > 0)
@@ -233,7 +233,7 @@ function slider_init(){
 				if(ml < slidesPaneWidth-slidesWidth)
 					ml=slidesPaneWidth-slidesWidth;
 			}
-			$slidesInner.stop(true).animate({marginLeft: ml+'px'}, 300);
+			jQueryslidesInner.stop(true).animate({marginLeft: ml+'px'}, 300);
 			fitBox(ml);
 		}
 	});
@@ -241,15 +241,15 @@ function slider_init(){
 	/***/
 	
 	function fitBox(newMarginLeft){
-		$box.stop(true);
+		jQuerybox.stop(true);
 		
 		var percent=newMarginLeft/(slidesPaneWidth-slidesWidth);
 
-		boxWidth=$box.width();
+		boxWidth=jQuerybox.width();
 		seekWidth=jQuery('#big-slider-control .control-seek').width();
 
 		var left=(seekWidth-boxWidth)*percent;
-		$box.animate({left:left+'px'},300);
+		jQuerybox.animate({left:left+'px'},300);
 	}
 	
 	
@@ -257,16 +257,16 @@ function slider_init(){
 		
 		e.preventDefault();
 		
-		$slidesInner.stop(true,true);
+		jQueryslidesInner.stop(true,true);
 		
-		var ml=parseInt($slidesInner.css('margin-left'));
+		var ml=parseInt(jQueryslidesInner.css('margin-left'));
 		if(ml < 0)
 		{
-			var $fs=jQuery('#big-slider .big-slider-slide:first');
-			var sw=$fs.outerWidth()+parseInt($fs.css('margin-left'))+parseInt($fs.css('margin-right'));
+			var jQueryfs=jQuery('#big-slider .big-slider-slide:first');
+			var sw=jQueryfs.outerWidth()+parseInt(jQueryfs.css('margin-left'))+parseInt(jQueryfs.css('margin-right'));
 			ml+=sw;
 			ml=Math.round(ml/sw)*sw;
-			$slidesInner.animate({marginLeft: ml+'px'}, 300);
+			jQueryslidesInner.animate({marginLeft: ml+'px'}, 300);
 			fitBox(ml);
 			
 			slider_clicks--;
@@ -282,18 +282,18 @@ function slider_init(){
 		
 		e.preventDefault();
 		
-		$slidesInner.stop(true,true);
+		jQueryslidesInner.stop(true,true);
 		
 		slidesWidth=jQuery('#big-slider .big-slider-uber-inner').width();
 		slidesPaneWidth=jQuery('#big-slider').width();
-		var ml=parseInt($slidesInner.css('margin-left'));
+		var ml=parseInt(jQueryslidesInner.css('margin-left'));
 		if(slidesWidth+ml > (slidesPaneWidth + 20))
 		{
-			var $fs=jQuery('#big-slider .big-slider-slide:first');
-			var sw=$fs.outerWidth()+parseInt($fs.css('margin-left'))+parseInt($fs.css('margin-right'));
+			var jQueryfs=jQuery('#big-slider .big-slider-slide:first');
+			var sw=jQueryfs.outerWidth()+parseInt(jQueryfs.css('margin-left'))+parseInt(jQueryfs.css('margin-right'));
 			ml-=sw;
 			ml=Math.round(ml/sw)*sw;
-			$slidesInner.animate({marginLeft: ml+'px'}, 300);
+			jQueryslidesInner.animate({marginLeft: ml+'px'}, 300);
 			fitBox(ml);
 			
 			slider_clicks++;
@@ -340,14 +340,14 @@ function slider_init(){
 	jQuery(document).bind('touchend', function(){
 		touchStartPos=-1;
 		
-		var $fs=jQuery('#big-slider .big-slider-slide:first');
-		var sw=$fs.outerWidth()+parseInt($fs.css('margin-left'))+parseInt($fs.css('margin-right'));
-		var ml=parseInt($slidesInner.css('margin-left'));
+		var jQueryfs=jQuery('#big-slider .big-slider-slide:first');
+		var sw=jQueryfs.outerWidth()+parseInt(jQueryfs.css('margin-left'))+parseInt(jQueryfs.css('margin-right'));
+		var ml=parseInt(jQueryslidesInner.css('margin-left'));
 		if(lastDirection < 0)
 			ml=Math.ceil(ml/sw)*sw;
 		else
 			ml=Math.floor(ml/sw)*sw;
-		$slidesInner.stop(true).animate({marginLeft: ml+'px'}, 300);
+		jQueryslidesInner.stop(true).animate({marginLeft: ml+'px'}, 300);
 
 	});
 	
@@ -356,23 +356,23 @@ function slider_init(){
 	jQuery('#big-slider .big-slider-slide').mouseenter(function(){
 		
 		jQuery(this).find('.text-inner').stop(true,true).animate({top: '-120px'},150, function(){
-			var $text=jQuery(this).find('.text-text');
-			$text.stop(true,true);
+			var jQuerytext=jQuery(this).find('.text-text');
+			jQuerytext.stop(true,true);
 			jQuery(this).css('top','120px');
-			$text.css('top','30px');
+			jQuerytext.css('top','30px');
 			jQuery(this).animate({top: 0},150);
-			$text.animate({top: 0},350);
+			jQuerytext.animate({top: 0},350);
 		});
 		
 	});
 }
 
 function sliderRewind() {
-	var $box=jQuery('#big-slider-control .control-seek-box');
-	var $slidesInner=jQuery('#big-slider .big-slider-inner');
+	var jQuerybox=jQuery('#big-slider-control .control-seek-box');
+	var jQueryslidesInner=jQuery('#big-slider .big-slider-inner');
 
-	$box.css('left',0);
-	$slidesInner.css('margin-left',0);
+	jQuerybox.css('left',0);
+	jQueryslidesInner.css('margin-left',0);
 	
 }
 
@@ -429,9 +429,9 @@ function menu_init(){
 
 function menu_open(obj) {
 	
-	var $ul=jQuery(obj).addClass('active').children('ul');
-	$ul.children('li').stop(true).css('opacity',0);
-	$ul.stop(true,true).delay(150).slideDown(200,function(){
+	var jQueryul=jQuery(obj).addClass('active').children('ul');
+	jQueryul.children('li').stop(true).css('opacity',0);
+	jQueryul.stop(true,true).delay(150).slideDown(200,function(){
 		var i=0;
 		jQuery(this).children('li').each(function(){
 			jQuery(this).fadeTo(100+100*i,1);
@@ -451,12 +451,12 @@ function testimonials_init()
 {
 	jQuery('.testimonials-block').filter(':not(.no-scroll)').each(function(){
 		
-		var $items=jQuery(this).find('.items');
-		if($items.find('.item').length > 1) {
+		var jQueryitems=jQuery(this).find('.items');
+		if(jQueryitems.find('.item').length > 1) {
 
 			jQuery(this).addClass('multi-items');
 
-			$items.omSlider({
+			jQueryitems.omSlider({
 				speed: 200,
 				next: jQuery(this).find('.controls .next'),
 				prev: jQuery(this).find('.controls .prev'),
@@ -476,18 +476,18 @@ function gallery_init()
 {
 	if(jQuery().omSlider) {
 		jQuery('.custom-gallery').each(function(){
-			var $items=jQuery(this).find('.items');
-			if($items.find('.item').length > 1) {
+			var jQueryitems=jQuery(this).find('.items');
+			if(jQueryitems.find('.item').length > 1) {
 				
 				var active=0;
 				var hash=document.location.hash.replace('#','');
 				if(hash != '') {
-					var $active=$items.find('.item[rel='+hash+']');
-					if($active.length)
-						active=$active.index();
+					var jQueryactive=jQueryitems.find('.item[rel='+hash+']');
+					if(jQueryactive.length)
+						active=jQueryactive.index();
 				}
 				jQuery(this).append('<div class="controls"><a href="#" class="next"></a><div class="pager"></div></div>');
-				$items.omSlider({
+				jQueryitems.omSlider({
 					speed: 400,
 					pager: jQuery(this).find('.controls .pager'),
 					next: jQuery(this).find('.controls .next'),
@@ -518,8 +518,8 @@ function isotope_init()
 {
 	if(jQuery().isotope)
 	{
-		var $container=jQuery('#portfolio-wrapper');
-		if($container.length)
+		var jQuerycontainer=jQuery('#portfolio-wrapper');
+		if(jQuerycontainer.length)
 		{
 	    var args={ 
 		    itemSelector: '.isotope-item',
@@ -527,19 +527,19 @@ function isotope_init()
 		    animationEngine: 'best-available'
 		  };
 		  
-	    if($container.hasClass('isotope-masonry')) {
+	    if(jQuerycontainer.hasClass('isotope-masonry')) {
 	    	args.layoutMode='masonry';
-	    	var $tmp=jQuery('<div class="block-1" style="height:0"></div>').appendTo('body');
-	    	args.masonry={columnWidth: ($tmp.outerWidth() + parseInt($tmp.css('margin-left')) + parseInt($tmp.css('margin-right'))) };
-	    	$tmp.remove();
+	    	var jQuerytmp=jQuery('<div class="block-1" style="height:0"></div>').appendTo('body');
+	    	args.masonry={columnWidth: (jQuerytmp.outerWidth() + parseInt(jQuerytmp.css('margin-left')) + parseInt(jQuerytmp.css('margin-right'))) };
+	    	jQuerytmp.remove();
 	    	args.resizable=false;
 	    }
 	
-			var $links=jQuery('.isotope-sort-menu').find('a');
-      $links.click(function(){
+			var jQuerylinks=jQuery('.isotope-sort-menu').find('a');
+      jQuerylinks.click(function(){
       	if(jQuery(this).hasClass('active'))
       		return false;
-        $links.removeClass('active');
+        jQuerylinks.removeClass('active');
         jQuery(this).addClass('active');
 
         var selector = jQuery(this).attr('href').split('#');
@@ -547,12 +547,12 @@ function isotope_init()
 
 				args.filter='.'+selector;
         
-        $container.isotope(args);
+        jQuerycontainer.isotope(args);
         
         return false;
       });
 
-			$container.isotope(args);
+			jQuerycontainer.isotope(args);
 
     }
 	}
@@ -561,16 +561,16 @@ function isotope_init()
 function isotopeCheck()
 {
 	if(jQuery().isotope) {
-		var $container=jQuery('#portfolio-wrapper.isotope-masonry');
-		if($container.length) {
+		var jQuerycontainer=jQuery('#portfolio-wrapper.isotope-masonry');
+		if(jQuerycontainer.length) {
 
     	var args={};			
-    	var $tmp=jQuery('<div class="block-1" style="height:0"></div>').appendTo('body');
-    	args.masonry={columnWidth: ($tmp.outerWidth() + parseInt($tmp.css('margin-left')) + parseInt($tmp.css('margin-right'))) };
-    	$tmp.remove();
+    	var jQuerytmp=jQuery('<div class="block-1" style="height:0"></div>').appendTo('body');
+    	args.masonry={columnWidth: (jQuerytmp.outerWidth() + parseInt(jQuerytmp.css('margin-left')) + parseInt(jQuerytmp.css('margin-right'))) };
+    	jQuerytmp.remove();
 
-			$container.isotope('option', args);
-			$container.isotope('reLayout');
+			jQuerycontainer.isotope('option', args);
+			jQuerycontainer.isotope('reLayout');
 		}
 	}
 }
@@ -582,12 +582,12 @@ function lightbox_init()
 	//prettyPhoto
 	if(jQuery().prettyPhoto) {
 		jQuery('a[rel^=prettyPhoto]').addClass('pp_worked_up').prettyPhoto();
-		var $tmp=jQuery('a[href$=".jpg"], a[href$=".png"], a[href$=".gif"], a[href$=".jpeg"], a[href$=".bmp"]').not('.pp_worked_up');
-		$tmp.each(function(){
+		var jQuerytmp=jQuery('a[hrefjQuery=".jpg"], a[hrefjQuery=".png"], a[hrefjQuery=".gif"], a[hrefjQuery=".jpeg"], a[hrefjQuery=".bmp"]').not('.pp_worked_up');
+		jQuerytmp.each(function(){
 			if(typeof(jQuery(this).attr('title')) == 'undefined')
 				jQuery(this).attr('title',''); 
 		});
-		$tmp.prettyPhoto();
+		jQuerytmp.prettyPhoto();
 	}
 }
 
@@ -597,8 +597,8 @@ function thumbs_masonry_init()
 {
 	if(jQuery().isotope)
 	{
-		var $container=jQuery('.thumbs-masonry');
-		if($container.length)
+		var jQuerycontainer=jQuery('.thumbs-masonry');
+		if(jQuerycontainer.length)
 		{
 	    var args={ 
 		    itemSelector: '.isotope-item',
@@ -607,11 +607,11 @@ function thumbs_masonry_init()
 		    resisable: false
 		  };
 		  
-    	var $tmp=jQuery('<div class="block-1" style="height:0"></div>').appendTo('body');
-    	args.masonry={columnWidth: ($tmp.outerWidth() + parseInt($tmp.css('margin-left')) + parseInt($tmp.css('margin-right'))) };
-    	$tmp.remove();
+    	var jQuerytmp=jQuery('<div class="block-1" style="height:0"></div>').appendTo('body');
+    	args.masonry={columnWidth: (jQuerytmp.outerWidth() + parseInt(jQuerytmp.css('margin-left')) + parseInt(jQuerytmp.css('margin-right'))) };
+    	jQuerytmp.remove();
 
-			$container.isotope(args);
+			jQuerycontainer.isotope(args);
 
     }
 	}
@@ -621,15 +621,15 @@ function thumbs_masonry_refresh()
 {
 	if(jQuery().isotope)
 	{
-		var $container=jQuery('.thumbs-masonry');
-		if($container.length) {
+		var jQuerycontainer=jQuery('.thumbs-masonry');
+		if(jQuerycontainer.length) {
    		var args={};			
-    	var $tmp=jQuery('<div class="block-1" style="height:0"></div>').appendTo('body');
-    	args.masonry={columnWidth: ($tmp.outerWidth() + parseInt($tmp.css('margin-left')) + parseInt($tmp.css('margin-right'))) };
-    	$tmp.remove();
+    	var jQuerytmp=jQuery('<div class="block-1" style="height:0"></div>').appendTo('body');
+    	args.masonry={columnWidth: (jQuerytmp.outerWidth() + parseInt(jQuerytmp.css('margin-left')) + parseInt(jQuerytmp.css('margin-right'))) };
+    	jQuerytmp.remove();
 
-			$container.isotope('option', args);
-			$container.isotope('reLayout');
+			jQuerycontainer.isotope('option', args);
+			jQuerycontainer.isotope('reLayout');
 		}
 	}
 }
@@ -648,17 +648,17 @@ function tooltips_init()
 		jQuery(this).mouseenter(function(){
 			jQuery(this).attr('title','');
 			var id=jQuery(this).data('tooltip_id');
-			var $tt=jQuery('#tooltip_'+id).stop();
-			if(!$tt.length)
+			var jQuerytt=jQuery('#tooltip_'+id).stop();
+			if(!jQuerytt.length)
 			{
 				var pos=jQuery(this).offset();
-				$tt=jQuery('<div class="tooltip" id="tooltip_'+id+'">'+title+'</div>');
-				$tt.appendTo('body');
-				$tt.css('left',pos.left + Math.round(jQuery(this).outerWidth()/2));
-				$tt.css('top',pos.top - $tt.outerHeight());
+				jQuerytt=jQuery('<div class="tooltip" id="tooltip_'+id+'">'+title+'</div>');
+				jQuerytt.appendTo('body');
+				jQuerytt.css('left',pos.left + Math.round(jQuery(this).outerWidth()/2));
+				jQuerytt.css('top',pos.top - jQuerytt.outerHeight());
 			}
-			$tt.show();
-			$tt.animate({opacity:1, marginTop: '-6px'}, 200);
+			jQuerytt.show();
+			jQuerytt.animate({opacity:1, marginTop: '-6px'}, 200);
 		});
 
 		jQuery(this).mouseleave(function(){
@@ -682,9 +682,9 @@ function toggle_init()
 		if(jQuery(this).hasClass('expanded'))
 			return false;
 
-		var $acc=jQuery(this).parents('.accordion');
-		$acc.find('.toggle-title').removeClass('expanded');
-		$acc.find('.toggle-inner').slideUp(300);
+		var jQueryacc=jQuery(this).parents('.accordion');
+		jQueryacc.find('.toggle-title').removeClass('expanded');
+		jQueryacc.find('.toggle-inner').slideUp(300);
 		
 		jQuery(this).parent().find('.toggle-inner').slideDown(300);
 		jQuery(this).addClass('expanded');
@@ -692,14 +692,14 @@ function toggle_init()
 	});
 	
 	jQuery('.toggle-title').not('.in-accordion').click(function(){
-		var $inner=jQuery(this).parent().find('.toggle-inner');
-		if(!$inner.length)
+		var jQueryinner=jQuery(this).parent().find('.toggle-inner');
+		if(!jQueryinner.length)
 			return false;
-		if($inner.is(':animated'))
+		if(jQueryinner.is(':animated'))
 			return false;
 		
 		jQuery(this).toggleClass('expanded');
-		$inner.slideToggle(300);
+		jQueryinner.slideToggle(300);
 		
 		return false;
 	});
@@ -714,30 +714,30 @@ function tabs_init()
 	});
 	
 	jQuery('.tabs .tabs-control a').click(function(){
-		var $tabs=jQuery(this).parents('.tabs');
-		if(!$tabs.length)
+		var jQuerytabs=jQuery(this).parents('.tabs');
+		if(!jQuerytabs.length)
 			return false;
 			
 		var tabname=jQuery(this).attr('href').replace('#','');
 		
-		$tabs.find('.tabs-control a').removeClass('active');
+		jQuerytabs.find('.tabs-control a').removeClass('active');
 		jQuery(this).addClass('active');
 		
-		var $newtab=$tabs.find('.tabs-tabs .tabs-tab.'+tabname);
+		var jQuerynewtab=jQuerytabs.find('.tabs-tabs .tabs-tab.'+tabname);
 		
-		$tabs.stop(true);
-		var cur_h=$tabs.height();
-		var new_h=$newtab.outerHeight() + $tabs.find('.tabs-control').outerHeight();
+		jQuerytabs.stop(true);
+		var cur_h=jQuerytabs.height();
+		var new_h=jQuerynewtab.outerHeight() + jQuerytabs.find('.tabs-control').outerHeight();
 		new_h++; // only for current template
 		if(Math.abs(cur_h - new_h) > 4) {
-			$tabs.css('height',cur_h+'px');
-			$tabs.animate({height: new_h + 'px'}, 300, function(){
+			jQuerytabs.css('height',cur_h+'px');
+			jQuerytabs.animate({height: new_h + 'px'}, 300, function(){
 				jQuery(this).css('height','auto');
 			});
 		}
 		
-		$tabs.find('.tabs-tabs .tabs-tab.active').hide().removeClass('active');
-		$newtab.addClass('active').fadeIn(300);
+		jQuerytabs.find('.tabs-tabs .tabs-tab.active').hide().removeClass('active');
+		jQuerynewtab.addClass('active').fadeIn(300);
 		
 		
 		return false;
@@ -771,9 +771,9 @@ function contact_form_init() {
 
 function contact_form_before()
 {
-	var $obj=jQuery('#contact-form');
-	$obj.fadeTo(300,0.5);
-	$obj.before('<div id="contact-form-blocker" style="position:absolute;width:'+$obj.outerWidth()+'px;height:'+$obj.outerHeight()+'px;z-index:9999;"></div>');
+	var jQueryobj=jQuery('#contact-form');
+	jQueryobj.fadeTo(300,0.5);
+	jQueryobj.before('<div id="contact-form-blocker" style="position:absolute;width:'+jQueryobj.outerWidth()+'px;height:'+jQueryobj.outerHeight()+'px;z-index:9999;"></div>');
 }
 
 function contact_form_success(resp)
@@ -808,15 +808,15 @@ function logos_init()
 
 function sidebar_slide_init()
 {
-	var $content=jQuery('.content-with-sidebar:first');
-	var $sidebar=jQuery('.sidebar:first');
+	var jQuerycontent=jQuery('.content-with-sidebar:first');
+	var jQuerysidebar=jQuery('.sidebar:first');
 	
-	$sidebar.mouseenter(function(){
+	jQuerysidebar.mouseenter(function(){
 		if(jQuery(this).is(':animated'))
 			jQuery(this).stop(true);
 	});
 	
-	if($content.length && $sidebar.length)
+	if(jQuerycontent.length && jQuerysidebar.length)
 	{
 		var sidebar_timer=false;
 		var ie8=jQuery.browser.msie && (jQuery.browser.version == 8);
@@ -828,22 +828,22 @@ function sidebar_slide_init()
 				
 			if(jQuery(window).data('mobile-view'))
 			{
-				$sidebar.stop(true).css({marginTop: 0});
+				jQuerysidebar.stop(true).css({marginTop: 0});
 				return;
 			}
 
 			sidebar_timer=setTimeout(function(){
-				$sidebar.stop(true);
+				jQuerysidebar.stop(true);
 				
-				var sh=$sidebar.height();
-				var ch=$content.height();
+				var sh=jQuerysidebar.height();
+				var ch=jQuerycontent.height();
 				
 				if(ch > sh)
 				{
-					var top=$sidebar.offset();
+					var top=jQuerysidebar.offset();
 					var ws=jQuery(window).scrollTop();
 
-					var cur_mar=parseInt($sidebar.css('margin-top'));
+					var cur_mar=parseInt(jQuerysidebar.css('margin-top'));
 					var max=ch-sh;
 					var new_mar=ws-(top.top-cur_mar)+6;
 					if(new_mar > max)
@@ -853,10 +853,10 @@ function sidebar_slide_init()
 					
 					var hover=false;
 					if(!ie8)
-						hover = $sidebar.is(':hover');
+						hover = jQuerysidebar.is(':hover');
 						
 					if(new_mar != cur_mar && !hover) 
-						$sidebar.stop(true).animate({marginTop: new_mar+'px'}, 800, 'easeInOutExpo');
+						jQuerysidebar.stop(true).animate({marginTop: new_mar+'px'}, 800, 'easeInOutExpo');
 				}
 				
 			}, 1290);
@@ -870,10 +870,10 @@ function sort_menu_init()
 	
 	jQuery('.sort-menu li a .count').wrapInner('<span />');
 	jQuery('.sort-menu li a').mouseenter(function(){
-		var $count=jQuery(this).find('.count span');
-		if($count.is(':animated'))
+		var jQuerycount=jQuery(this).find('.count span');
+		if(jQuerycount.is(':animated'))
 			return;
-		$count.stop(true).animate({top: '24px'}, 150, function(){
+		jQuerycount.stop(true).animate({top: '24px'}, 150, function(){
 			jQuery(this).css('top','-24px').animate({top: 0}, 200);
 		})
 	});
@@ -896,3 +896,370 @@ function sort_menu_init()
 			}
 		},5000);	
 	}
+	
+//////////EVENTS RELATED CUSTOM SCRIPT
+	
+	/**
+	 *  
+	 */
+	jQuery(document).ready(function(jQuery){
+		 
+		
+		jQuery('#send_message_to_classified_author').live('click',function(ev){
+			var _this = jQuery(this);
+			
+			ev.preventDefault();
+			if(jQuery('#contact_author').valid())
+			{
+				jQuery('#send_message_form').find('div.alert').remove();
+				jQuery('#send_message_form').prepend('<div class="alert"> <button type="button" class="close" data-dismiss="alert">x</button><strong>Sending message....</strong></div>');	
+					
+				var data = {
+					action: 'send_message_to_author',
+					message_to: jQuery('#message_to').val(),
+					message_subject: jQuery('#message_subject').val(),
+					message_body : jQuery('#message_body').val()
+				};
+
+				// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+				jQuery.post(ajaxurl, data, function(response) {
+					console.log(response);
+					if(response == 0)
+					{
+						jQuery('#send_message_form').find('div.alert').remove();
+						jQuery('#send_message_form').prepend('<div class="alert alert-error"> <button type="button" class="close" data-dismiss="alert">x</button><strong>Failed to send message. Please try again</strong></div>');
+					}
+					else
+					{
+						jQuery('#contact_author').fadeOut(500,function(){
+							jQuery('#send_message_form').html('<div class="alert alert-success"><strong>Message successfully sent. Thank you!!</strong></div>');
+							_this.hide();
+						});
+					}
+				});
+			}	
+		});
+		
+		jQuery('.delete_classified').click(function(){
+			var c = confirm("Are you sure you want to delete?");
+			jQuery('#content').find('div.alert').remove();
+			if(c == true)
+			{
+				jQuery(this).html('Deleting. . .');
+				var _this = jQuery(this);	
+				var data = {
+					action: 'delete_classified',
+					classified_id : jQuery(this).attr('classified_id') 
+				};
+			
+				// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+				jQuery.post(ajaxurl, data, function(response) {
+					if(response == 1)
+					{
+						window.location.href = jQuery('input[name="classified_link"]').val();
+					}	
+					else
+					{
+						jQuery('#content').prepend('<div class="alert alert-error"> <button type="button" class="close" data-dismiss="alert">x</button><strong>Failed to delete classified. Please try again</strong></div><div class="clear"></div>');
+						jQuery(_this).html('Delete');
+					}
+				});
+			}	
+		});	
+		
+		jQuery('#classifieds_post').validate({
+			rules : {
+				classified_title : 'required'
+			}
+		});
+		
+	});
+
+	//SINGLE EVENT SCRIPTS
+	jQuery(document).ready(function(jQuery) {
+		jQuery(window).load(function(){
+			jQuery("#feed-scroll").mCustomScrollbar({
+				scrollButtons:{
+					enable:false
+				}
+			});
+		});
+
+		
+
+		jQuery('a.rsvp-action').live('click',function(ev){
+			ev.preventDefault();
+			jQuery('a.rsvp-action').removeClass('btn-success');
+			jQuery(this).addClass('btn-success').attr('disabled',true);
+
+			var _response = jQuery(this).html();
+			
+			// send data to server
+			jQuery.post(ajaxurl,
+					{
+						action   : 'agc_send_user_event_rsvp',
+						event_id : jQuery('#event_id').val(),
+						response : _response
+					},
+					function(response)
+					{
+ 
+						jQuery('a.rsvp-action').removeAttr('disabled');
+						jQuery('#rsvp-pop').attr('data-content',response.html);
+						//jQuery('#myModal').modal('show');
+						var msg = '';
+						switch(response.code)
+						{
+							case "0": 	
+								msg = _agc_show_alert("rsvp-res",'error',"Failed: ",response.response);
+								break;
+							case "1":
+								msg = _agc_show_alert("rsvp-res",'success',"Successfully saved: ",response.response);
+								break;
+							case "2":
+								msg = _agc_show_alert("rsvp-res",'success',"Successfully updated: ",response.response);
+								break;
+							default:
+								break;			
+						}	
+						jQuery('#rsvp-response-div').empty().hide().html(msg).slideToggle();		
+						var event_categories = cs.split(", ");
+						//if not date party then refresh page.
+						console.log(_response);
+						if((jQuery.inArray('Date Party',event_categories) == -1) || (_response == 'No'))
+						{
+							window.location.href = event_link;	
+						}
+						//else show the select date box.
+						else
+						{
+							_agc_suggest_dates_box(_response,response.date);
+						}
+						
+					},
+					'json');	
+		});
+		
+		//jQuery('.full-width').horizontalNav();
+		//ToolTip Init
+		//jQuery('a[rel="tooltip"]').tooltip();
+
+		//jQuery(".alert").alert();
+		
+		//jQuery('#rsvp-pop').popover('toggle');
+		
+		
+		/** NO ACCESS LOGIN LOGIC**/
+		var jq 			= jQuery;
+		jq('#agc-no-access-login-submit').live('click',function(){
+			var b = jq(this);
+			var u = jq('#agc-no-access-uname').val();
+			var p = jq('#agc-no-access-pwd').val();
+			var n = b.attr('data-nonce');
+			var l = jq('#agc-no-access-login-loader');
+			var d = {
+						action		:	'agc_no_access_login',
+						'_wpnonce'	: 	n,
+						'uname'		:	u,
+						'pass'		:	p,
+					};
+			l.show();
+			jq.post(ajaxurl,d,function(r){
+					if(r.result == 'success')
+					{
+						var a = _agc_show_alert('agc-login-no-access-alert',r.result,'Success!',r.msg);
+						jq('#agc-no-access-login #agc-no-access-alerts').empty().append(a);
+						window.location.href = redirect_to;
+					}
+					else
+					{
+						var a = _agc_show_alert('agc-login-no-access-alert',r.result,'Oops!',r.msg);
+						jq('#agc-no-access-login #agc-no-access-alerts').empty().append(a);
+					}
+					l.hide();
+				});
+		});
+		jq('#agc-no-access-login').bind('hidden',function(){
+				jq('#agc-no-access-login #agc-no-access-alerts').empty();
+			});
+		/**END NO ACCESS LOGIN LOGIC**/
+
+	});
+
+
+	function _agc_show_alert(id,type,title,msg)
+	{
+		var a = '<div id="'+ id +'" class="alert alert-'+ type +' fade in" style="margin: 0 auto;">';
+		a += '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+		a += '<strong>'+ title +'</strong> '+ msg +'</div>';
+		return a;
+	}
+
+
+	function _agc_suggest_dates_box(response,date)
+	{
+		
+		//GET EVENT CATEGORIES.	
+		var c 		= cs.split(", ");
+		
+		if(jq.inArray('Date Party',c) != -1)
+		{	
+			var i = '<label for="suggest_dates" class="suggest_dates_label">Since this is a date party, enter the name of the date you are bringing along.</label>'+
+					'<div class="suggest-input"><input value="" data-id="" class="suggest_dates_input" type="text" name="suggest_dates" id="suggest_dates" onkeyup="_agc_suggest_names(this)"/>'+
+					'<span class="loading-16" id="suggest_dates_loader" style="display:none;"></span></div>'+
+					'<button class="btn btn-primary btn-mini agc-bring-along" data-nonce="'+ event_nonce +'" onClick="_agc_submit_selected_name(this);">Add +1</button>'+
+					'<span class="loading-16" id="submit_dates_loader" style="display:none;"></span>'+
+					'<div class="agc_suggest_scroll"><div class="agc_suggested_name"></div></div>';
+		}
+		else
+		{
+			var i ='';
+		}
+		if(response == 'Yes' || response == 'Maybe')
+		{
+			if(date == false){
+				jq('#agc-suggest-dates-box').empty().append(i);
+				jq('#agc-suggest-dates-box').next('div').remove();
+			}
+		}
+		else
+		{
+			jq('#agc-suggest-dates-box').empty();
+			jq('#agc-suggest-dates-box').next('div').remove();
+		}
+	}
+
+	//Auto suggest names based on user input.
+	function _agc_suggest_names(input)
+	{
+		var v 	= jq(input).val();
+		var l 	= jq('#suggest_dates_loader');
+		var dc 	= jq('.agc_suggested_name');
+
+		jq('input.suggest_dates_input').attr('data-id',''); //reset the id
+		
+		if(v.length != 0)
+		{
+			var d = {
+						action:'agc_event_suggest_names',
+						q:v,
+					};
+			l.show();
+			jq.get(ajaxurl,d,function(r){
+				if(r.trim() == ''){
+					dc.empty().append('No Users Found.');
+				}
+				else{
+					dc.empty().append(r);
+					dc.focus();
+				}
+				l.hide();
+				jq(".agc_suggest_scroll").mCustomScrollbar({
+					advanced:{ updateOnContentResize: true, updateOnBrowserResize: true }
+				});
+			});
+		}
+		else
+		{
+			dc.empty();
+		}
+	}
+	//On name selected
+	function _agc_select_suggested_name(selected)
+	{
+			var n 	= jq(selected).parent().attr('data-name');
+			var id	= jq(selected).parent().attr('data-id'); 
+			var dc 	= jq('.agc_suggested_name');
+		
+			jq('input.suggest_dates_input').val(n);
+			jq('input.suggest_dates_input').attr('data-id',id);	
+			dc.empty();
+			jq("div.agc_suggest_scroll").remove();
+	}
+
+	//On name submit
+	function _agc_submit_selected_name(button)
+	{
+		var l 	= jq('#submit_dates_loader');
+		var id 	= jq('input.suggest_dates_input').attr('data-id');
+		var i 	= jq('input.suggest_dates_input');
+		var b 	= jq(button);
+		var n	= b.attr('data-nonce');
+		
+		if(id == '')
+		{
+			alert('Please choose a name from the suggested list.');
+		}
+		else
+		{
+			l.show();
+			i.prop('disabled', true);
+			b.prop('disabled', true);
+			var d={
+						action		:'agc_event_save_plus_one',
+						'_wpnonce'	:n,
+						'id'		:id,
+						'eid'		:event_id,
+					};
+			jq.post(ajaxurl,d,function(r){
+
+				jq('#agc-suggest-dates-box').empty().after(r.result);
+				
+				l.hide();
+				i.prop('disabled', false);
+				b.prop('disabled', false);
+			});
+
+		}
+		
+	}
+
+	function _agc_remove_plusone(button)
+	{
+		var b 	= jq(button);
+		var w	= b.parent().before('<p>Please Wait ...</p>');
+		b.parent().fadeOut('slow');
+
+		var d = {
+					action		:'agc_ajax_event_cancel_plus_one',
+					'_wpnonce'	: remove_nonce,
+					'eid'		: event_id,
+				};
+
+		console.log(d);
+		jq.post(ajaxurl,d,function(r){
+				console.log(r);
+				window.location.href = event_link;
+			});
+	}
+
+
+	/****Dropdown Menu Basic Function****/
+	jQuery.fn.nav_dropdown = function(options) {
+
+	 var defaults = {};
+	 var opts = jQuery.extend(defaults, options);
+
+	 // Apply on those items with children
+	 this.each(function() {
+	   jQuery(this).find('li').each(function() {
+	     if(jQuery(this).find("ul").length > 0) {
+	       jQuery(this).addClass("hasChildren");
+	       jQuery(this).find('> a').addClass('arrow');
+	     }
+	   });
+	 });
+
+	 // Apply on all list items
+	 jQuery(this).find("nav ul li").hover(function() {
+	   jQuery(this).addClass('hover');
+	 }, function() {
+	   jQuery(this).removeClass('hover');
+	 });
+
+	 jQuery('nav ul li').has('ul').hover(function(){
+	   jQuery(this).children('ul').show();
+	 }, function() {
+	   jQuery(this).children('ul').hide();
+	 });
+	};
