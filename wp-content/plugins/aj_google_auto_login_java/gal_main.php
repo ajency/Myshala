@@ -40,7 +40,7 @@ function gal_set_auth_defaults()
 	$authurl	= $oauthurl.$scope.$clientid.$redirect.$type.$approval_prompt.$domain;
 	?>
 	  <script type="text/javascript">
-	  	var WPSITEURL	= 	'<?php echo site_url();?>';
+	  	var WPSITEURL	= 	'<?php echo site_url()."/login-steps/";?>';
       	var VALIDURL    =   '<?php echo $validurl;?>';
       	var REDIRECT    =   '<?php echo $opt_gal_redirect_uri;?>';
         var _url        =  	'<?php echo $authurl;?>';
