@@ -677,7 +677,7 @@ function agc_login_steps_redirect_loggedin()
 		//Prevent user from going back to login steps after completion once.
 		elseif(is_user_logged_in() && (agc_login_steps_getset_step() === 'completed'))
 		{
-			wp_redirect(get_bloginfo('url'));
+			wp_redirect(get_bloginfo('url')."/millennium-community/");
 			exit;
 		}			
 	}
