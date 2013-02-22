@@ -6306,3 +6306,66 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected p {
 	font-style: italic;
 	font-weight: normal;
 }
+
+/****Forum Topic Widget Styles****/
+#recent-topics ul li {
+	background: none;
+	padding: 5px;
+	border-bottom: 1px solid #ddd;
+}
+#recent-topics ul li:hover {
+	background: #f8f8f8;
+}
+#recent-topics ul li a {
+	text-decoration: none;
+	font-weight: bold;
+	display: block;
+}
+#recent-topics ul li .freshness {
+	text-align: right;
+	font-size: 11px;
+	color: #ccc;
+	font-style: italic;
+}
+#recent-topics .view-more .r-m-a {
+	color: #485A22;
+}
+#recent-topics .view-more .r-m-a:hover {
+	color: #F7D240 !important;
+}
+
+/****Members Widget Styles****/
+#members-widget ul {
+	margin: 0;
+}
+#members-widget ul li {
+	background: none;
+	padding: 0;
+}
+#members-widget ul.member-pane {
+	margin: 10px 0 5px;
+}
+#members-widget ul.member-pane li.recent-style {
+	padding: 3px 0;
+	border-bottom: 1px solid #ddd;
+}
+#members-widget ul.member-pane li.recent-style:hover {
+	background: #f8f8f8;
+}
+#members-widget ul.member-pane li.recent-style:last-child {
+	border-bottom: 0;
+}
+#members-widget ul.member-pane li.recent-style .user-thumb {
+	float: left;
+	width: 18%;
+}
+#members-widget ul.member-pane li.recent-style .user-activity {
+	float: left;
+	width: 78%;
+	padding: 0 0 0 2%;
+}
+#members-widget ul.member-pane li.recent-style .user-activity .meta {
+	font-size: 11px;
+	color: #ccc;
+	font-style: italic;
+}
