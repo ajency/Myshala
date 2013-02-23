@@ -451,8 +451,12 @@ function show_bookreview_view($attr)
 	elseif($view_page == 'MY_REVIEWS')
 	{
 		//create link
+		global $user_ID;  
 		$link = get_bloginfo('url') . '/add-review';
-		echo '<a title="Add Book Review" href="'. $link .'" class="button size-mini">Add Book Review</a>';
+		if(bp_displayed_user_id()== $user_ID)
+		{
+			echo '<a title="Add Book Review" href="'. $link .'" class="button size-mini">Add Book Review</a>';
+		}
 		echo '<div id="reviews-box" class="reviews-box-class">
 				<ul class="clearfix">';
 		//get all reviews by author

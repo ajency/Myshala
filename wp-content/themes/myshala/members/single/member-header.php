@@ -27,6 +27,10 @@
 
 	<span class="user-nicename">@<?php bp_displayed_user_username(); ?></span>
 	<span class="activity"><?php bp_last_activity( bp_displayed_user_id() ); ?></span>
+	
+	<?php if ( function_exists( 'bp_add_friend_button' ) ) : ?>
+			 <?php bp_add_friend_button() ?>
+	<?php endif; ?>
 
 	<?php do_action( 'bp_before_member_header_meta' ); ?>
 
