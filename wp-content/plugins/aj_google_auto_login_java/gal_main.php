@@ -52,7 +52,7 @@ function gal_set_auth_defaults()
 
 
         function galLogin() {
- 
+
             var win     =   window.open(_url, "agcgoogleauth", 'width=800, height=600'); 
             
             var pollTimer   =   window.setInterval(function() { 

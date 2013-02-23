@@ -34,7 +34,7 @@ function galRegisterLoginUser(user)
 	};
 	jq.post(gal_ajax.ajaxurl,d,function(r){
 		
-		console.log(r);
+		//console.log(r);
 		if(r.success === true)
 			window.location.href = WPSITEURL;
 		else
