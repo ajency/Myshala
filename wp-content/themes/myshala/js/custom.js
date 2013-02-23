@@ -940,7 +940,7 @@ function sort_menu_init()
 			}	
 		});
 		
-		jQuery('.delete_classified').click(function(){
+		jQuery('.delete_review').click(function(){
 			var c = confirm("Are you sure you want to delete?");
 			jQuery('#content').find('div.alert').remove();
 			if(c == true)
@@ -948,19 +948,19 @@ function sort_menu_init()
 				jQuery(this).html('Deleting. . .');
 				var _this = jQuery(this);	
 				var data = {
-					action: 'delete_classified',
-					classified_id : jQuery(this).attr('classified_id') 
+					action: 'delete_bookreview',
+					bookreview_id : jQuery(this).attr('bookreview_id') 
 				};
 			
 				// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
 				jQuery.post(ajaxurl, data, function(response) {
 					if(response == 1)
 					{
-						window.location.href = jQuery('input[name="classified_link"]').val();
+						window.location.href = jQuery('input[name="bookreview_link"]').val();
 					}	
 					else
 					{
-						jQuery('#content').prepend('<div class="alert alert-error"> <button type="button" class="close" data-dismiss="alert">x</button><strong>Failed to delete classified. Please try again</strong></div><div class="clear"></div>');
+						jQuery('#content').prepend('<div class="alert alert-error"> <button type="button" class="close" data-dismiss="alert">x</button><strong>Failed to delete book review. Please try again</strong></div><div class="clear"></div>');
 						jQuery(_this).html('Delete');
 					}
 				});

@@ -601,7 +601,7 @@ function show_bookreview_view($attr)
 add_shortcode('show_bookreview_view', 'show_bookreview_view');
 
 /* Delete a Review */
-function delete_review()
+function delete_bookreview()
 {
 	
 	//get the ID
