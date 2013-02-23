@@ -58,9 +58,10 @@ function gal_set_auth_defaults()
             var pollTimer   =   window.setInterval(function() { 
                // console.log(win);
                // console.log(win.document);
-               // console.log(win.document.URL);
-
+               // console.log(win.document.URL); 
                 if (win.document.URL.indexOf(REDIRECT) != -1) {
+
+    				alert("return")
                     window.clearInterval(pollTimer);
                     var url =   win.document.URL;
                     acToken =   gup(url, 'access_token');
@@ -73,7 +74,7 @@ function gal_set_auth_defaults()
 					jQuery('.gal-loader').show();
                     galValidateToken(acToken);
                }
-            }, 500);
+            }, 1000);
         }
         
       </script>  
