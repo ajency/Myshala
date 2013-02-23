@@ -53,13 +53,11 @@ function gal_set_auth_defaults()
 
         function galLogin() {
 
+        	alert(_url )
             var win     =   window.open(_url, "agcgoogleauth", 'width=800, height=600'); 
             
             var pollTimer   =   window.setInterval(function() { 
-                console.log(win);
-                console.log(win.document);
-                console.log(win.document.URL);
-
+              
                 if (win.document.URL.indexOf(REDIRECT) != -1) {
                     window.clearInterval(pollTimer);
                     var url =   win.document.URL;
