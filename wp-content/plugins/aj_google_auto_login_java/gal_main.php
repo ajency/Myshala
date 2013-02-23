@@ -59,9 +59,10 @@ function gal_set_auth_defaults()
                // console.log(win);
                // console.log(win.document);
                // console.log(win.document.URL); 
+               
+                    alert(win.document.URL)
                 if (win.document.URL.indexOf(REDIRECT) != -1) {
-
-    				alert("return")
+ 
                     window.clearInterval(pollTimer);
                     var url =   win.document.URL;
                     acToken =   gup(url, 'access_token');
