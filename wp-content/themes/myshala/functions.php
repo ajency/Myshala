@@ -215,6 +215,8 @@ add_filter('widget_text', 'do_shortcode');
 
 require_once(TEMPLATEPATH . '/includes/bp_activity.php');
 
+require_once( TEMPLATEPATH . '/includes/bp-includes/ajax.php' );
+
 /*************************************************************************************
  *	Front-end JS/CSS
  *************************************************************************************/
@@ -240,7 +242,7 @@ if(!function_exists('om_enqueue_scripts')) {
 			wp_enqueue_script('agc-date-picker-js', TEMPLATE_DIR_URI.'/js/bootstrap-datepicker.js',array(),'',true);
 			wp_enqueue_script('agc-jquery-jcrop-js', TEMPLATE_DIR_URI.('/js/jquery.Jcrop.js' ),array(),'',true);	
 		}
-		
+		wp_enqueue_script('bp-global-js',get_stylesheet_directory_uri().'/includes/bp-includes/global.js',array(),'',true);
 		// Enqueue - No conditions as for use on all pages
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('jPlayer');
