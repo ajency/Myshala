@@ -9,8 +9,10 @@
 			?>
 			 <?php 
 			 	if(get_the_author_ID() == bp_loggedin_user_id()):
+			 	
 			 ?>		
 				<div class="single-bookreview-actions">
+					<a href="<?php echo bp_loggedin_user_link(); ?>/book-reviews/" class="edit-bookreview box_tag">Go to my book reviews</a>
 					<a href="<?php echo  get_bloginfo('url'); ?>/edit-bookreview/?id=<?php echo get_the_ID(); ?>" class="edit-bookreview box_tag">Edit this Review</a>
 					<span class="delete_bookreview box_tag button size-mini" bookreview_id="<?php echo get_the_ID();?>">Delete</span>
 				</div>

@@ -499,8 +499,8 @@ function show_bookreview_view($attr)
 			</a></h4>
 			<div class="review-cats">
 				<?php 
-					$categories = get_the_terms(get_the_ID(), 'bookreview_category' );
-					if(sizeof($categories) > 0):
+					$categories = get_the_terms(get_the_ID(), 'bookreview_category' ); 
+					if($categories): 
 				?>
 				Posted in
 				<?php foreach($categories as $category ):?>
