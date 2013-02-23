@@ -254,7 +254,7 @@
 				
 				foreach ($terms as $term) {
 					$i++;
-					$term_list .= '<li><a href="' .get_bloginfo('url'). '/bookreview-categories/' . $term->slug . '" title="' . sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name) . '">' . $term->name . '</a></li>';
+					$term_list .= '<li><a href="' .get_bloginfo('url'). '/?bookreview_category=' . $term->slug . '" title="' . sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name) . '">' . $term->name . '</a></li>';
 					
 				}
 				echo $term_list;
