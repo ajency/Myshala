@@ -5220,6 +5220,10 @@ vertical-align: top;
 #message-thread .message-box .message-content {
     color: ;
 }
+#search-message-form {
+	margin: 5px;
+	text-align: right;
+}
 
 /****Footer Box Styles****/
 /*.col-1 .widget-header {
@@ -5396,7 +5400,6 @@ border-bottom: 1px dotted #ccc;
 body.activity #activity-stream .activity-comments li {border-bottom:0px;padding: 6px;}
 .tabs-st{
 border-right: 1px solid #CCC;
-height: 176px;
 margin-top: 9px;
 }
 .activity_label{
