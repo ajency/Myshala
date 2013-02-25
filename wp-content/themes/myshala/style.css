@@ -5123,6 +5123,103 @@ display: table-cell;
 vertical-align: top;
 }
 
+.item-list {
+	margin: 20px 0;
+	padding: 0;
+}
+.item-list li {
+	border-bottom: 1px dotted #CCC;
+	list-style-type: none;
+	padding: 5px 0;
+}
+.item-list li .item-avatar {
+	width: 60px;
+	float: left;
+}
+.item-list li .item .item-meta {
+	font-size: 12px;
+	color: #666;
+	font-style: italic;
+}
+.item-list li .action a.button {
+	color: #FFF !important;
+}
+
+#send_message_form {
+	margin: 10px 0 5px;
+}
+#send_message_form label {
+	display: block;
+	margin: 5px 0;
+	font-weight: bold;
+}
+#send_message_form input[type="text"] {
+	width: 275px;
+}
+.messages-notices .m-container {
+	padding: 10px 5px 5px;
+	border-top: 1px solid #999;
+}
+.messages-notices .m-container .m-left {
+    float: left;
+    margin: 0 10px 0 0;
+    position: relative;
+    width: 50px;
+}
+.messages-notices .m-container .m-right {
+    
+}
+.messages-notices .m-container .m-right .thread-from {
+    font-size: 12px;
+    font-weight: bold;
+}
+.messages-notices .m-container .m-right .thread-from .activity {
+    color: #666666;
+    float: right;
+    font-size: 11px;
+}
+.messages-notices .m-container .m-right .thread-info a {
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.messages-notices .m-container .m-right .thread-info span {
+    font-style: italic;
+}
+.messages-notices .m-container .thread-options {
+    background: none repeat scroll 0 0 #efefef;
+    padding: 2px 5px;
+    text-align: right;
+	margin: 5px 0 0;
+}
+.messages-notices .m-container .thread-options a {
+    margin: 0 0 0 10px;
+	color: #FFF;
+}
+#message-thread #message-recipients {
+    background: none repeat scroll 0 0 padding-box #efefef;
+    padding: 4px 3px 6px;
+}
+#message-thread #message-recipients .button {
+    float: right;
+	color: #fff;
+}
+#message-thread .message-box {
+    padding: 5px 0;
+}
+#message-thread .message-box .message-metadata {
+    border-bottom: 1px solid #DFDFDF;
+    margin: 0 0 3px;
+    padding: 0 0 2px;
+}
+#message-thread .message-box .message-metadata .activity {
+    color: #808080;
+    font-size: 11px;
+    font-style: italic;
+}
+#message-thread .message-box .message-content {
+    color: ;
+}
 
 /****Footer Box Styles****/
 /*.col-1 .widget-header {
