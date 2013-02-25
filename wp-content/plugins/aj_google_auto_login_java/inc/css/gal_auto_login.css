@@ -51,6 +51,10 @@ a.gal-links {
 text-decoration:none;
 }
 
+a.gal-links.button {
+	color: #fff;
+}
+
 .gal-profile_txt{
 color: #FFF;
 }
@@ -67,6 +71,13 @@ left: 0;
 right: 0%;
 z-index: 99;
 }
+.gal-login-google span {
+	display: block;
+	text-align: center;
+	border-bottom: 1px dotted #f8f8f8;
+	margin: 0 0 10px;
+	color: #1D83AA;
+}
 .gal-login-google a {
 outline: none;
 text-indent: -5000px;
@@ -74,7 +85,7 @@ display: block;
 width: 174px;
 height: 43px;
 background: url("../img/login.png") 0 0 no-repeat;
-margin-left: 2px;
+margin: 0 auto;
  }
 
  .gal-login-google a:hover {
@@ -110,3 +121,4 @@ display: inline-block;
  .gal-login-big-google a:hover {
  background-position: -245px 0;
  }
+ 

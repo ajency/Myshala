@@ -212,6 +212,8 @@ include_once("widgets/testimonials/testimonials.php");
 // Apply Shortcodes for Widgets
 add_filter('widget_text', 'do_shortcode');
 
+//Include Custom Ajency Theme Widgets
+require_once(TEMPLATEPATH . '/includes/widgets/widgets_inc.php');
 
 require_once(TEMPLATEPATH . '/includes/bp_activity.php');
 
