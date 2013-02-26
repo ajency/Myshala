@@ -4948,6 +4948,29 @@ margin-left: -30px;
 	padding: 4px;
 	border-radius: 6px;
 }
+#item-header #item-header-content .generic-button {
+	margin: 10px 0 5px;
+}
+#item-header #item-header-content .generic-button a {
+	background: #2ABFD5;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2D7BA9), color-stop(1, #2ABFD5));
+  background: -ms-linear-gradient(bottom, #2D7BA9, #2ABFD5);
+  background: -moz-linear-gradient(center bottom, #2D7BA9 0%, #2ABFD5 100%);
+  border: 1px solid #1D8595;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  color: #fff;
+  font-size: 12px;
+  padding: 1px 5px;
+  margin: 0 5px 0 0;
+}
+#item-header #item-header-content .generic-button a {
+	text-decoration: none;
+}
 #item-header #item-header-content #item-meta {
 	font-size: 14px;
 	color: #666;
