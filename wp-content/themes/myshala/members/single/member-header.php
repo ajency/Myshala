@@ -13,8 +13,10 @@
 
 <div id="item-header-avatar" class="one-fifth">
 	<a href="<?php bp_displayed_user_link(); ?>">
-
-		<?php bp_displayed_user_avatar( 'type=full' ); ?>
+	
+		<?php 
+		 msh_display_avatar(bp_displayed_user_id());
+		//bp_displayed_user_avatar( 'type=full' ); ?>
 
 	</a>
 </div><!-- #item-header-avatar -->

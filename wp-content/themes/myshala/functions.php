@@ -1143,11 +1143,11 @@ function my_photos_tab_content() {
 				{
 		 				foreach ($result as $resultdata) { 
 							$show_selected = "";
-							if(in_array($resultdata->path, $selected_photos))
+							if(in_array($resultdata->absolutepath, $selected_photos))
 							{
 								$show_selected = "selected";
 							}
-		 					 echo '<option data-img-src="'.$resultdata->path.'" value="'.$resultdata->path.'" '.$show_selected.'>'.$resultdata->description.'</option>';
+		 					 echo '<option data-img-src="'.$resultdata->absolutepath.'" value="'.$resultdata->absolutepath.'" '.$show_selected.'>'.$resultdata->description.'</option>';
 							}
 						 
 						 
@@ -1217,3 +1217,21 @@ function fetch_from_local_db($data) {
 }
 
 add_filter( 'show_admin_bar', '__return_false' );
+
+function msh_display_avatar($user_id=0)
+{ 
+	$refid = get_user_meta($user_id,'msh_remote_refid',true);
+
+	if($refid != "")
+	{
+		$str = '<img src=" http://content.rudiment.s3.amazonaws.com/apps/ID_Photos_2012_13/'.$refid.'.JPG" class="avatar gal-rounded_cr"> ';
+		echo $str;
+	}
+	else
+	{
+		bp_displayed_user_avatar( 'type=full' );
+
+	}
+	
+	
+}
