@@ -1135,7 +1135,10 @@ function my_photos_tab_content() {
 		 else
 		 {
 		 	
+		 	if(bp_loggedin_user_id() ==bp_displayed_user_id())
+		 	{
 				echo '<p>Please select photos by clicking on them, then click on choose selected below.</p>';
+		 	}
 				echo '<form class="image-select-form" action="" method="post">';
 				echo '<select multiple="multiple" class="image-picker show-labels show-html" name="msh_image_picker[]">';
 			
@@ -1153,9 +1156,13 @@ function my_photos_tab_content() {
 						 
 				}
 				echo '</select>';
+				if(bp_loggedin_user_id() ==bp_displayed_user_id())
+				{
 				echo '<div class="display-select-info">You have selected: <span></span></div>';
+				
 				echo '<input type="submit" class="" value="Choose Selected" />';
 				wp_nonce_field('action-save-my-photos','save-my-photos');
+				}
 				echo '</form>';
 				echo '<script>jQuery(document).ready(function(){jQuery("select.image-picker").imagepicker({show_label : true});});</script>';
 				echo '<script>jQuery(document).ready(function(){var $container = jQuery(".image_picker_selector");
