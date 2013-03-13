@@ -1079,6 +1079,9 @@ add_action('wp_footer','agc_login_steps_goto_step');
  *************************************************************************************/
 function my_photos_bp_nav()
 {
+	if ( bp_displayed_user_id()== bp_loggedin_user_id() || is_site_admin())
+	
+	{
     bp_core_new_nav_item(
         array(
             'name' => __('My Photos', 'buddypress'),
@@ -1088,6 +1091,7 @@ function my_photos_bp_nav()
             'screen_function' => 'my_photos_tab',
             'item_css_id' => 'all-conversations'
         ));
+	}
 }
 function my_photos_tab () {
     //add title and content here - last is to call the members plugin.php template
@@ -1126,8 +1130,7 @@ function my_photos_tab_content() {
 		 $selected_photos = get_user_meta(bp_displayed_user_id(),'photos_picked');
 		 
 		 $selected_photos = empty($selected_photos) ? array() : $selected_photos[0];
-	 
-		 
+	  
 		 if (in_array("No rows found",$result) && count($result)==1)
 		 {
 		 	echo "No Photos Found!";
@@ -1144,23 +1147,33 @@ function my_photos_tab_content() {
 			
 				if($result)
 				{
+					 
 		 				foreach ($result as $resultdata) { 
-							$show_selected = "";
-							if(in_array($resultdata->absolutepath, $selected_photos))
+							$show_selected = array();
+							if(in_array($resultdata->path, $selected_photos))
 							{
 								$show_selected = "selected";
 							}
-		 					 echo '<option data-img-src="'.$resultdata->absolutepath.'" value="'.$resultdata->absolutepath.'" '.$show_selected.'>'.$resultdata->description.'</option>';
+							$image_name= "";
+							$image_path = explode("/",$resultdata->path);
+							if (count($image_path) > 0)
+							{
+								$image_name = $image_path[count($image_path)-1];
+								$selected_images[]=$image_name;
+								
+							}
+		 					 echo '<option data-img-src="'.$resultdata->path.'" value="'.$resultdata->path.'" '.$show_selected.'>'.$image_name.'</option>';
 							}
 						 
 						 
 				}
 				echo '</select>';
+				$selected_images = implode("<br>",$selected_images);
 				if(bp_loggedin_user_id() ==bp_displayed_user_id())
 				{
-				echo '<div class="display-select-info">You have selected: <span></span></div>';
+				echo '<div class="display-select-info">You have selected: <span><br>'.$selected_images.'</span></div>';
 				
-				echo '<input type="submit" class="" value="Choose Selected" />';
+				echo '<input type="submit" class="" value="Update" id="image-update"/>';
 				wp_nonce_field('action-save-my-photos','save-my-photos');
 				}
 				echo '</form>';
@@ -1175,20 +1188,22 @@ function my_photos_tab_content() {
 				jQuery(document).ready(function(){
 			        // This selector is called every time a select box is changed
 			        jQuery("select.image-picker").change(function(){
+						jQuery("#image-update").show();
 			            // variable to hold string
 			            var sel = "";
 			            jQuery("select.image-picker option:selected").each(function(){
 			                // when the select box is changed, we add the value text to the varible
-			                sel += jQuery(this).html() + ",";
+			                sel += jQuery(this).html() + "<br>";
 			            });
 			            // then display it in the following class	
-			            jQuery(".display-select-info span").html(sel);
+			            jQuery(".display-select-info span").html("<br>"+sel);
 			        });
 			        });
 			    </script>';
 				?>
 				<script type="text/javascript">
 				jQuery(document).ready(function(){
+					jQuery('#image-update').hide();
 						jQuery('.msh-photo-select-submit').click(function(e){
 								e.preventDefault(); //dont submit the form untill confirmed
 								var check = confirm('Are you sure you want to select these photos?');
@@ -1213,6 +1228,9 @@ add_action( 'bp_setup_nav', 'my_photos_bp_nav' );
 *************************************************************************************/
 function my_dvd_bp_nav()
 {
+	if ( bp_displayed_user_id()== bp_loggedin_user_id() || is_site_admin())
+	
+	{
 	bp_core_new_nav_item(
 			array(
 					'name' => __('My DVDs', 'buddypress'),
@@ -1222,6 +1240,7 @@ function my_dvd_bp_nav()
 					'screen_function' => 'my_dvd_tab',
 					'item_css_id' => 'all-conversations'
 			));
+	}
 }
 function my_dvd_tab () {
 	//add title and content here - last is to call the members plugin.php template
