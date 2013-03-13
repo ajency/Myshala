@@ -165,13 +165,13 @@ function csvuserimport_page1() {
 		<strong>Note:</strong>
 	</p>
 
-	<ol>
+	<ul>
 		<li>Please make sure that each users data entered in the CSV
 			is on a single line.</li>
 		<!-- <li><span style="color: red">Please make sure you back up your
 				database before proceeding!.</span> -->
 		</li>
-	</ol>
+	</ul>
 
 </div>
 <?php

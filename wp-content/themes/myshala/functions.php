@@ -1378,6 +1378,7 @@ function msh_display_avatar($user_id=0)
 { 
 	$refid = get_user_meta($user_id,'msh_remote_refid',true);
 
+	
 	if($refid != "")
 	{
 		$str = '<img src=" http://content.rudiment.s3.amazonaws.com/apps/ID_Photos_2012_13/'.$refid.'.JPG" class="avatar gal-rounded_cr"> ';

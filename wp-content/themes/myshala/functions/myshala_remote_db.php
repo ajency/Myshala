@@ -130,17 +130,45 @@ function msh_remote_into_tab_content() {
 
 			$html .= sprintf('<tr><th colspan=2>Parent Table Data</th></tr>');
 			$html .= sprintf('<tr><td class="table-label">Fathers Name</td><td><p>%s %s %s</p></td></tr>',$result[0]->FthFName,$result[0]->FthMName,$result[0]->FthLName);
+			if($result[0]->FthPhone1==0) 
+				$result[0]->FthPhone1="N/A";
 			$html .= sprintf('<tr><td class="table-label">Fathers Contact Number</td><td><p>%s</p></td></tr>',$result[0]->FthPhone1);
 			$html .= sprintf('<tr><td class="table-label">Fathers email Id</td><td><p>%s</p></td></tr>',$result[0]->FthEmail);
 			$html .= sprintf('<tr><td class="table-label">Mothers Name</td><td><p>%s %s</p></td></tr>',$result[0]->MthFName,$result[0]->MthLName);
+			if($result[0]->MthPhone1==0)
+				$result[0]->MthPhone1="N/A";
 			$html .= sprintf('<tr><td class="table-label">Mothers Contact Number</td><td><p>%s</p></td></tr>',$result[0]->MthPhone1);
 			$html .= sprintf('<tr><td class="table-label">Mothers email Id</td><td><p>%s</p></td></tr>',$result[0]->MthEmail);
 			$html .= sprintf('<tr><td class="table-label">Fathers Company Name</td><td><p>%s</p></td></tr>',$result[0]->FthCompanyName);
-			$html .= sprintf('<tr><td class="table-label">Fathers office address</td><td><p>%s<br>%s<br>%s<br>%s<br>%s</p></td></tr>',$result[0]->FthAdd1,$result[0]->FthAdd2,$result[0]->FthAdd3,$result[0]->FthCity,$result[0]->FthPin);
+			
+			$father_office_address = "";
+			if($result[0]->FthAdd1 != "NULL" && $result[0]->FthAdd1 != "")
+				$father_office_address .= $result[0]->FthAdd1."<br>";
+			if($result[0]->FthAdd2!="NULL" && $result[0]->FthAdd2 != "")
+				$father_office_address .= $result[0]->FthAdd2."<br>";
+			if($result[0]->FthAdd3!="NULL" && $result[0]->FthAdd3 != "")
+				$father_office_address .= $result[0]->FthAdd3."<br>";
+			if($result[0]->FthCity!="-1" && $result[0]->FthCity != "")
+				$father_office_address .= $result[0]->FthCity."<br>"; 
+			if($result[0]->FthPin!="0" && $result[0]->FthPin != "")
+				$father_office_address .= $result[0]->FthPin."<br>";
+			 
+			$html .= sprintf('<tr><td class="table-label">Fathers office address</td><td><p>%s</p></td></tr>',$father_office_address);
 			$html .= sprintf('<tr><td class="table-label">Fathers office Number</td><td><p>%s</p></td></tr>',$result[0]->FthPhone2);
 			$html .= sprintf('<tr><td class="table-label">Fathers Profession</td><td><p>%s</p></td></tr>',$result[0]->FthProfMain);
 			$html .= sprintf('<tr><td class="table-label">Mothers Company Name</td><td><p>%s</p></td></tr>',$result[0]->MthCompanyName);
-			$html .= sprintf('<tr><td class="table-label">Mothers office address</td><td><p>%s<br>%s<br>%s<br>%s<br>%s</p></td></tr>',$result[0]->MthAdd1,$result[0]->MthAdd2,$result[0]->MthAdd3,$result[0]->MthCity,$result[0]->MthPin);
+			$mothers_office_address = "";
+			if($result[0]->MthAdd1 != "NULL" && $result[0]->MthAdd1 != "")
+				$mothers_office_address .= $result[0]->MthAdd1."<br>";
+			if($result[0]->MthAdd2!="NULL" && $result[0]->MthAdd2 != "")
+				$mothers_office_address .= $result[0]->MthAdd2."<br>";
+			if($result[0]->MthAdd3!="NULL" && $result[0]->MthAdd3 != "")
+				$mothers_office_address .= $result[0]->MthAdd3."<br>";
+			if($result[0]->MthCity!="-1" && $result[0]->MthCity != "")
+				$mothers_office_address .= $result[0]->MthCity."<br>";
+			if($result[0]->MthPin!="0" && $result[0]->MthPin != "")
+				$mothers_office_address .= $result[0]->MthPin."<br>";
+			$html .= sprintf('<tr><td class="table-label">Mothers office address</td><td><p>%s</p></td></tr>',$mothers_office_address);
 			$html .= sprintf('<tr><td class="table-label">Mothers office Number</td><td><p>%s</p></td></tr>',$result[0]->MthPhone2);
 			$html .= sprintf('<tr><td class="table-label">Mothers Profession</td><td><p>%s</p></td></tr>',$result[0]->MthProfMain);
 		}
