@@ -1206,6 +1206,136 @@ function my_photos_tab_content() {
 add_action( 'bp_setup_nav', 'my_photos_bp_nav' );
 
 
+
+
+/*************************************************************************************
+ *	DVD Tab Function
+*************************************************************************************/
+function my_dvd_bp_nav()
+{
+	bp_core_new_nav_item(
+			array(
+					'name' => __('My DVDs', 'buddypress'),
+					'slug' => 'my-dvd',
+					'position' => 90,
+					'show_for_displayed_user' => true,
+					'screen_function' => 'my_dvd_tab',
+					'item_css_id' => 'all-conversations'
+			));
+}
+function my_dvd_tab () {
+	//add title and content here - last is to call the members plugin.php template
+	add_action( 'bp_template_title', 'my_photos_tab_title' );
+	add_action( 'bp_template_content', 'my_photos_tab_content' );
+	bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
+}
+
+function my_dvd_tab_title() {
+	echo 'My DVDs';
+}
+function my_dvd_tab_content() {
+
+	if (wp_verify_nonce($_POST['save-my-photos'],'action-save-my-photos')  )
+	{
+		$msh_image_picker = (!isset($_POST['msh_image_picker']) || empty($_POST['msh_image_picker'])) ? array():$_POST['msh_image_picker'];
+			
+		update_user_meta(bp_displayed_user_id(),'photos_picked',$msh_image_picker);
+	}
+	global $wpdb;
+	$refid = get_user_meta(bp_displayed_user_id(),'msh_remote_refid',true);
+	if($refid)
+	{
+		$get_gathering_images = array(
+				'function' => "getGatheringImages",
+				'refno' => $refid
+		);
+		//$remote_query = $wpdb->prepare("select phataksir_events_attachments.* from phataksirkundalievent INNER JOIN phataksir_events_attachments where mgmtgroupid REGEXP  '(^|,)".$refid."($|,)' and   eventid =  phataksirkundalievent.id");
+
+		//$remote_query = $wpdb->prepare("SELECT * FROM `phataksir_events_attachments`");
+		 
+
+		$result = fetch_from_local_db($get_gathering_images);
+		$selected_photos = array();
+			
+		$selected_photos = get_user_meta(bp_displayed_user_id(),'photos_picked');
+			
+		$selected_photos = empty($selected_photos) ? array() : $selected_photos[0];
+
+			
+		if (in_array("No rows found",$result) && count($result)==1)
+		{
+			echo "No Photos Found!";
+		}
+		else
+		{
+
+			echo '<p>Please select photos by clicking on them, then click on choose selected below.</p>';
+			echo '<form class="image-select-form" action="" method="post">';
+			echo '<select multiple="multiple" class="image-picker show-labels show-html" name="msh_image_picker[]">';
+				
+			if($result)
+			{
+				foreach ($result as $resultdata) {
+					$show_selected = "";
+					if(in_array($resultdata->path, $selected_photos))
+					{
+						$show_selected = "selected";
+					}
+					echo '<option data-img-src="'.$resultdata->path.'" value="'.$resultdata->path.'" '.$show_selected.'>'.$resultdata->description.'</option>';
+				}
+					
+					
+			}
+			echo '</select>';
+			echo '<div class="display-select-info">You have selected: <span></span></div>';
+			echo '<input type="submit" class="" value="Choose Selected" />';
+			wp_nonce_field('action-save-my-photos','save-my-photos');
+			echo '</form>';
+			echo '<script>jQuery(document).ready(function(){jQuery("select.image-picker").imagepicker({show_label : true});});</script>';
+			echo '<script>jQuery(document).ready(function(){var $container = jQuery(".image_picker_selector");
+			$container.imagesLoaded( function(){
+			$container.masonry({
+			itemSelector : "li"
+		});
+		});});</script>';
+			echo '<script>
+			jQuery(document).ready(function(){
+			// This selector is called every time a select box is changed
+			jQuery("select.image-picker").change(function(){
+			// variable to hold string
+			var sel = "";
+			jQuery("select.image-picker option:selected").each(function(){
+			// when the select box is changed, we add the value text to the varible
+			sel += jQuery(this).html() + ",";
+		});
+		// then display it in the following class
+		jQuery(".display-select-info span").html(sel);
+		});
+		});
+		</script>';
+			?>
+				<script type="text/javascript">
+				jQuery(document).ready(function(){
+						jQuery('.msh-photo-select-submit').click(function(e){
+								e.preventDefault(); //dont submit the form untill confirmed
+								var check = confirm('Are you sure you want to select these photos?');
+								if(check == true)
+								{	
+									jQuery('.image-select-form').submit();
+								} 
+							});
+					});
+				</script>
+				<?php
+		}
+	}
+}
+add_action( 'bp_setup_nav', 'my_dvd_bp_nav' );
+
+
+
+
+
 //function to get data from remote server
 function fetch_from_local_db($data) {
 
