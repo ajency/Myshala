@@ -1153,15 +1153,16 @@ function my_photos_tab_content() {
 							if(in_array($resultdata->path, $selected_photos))
 							{
 								$show_selected = "selected";
-							}
-							$image_name= "";
-							$image_path = explode("/",$resultdata->path);
-							if (count($image_path) > 0)
-							{
-								$image_name = $image_path[count($image_path)-1];
-								$selected_images[]=$image_name;
+								$image_name= "";
+								$image_path = explode("/",$resultdata->path);
+								if (count($image_path) > 0)
+								{
+									$image_name = $image_path[count($image_path)-1];
+									$selected_images[]=$image_name;
 								
+								}
 							}
+						
 		 					 echo '<option data-img-src="'.$resultdata->path.'" value="'.$resultdata->path.'" '.$show_selected.'>'.$image_name.'</option>';
 							}
 						 
@@ -1169,13 +1170,12 @@ function my_photos_tab_content() {
 				}
 				echo '</select>';
 				$selected_images = implode("<br>",$selected_images);
-				if(bp_loggedin_user_id() ==bp_displayed_user_id())
-				{
+				 
 				echo '<div class="display-select-info">You have selected: <span><br>'.$selected_images.'</span></div>';
 				
 				echo '<input type="submit" class="" value="Update" id="image-update"/>';
 				wp_nonce_field('action-save-my-photos','save-my-photos');
-				}
+			 
 				echo '</form>';
 				echo '<script>jQuery(document).ready(function(){jQuery("select.image-picker").imagepicker({show_label : true});});</script>';
 				echo '<script>jQuery(document).ready(function(){var $container = jQuery(".image_picker_selector");
@@ -1381,7 +1381,7 @@ function msh_display_avatar($user_id=0)
 	
 	if($refid != "")
 	{
-		$str = '<img src=" http://content.rudiment.s3.amazonaws.com/apps/ID_Photos_2012_13/'.$refid.'.JPG" class="avatar gal-rounded_cr"> ';
+		$str = '<img src=" http://content.rudiment.s3.amazonaws.com/apps/ID_Photos_2012_13/'.$refid.'.jpg" class="avatar gal-rounded_cr"> ';
 		echo $str;
 	}
 	else
