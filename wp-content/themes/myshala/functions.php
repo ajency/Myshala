@@ -649,7 +649,7 @@ function review_icons() {
 	?>
 <style type="text/css" media="screen">
 #menu-posts-bookreview .wp-menu-image {
-	background: url(<? php bloginfo('template_url')?>/img/bookreview-icon.png)
+	background: url(<?php bloginfo('template_url')?>/img/bookreview-icon.png)
 		no-repeat 6px -32px !important;
 }
 
@@ -659,7 +659,7 @@ function review_icons() {
 }
 
 #icon-edit.icon32-posts-bookreview {
-	background: url(<? php bloginfo('template_url')?>/img/bookreview-32x32.png)
+	background: url(<?php bloginfo('template_url')?>/img/bookreview-32x32.png)
 		no-repeat;
 }
 </style>
@@ -1197,9 +1197,15 @@ function my_photos_tab_content() {
 						 
 						 
 				}
-				echo '</select>';
-				$selected_images = implode("<br>",$selected_images);
-				 
+				echo '</select>'; 
+				if(count($selected_images) !=0 )
+				{
+				 $selected_images = implode("<br>",$selected_images);
+				}
+				else
+				{
+					$selected_images ="";
+				}
 				echo '<div class="display-select-info">You have selected: <span><br>'.$selected_images.'</span></div>';
 				
 				echo '<input type="submit" class="" value="Update" id="image-update"/>';
