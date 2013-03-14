@@ -7,18 +7,18 @@ define('TEMPLATE_DIR_URI', get_template_directory_uri());
 
 /*************************************************************************************
  *	Translation Text Domain
- *************************************************************************************/
+*************************************************************************************/
 
 load_theme_textdomain('om_theme');
 
 /*************************************************************************************
  *	Register WP3.0+ Menu
- *************************************************************************************/
- 
+*************************************************************************************/
+
 if( !function_exists( 'om_register_menu' ) ) {
 	function om_register_menu() {
-	  register_nav_menu('primary-menu', __('Primary Menu', 'om_theme'));
-	  //register_nav_menu('reserved-menu', __('Reserved Menu (can be used in widget)', 'om_theme'));
+		register_nav_menu('primary-menu', __('Primary Menu', 'om_theme'));
+		//register_nav_menu('reserved-menu', __('Reserved Menu (can be used in widget)', 'om_theme'));
 	}
 
 	add_action('init', 'om_register_menu');
@@ -26,26 +26,26 @@ if( !function_exists( 'om_register_menu' ) ) {
 
 /*************************************************************************************
  *	Set Max Content Width
- *************************************************************************************/
- 
+*************************************************************************************/
+
 if ( ! isset( $content_width ) ) $content_width = 940;
 
 /*************************************************************************************
  *	Post Formats
- *************************************************************************************/
- 
+*************************************************************************************/
+
 add_theme_support( 'post-formats', array(
 		'audio',
-		'gallery', 
-		'image', 
-		'link', 
-		'quote', 
+		'gallery',
+		'image',
+		'link',
+		'quote',
 		'video'
-)); 
-	
+));
+
 /*************************************************************************************
  *	Post Thumbnails
- *************************************************************************************/
+*************************************************************************************/
 
 if( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
@@ -53,13 +53,13 @@ if( function_exists( 'add_theme_support' ) ) {
 	add_image_size( 'thumbnail-post-big', 456, 300, true); // for blogroll
 	add_image_size( 'portfolio-thumb', 480, 328, true); // for portfolio
 	add_image_size( 'portfolio-q-thumb', 480, 480, true); // for portfolio
-	add_image_size( 'page-full', 900, '', false); 
-	add_image_size( 'page-full-2', 924, '', false); 
+	add_image_size( 'page-full', 900, '', false);
+	add_image_size( 'page-full-2', 924, '', false);
 }
 
 /*************************************************************************************
  *	Automatic Feed Links
- *************************************************************************************/
+*************************************************************************************/
 
 function om_feedburner_hook() {
 	echo '<link rel="alternate" type="application/rss+xml" title="'. get_bloginfo( 'name' ) .' RSS Feed" href="'. get_option(OM_THEME_PREFIX.'feedburner') .'" />';
@@ -73,11 +73,11 @@ if (get_option(OM_THEME_PREFIX.'feedburner')) {
 
 /*************************************************************************************
  *	Excerpt Length
- *************************************************************************************/
+*************************************************************************************/
 
 if( !function_exists( 'om_excerpt_length' ) ) {
 	function om_excerpt_length($length) {
-		return 10; 
+		return 10;
 	}
 	add_filter('excerpt_length', 'om_excerpt_length');
 }
@@ -92,14 +92,14 @@ if( !function_exists( 'om_excerpt_more' ) ) {
 
 function om_custom_excerpt_more($excerpt, $return=false) {
 	global $post;
-	
+
 	$more=' <a href="'. get_permalink($post->ID) . '" style="font-weight:bold">'.__('Read more', 'om_theme').'</a>';
-	
+
 	if( ($pos=strrpos($excerpt, '</p>')) === false)
 		$excerpt = $excerpt.$more;
 	else
 		$excerpt = substr($excerpt,0,$pos).$more.substr($excerpt,$pos);
-	
+
 	if($return)
 		return $excerpt;
 	else
@@ -108,7 +108,7 @@ function om_custom_excerpt_more($excerpt, $return=false) {
 
 /*************************************************************************************
  *	Remove Read More Jump
- *************************************************************************************/
+*************************************************************************************/
 
 function om_remove_more_jump_link($link) {
 	$offset = strpos($link, '#more-');
@@ -123,67 +123,67 @@ add_filter('the_content_more_link', 'om_remove_more_jump_link');
 
 /*************************************************************************************
  *	Register Sidebars
- *************************************************************************************/
+*************************************************************************************/
 
 if( function_exists('register_sidebar') ) {
 	register_sidebar(array(
-		'name' => __('Main Sidebar','om_theme'),
-		'before_widget' => '<div class="block-3 bg-color-sidebar"><div class="block-inner widgets-area">',
-		'after_widget' => '</div></div>',
-		'before_title' => '<div class="widget-header">',
-		'after_title' => '</div>',
+			'name' => __('Main Sidebar','om_theme'),
+			'before_widget' => '<div class="block-3 bg-color-sidebar"><div class="block-inner widgets-area">',
+			'after_widget' => '</div></div>',
+			'before_title' => '<div class="widget-header">',
+			'after_title' => '</div>',
 	));
 	register_sidebar(array(
-		'name' => __('Footer Left Column','om_theme'),
-		'id' => 'footer-column-left',
-		'before_widget' => '',
-		'after_widget' => '<div class="clear"></div>',
-		'before_title' => '<div class="widget-header">',
-		'after_title' => '</div>',
+			'name' => __('Footer Left Column','om_theme'),
+			'id' => 'footer-column-left',
+			'before_widget' => '',
+			'after_widget' => '<div class="clear"></div>',
+			'before_title' => '<div class="widget-header">',
+			'after_title' => '</div>',
 	));
 	register_sidebar(array(
-		'name' => __('Footer Center Column','om_theme'),
-		'id' => 'footer-column-center',
-		'before_widget' => '',
-		'after_widget' => '<div class="clear"></div>',
-		'before_title' => '<div class="widget-header">',
-		'after_title' => '</div>',
+			'name' => __('Footer Center Column','om_theme'),
+			'id' => 'footer-column-center',
+			'before_widget' => '',
+			'after_widget' => '<div class="clear"></div>',
+			'before_title' => '<div class="widget-header">',
+			'after_title' => '</div>',
 	));
 	register_sidebar(array(
-		'name' => __('Footer Right Column','om_theme'),
-		'id' => 'footer-column-right',
-		'before_widget' => '',
-		'after_widget' => '<div class="clear"></div>',
-		'before_title' => '<div class="widget-header">',
-		'after_title' => '</div>',
+			'name' => __('Footer Right Column','om_theme'),
+			'id' => 'footer-column-right',
+			'before_widget' => '',
+			'after_widget' => '<div class="clear"></div>',
+			'before_title' => '<div class="widget-header">',
+			'after_title' => '</div>',
 	));
 	register_sidebar(array(
-		'name' => __('Footer Right ','om_theme'),
-		'id' => 'footer-right',
-		'before_widget' => '',
-		'after_widget' => '<div class="clear"></div>',
-		'before_title' => '<div class="widget-header">',
-		'after_title' => '</div>',
+			'name' => __('Footer Right ','om_theme'),
+			'id' => 'footer-right',
+			'before_widget' => '',
+			'after_widget' => '<div class="clear"></div>',
+			'before_title' => '<div class="widget-header">',
+			'after_title' => '</div>',
 	));
 
 	$sidebars_num=intval(get_option(OM_THEME_PREFIX."sidebars_num"));
 	for($i=1;$i<=$sidebars_num;$i++)
 	{
 		register_sidebar(array(
-			'name' => __('Main Alternative Sidebar','om_theme').' '.$i,
-			'id' => 'alt-sidebar-'.$i,
-			'before_widget' => '<div class="block-3 bg-color-sidebar"><div class="block-inner widgets-area">',
-			'after_widget' => '</div></div>',
-			'before_title' => '<div class="widget-header">',
-			'after_title' => '</div>',
-		));	
+				'name' => __('Main Alternative Sidebar','om_theme').' '.$i,
+				'id' => 'alt-sidebar-'.$i,
+				'before_widget' => '<div class="block-3 bg-color-sidebar"><div class="block-inner widgets-area">',
+				'after_widget' => '</div></div>',
+				'before_title' => '<div class="widget-header">',
+				'after_title' => '</div>',
+		));
 	}
-	
+
 }
 
 /*************************************************************************************
  *	Widgets
- *************************************************************************************/
+*************************************************************************************/
 
 // Latest Tweets
 include_once("widgets/tweets/tweets.php");
@@ -221,8 +221,8 @@ require_once( TEMPLATEPATH . '/includes/bp-includes/ajax.php' );
 
 /*************************************************************************************
  *	Front-end JS/CSS
- *************************************************************************************/
- 
+*************************************************************************************/
+
 if(!function_exists('om_enqueue_scripts')) {
 	function om_enqueue_scripts() {
 
@@ -236,13 +236,13 @@ if(!function_exists('om_enqueue_scripts')) {
 		wp_register_script('validate', TEMPLATE_DIR_URI.'/js/jquery.validate.min.js', array('jquery'), false, true);
 		wp_register_script('form', TEMPLATE_DIR_URI.'/js/jquery.form.min.js', array('jquery'), false, true);
 		wp_register_script('om_custom', TEMPLATE_DIR_URI.'/js/custom.js', array('jquery','omSlider','libraries'), false, true);
-		
+
 		// Enqueue Scripts for login-steps page
 		if(is_page_template('template-login-steps.php'))
 		{
 			wp_enqueue_script('agc-progress-bubbles-js', TEMPLATE_DIR_URI.'/js/jquery-progress-bubbles.js',array(),'',true);
 			wp_enqueue_script('agc-date-picker-js', TEMPLATE_DIR_URI.'/js/bootstrap-datepicker.js',array(),'',true);
-			wp_enqueue_script('agc-jquery-jcrop-js', TEMPLATE_DIR_URI.('/js/jquery.Jcrop.js' ),array(),'',true);	
+			wp_enqueue_script('agc-jquery-jcrop-js', TEMPLATE_DIR_URI.('/js/jquery.Jcrop.js' ),array(),'',true);
 		}
 		wp_enqueue_script('bp-global-js',get_stylesheet_directory_uri().'/includes/bp-includes/global.js',array(),'',true);
 		// Enqueue - No conditions as for use on all pages
@@ -257,21 +257,21 @@ if(!function_exists('om_enqueue_scripts')) {
 		wp_enqueue_script('validate');
 		wp_enqueue_script('form');
 		wp_enqueue_script('om_custom');
-		
+
 		// styles
 		wp_register_style('prettyPhoto', TEMPLATE_DIR_URI.'/css/prettyPhoto.css');
 		wp_enqueue_style('prettyPhoto');
 		wp_register_style('image-picker', TEMPLATE_DIR_URI.'/css/image-picker.css');
 		wp_enqueue_style('image-picker');
-	
-  }
+
+	}
 
 	add_action('wp_enqueue_scripts', 'om_enqueue_scripts');
 }
 
 /*************************************************************************************
  *	More Functions
- *************************************************************************************/
+*************************************************************************************/
 
 require_once (TEMPLATEPATH . '/functions/misc.php');
 require_once (TEMPLATEPATH . '/functions/breadcrumbs.php');
@@ -294,14 +294,14 @@ require_once (TEMPLATEPATH . '/functions/myshala_remote_db.php');
 
 /*************************************************************************************
  *	TinyMCE Shortcodes button
- *************************************************************************************/
+*************************************************************************************/
 
 require_once (TEMPLATEPATH . '/tinymce/tinymce.php');
 
 
 /*************************************************************************************
  *	Theme Options
- *************************************************************************************/
+*************************************************************************************/
 
 require_once (TEMPLATEPATH . '/admin/admin-functions.php');
 require_once (TEMPLATEPATH . '/admin/admin-interface.php');
@@ -309,7 +309,7 @@ require_once (TEMPLATEPATH . '/functions/theme-options.php');
 
 /*************************************************************************************
  *	Custom Login Logo
- *************************************************************************************/
+*************************************************************************************/
 
 function om_custom_login_logo() {
 	echo '<style type="text/css">h1 a { background-image:url('.TEMPLATE_DIR_URI.'/img/custom-logo-login.png) !important; }</style>';
@@ -329,38 +329,38 @@ add_filter('login_headertitle', 'om_login_headertitle');
 
 /*************************************************************************************
  *	Sidebar Sliding
- *************************************************************************************/
+*************************************************************************************/
 
 function om_sliding_sidebar() {
 
 	echo '<script>jQuery(document).ready(function(){sidebar_slide_init();});</script>';
-	
+
 }
- 
+
 if(get_option(OM_THEME_PREFIX."sidebar_sliding") == 'true') {
-	
+
 	add_action('wp_head', 'om_sliding_sidebar');
-	
+
 }
 
 /*************************************************************************************
  *	Custom Events Plugin
- *************************************************************************************/
+*************************************************************************************/
 require_once(get_stylesheet_directory() . '/events/agc-events.php');
 
 /*************************************************************************************
  *	Communications Module
- *************************************************************************************/
+*************************************************************************************/
 require_once(get_stylesheet_directory() . '/communications/agc_com_module.php');
 
 /*************************************************************************************
  *	Book Reviews Function
- *************************************************************************************/
- 
- /* Register Post Type */
- add_action( 'init', 'create_bookreview_post_type' );
+*************************************************************************************/
+
+/* Register Post Type */
+add_action( 'init', 'create_bookreview_post_type' );
 function create_bookreview_post_type() {
-		$labels = array(
+	$labels = array(
 			'name' => _x('Book Reviews', 'post type general name'),
 			'singular_name' => _x('Book Review', 'post type singular name'),
 			'add_new' => _x('Add New', 'bookreview'),
@@ -374,7 +374,7 @@ function create_bookreview_post_type() {
 			'not_found_in_trash' => __('No Book Reviews found in Trash'),
 			'parent_item_colon' => '',
 			'menu_name' => __('Book Reviews')
-	
+
 	);
 	$args = array(
 			'labels' => $labels,
@@ -390,9 +390,9 @@ function create_bookreview_post_type() {
 			'menu_position' => null,
 			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
 	);
-	
+
 	register_post_type('bookreview',$args);
-	
+
 	register_taxonomy(
 			'bookreview_category',
 			'bookreview',
@@ -426,18 +426,18 @@ function show_bookreview_view($attr)
 {
 	/**
 	 * get the view page
-	 * 
+	 *
 	 */
 	$view_page = $attr['view_page'];
 	$bookreview_post;
-		
+
 	if($view_page == 'HOME')
 	{
 		//create link
 		$link = get_bloginfo('url') . '/book-reviews/';
 		echo '<div id="reviews-box" class="reviews-box-class">
-				<h3 class="widget-title"><a title="View all Book Reviews" href="'. $link .'">Book Reviews</a></h3>
-				<ul class="clearfix">';
+		<h3 class="widget-title"><a title="View all Book Reviews" href="'. $link .'">Book Reviews</a></h3>
+		<ul class="clearfix">';
 		//get recent 3 bookreview post
 		$bookreview_post = new WP_Query('post_type=bookreview&posts_per_page=3');
 	}
@@ -447,99 +447,110 @@ function show_bookreview_view($attr)
 		$link = get_bloginfo('url') . '/add-review';
 		echo '<a title="Add Book Review" href="'. $link .'" class="button add-review-btn">Add Book Review</a>';
 		echo '<div id="reviews-box" class="reviews-box-class">
-				<ul class="clearfix">';
+		<ul class="clearfix">';
 		//get all book review posts
-		
+
 		$bookreview_post = new WP_Query(array('post_type' => 'bookreview','posts_per_page' => 6,'paged' => get_query_var('paged')));
 	}
 	elseif($view_page == 'MY_REVIEWS')
 	{
 		//create link
-		global $user_ID;  
+		global $user_ID;
 		$link = get_bloginfo('url') . '/add-review';
 		if(bp_displayed_user_id()== $user_ID)
 		{
 			echo '<a title="Add Book Review" href="'. $link .'" class="button size-mini">Add Book Review</a>';
 		}
 		echo '<div id="reviews-box" class="reviews-box-class">
-				<ul class="clearfix">';
+		<ul class="clearfix">';
 		//get all reviews by author
 		$bookreview_post = new WP_Query('post_type=bookreview&author='. bp_displayed_user_id() . '&posts_per_page=-1');
 	}
-	
+
 	//var_dump($bookreview_post);
-	
+
 	if($bookreview_post->have_posts())
 	{
-		while($bookreview_post->have_posts()): 
+		while($bookreview_post->have_posts()):
 			
-			$bookreview_post->the_post(); 
-				
-			//create proper date format
- 			$time = strtotime(get_the_date());
- 			$date = date('d M y',$time);
- 			 			
- 			//strip post content if extra
- 			$post_content = (strlen(get_the_content()) > 200) ? substr(get_the_content(),0,197) . '...' : get_the_content();
- 			//get_post($post->ID);
- 			
-			//trim post title
- 			$post_title = (strlen(get_the_title()) > 25) ? substr(get_the_title(),0,21) . '&raquo;' : get_the_title();
- 			
+		$bookreview_post->the_post();
+
+		//create proper date format
+		$time = strtotime(get_the_date());
+		$date = date('d M y',$time);
+
+		//strip post content if extra
+		$post_content = (strlen(get_the_content()) > 200) ? substr(get_the_content(),0,197) . '...' : get_the_content();
+		//get_post($post->ID);
+
+		//trim post title
+		$post_title = (strlen(get_the_title()) > 25) ? substr(get_the_title(),0,21) . '&raquo;' : get_the_title();
+
 		?>
-		<li>
-			<div class="review-thumb">
-			<?php 
-				if(has_post_thumbnail(get_the_ID())):
-					echo get_the_post_thumbnail(get_the_ID(),array(193,193)); 
-				else:
-					echo '<img src="'. get_template_directory_uri() . '/img/nobookimage.png" width="193" height="193" alt="' . get_the_title() . '"/>';	
-				endif;	
-			 ?>
-			<span class="date"><?php echo $date; ?></span>
-			</div>
-			<h4><a title="<?php echo get_the_title(); ?>" href="<?php echo get_permalink( get_the_ID() ); ?>"> 
-				<?php //echo $post_title; ?><?php echo get_the_title(); ?>
-			</a></h4>
-			<div class="review-cats">
-				<?php 
-					$categories = get_the_terms(get_the_ID(), 'bookreview_category' ); 
-					if($categories): 
-				?>
-				Posted in
-				<?php foreach($categories as $category ):?>
-					<a href="<?php echo get_term_link($category, 'bookreview_category' ); ?>" class="box_tag"><?php echo $category->name; ?></a>&nbsp;
-			 	<?php endforeach; endif; ?>
-			</div>
-			<div class="review-meta">
-				Reviewed by <a href="<?php echo bp_core_get_user_domain(get_the_author_ID()); ?>"><?php echo bp_core_get_user_displayname(get_the_author_ID());  ?></a>
-			</div>
-			<div class="review-desc">
-				<?php echo $post_content;?>
-				<a href="<?php echo get_permalink( get_the_ID() ); ?>" class="">Read More</a>
-			</div>
-			<div class="review-bar clear">
-				<div class="review-actions">
-					<?php if($view_page == 'MY_REVIEWS' && is_user_logged_in() && (get_the_author_ID() == bp_displayed_user_id())): ?>
-						<div class="edit-options">
-							 <a href="<?php echo get_bloginfo('url') . '/edit-review/?id=' . get_the_ID()?>" class="edit-classified box_tag button size-mini">Edit</a>
-							 <span class="delete_review box_tag button size-mini" review_id="<?php echo get_the_ID();?>">Delete</span>
-						</div> 
-					<?php else: endif; ?>
-				</div>
-			</div>
-		</li>
-				
+<li>
+	<div class="review-thumb">
 		<?php 
-		endwhile; 
-		
-		//close the div
-		echo '</ul></div><div class="clearfix clear"></div>';
-		
-		//handle delete operation
-		if($view_page == 'MY_REVIEWS'):
+		if(has_post_thumbnail(get_the_ID())):
+		echo get_the_post_thumbnail(get_the_ID(),array(193,193));
+		else:
+		echo '<img src="'. get_template_directory_uri() . '/img/nobookimage.png" width="193" height="193" alt="' . get_the_title() . '"/>';
+		endif;
 		?>
-				<script>
+		<span class="date"><?php echo $date; ?> </span>
+	</div>
+	<h4>
+		<a title="<?php echo get_the_title(); ?>"
+			href="<?php echo get_permalink( get_the_ID() ); ?>"> <?php //echo $post_title; ?>
+			<?php echo get_the_title(); ?>
+		</a>
+	</h4>
+	<div class="review-cats">
+		<?php 
+		$categories = get_the_terms(get_the_ID(), 'bookreview_category' );
+		if($categories):
+		?>
+		Posted in
+		<?php foreach($categories as $category ):?>
+		<a
+			href="<?php echo get_term_link($category, 'bookreview_category' ); ?>"
+			class="box_tag"><?php echo $category->name; ?> </a>&nbsp;
+		<?php endforeach; endif; ?>
+	</div>
+	<div class="review-meta">
+		Reviewed by <a
+			href="<?php echo bp_core_get_user_domain(get_the_author_ID()); ?>"><?php echo bp_core_get_user_displayname(get_the_author_ID());  ?>
+		</a>
+	</div>
+	<div class="review-desc">
+		<?php echo $post_content;?>
+		<a href="<?php echo get_permalink( get_the_ID() ); ?>" class="">Read
+			More</a>
+	</div>
+	<div class="review-bar clear">
+		<div class="review-actions">
+			<?php if($view_page == 'MY_REVIEWS' && is_user_logged_in() && (get_the_author_ID() == bp_displayed_user_id())): ?>
+			<div class="edit-options">
+				<a
+					href="<?php echo get_bloginfo('url') . '/edit-review/?id=' . get_the_ID()?>"
+					class="edit-classified box_tag button size-mini">Edit</a> <span
+					class="delete_review box_tag button size-mini"
+					review_id="<?php echo get_the_ID();?>">Delete</span>
+			</div>
+			<?php else: endif; ?>
+		</div>
+	</div>
+</li>
+
+<?php 
+endwhile;
+
+//close the div
+echo '</ul></div><div class="clearfix clear"></div>';
+
+//handle delete operation
+if($view_page == 'MY_REVIEWS'):
+?>
+<script>
 				jQuery('.delete_review').click(function(){
 					var c = confirm("Are you sure you want to delete this review?");
 		
@@ -562,29 +573,37 @@ function show_bookreview_view($attr)
 					}	
 				});	
 				</script>
-		
-		<?php 
-		endif;
-		
-		//if main reviews page. add pagination 
-		if($view_page == 'BOOK_REVIEWS'	) :
-		?>
-				
-		<?php
-			$nav_prev = get_previous_posts_link(__('Newer Reviews', 'om_theme'), 20);
-			$nav_next = get_next_posts_link(__('Older Reviews', 'om_theme'), 20);
-			if( $nav_prev || $nav_next ) {
-				?>
-				<div class="navigation-prev-next">
-					<?php if($nav_prev){?><div class="navigation-prev"><?php echo $nav_prev; ?></div><?php } ?>
-					<?php if($nav_next){?><div class="navigation-next"><?php echo $nav_next; ?></div><?php } ?>
-					<div class="clear"></div>
-				</div>
-				<?php
-			}		
-		?>
-		<?php 
-		endif;
+
+<?php 
+endif;
+
+//if main reviews page. add pagination
+if($view_page == 'BOOK_REVIEWS'	) :
+?>
+
+<?php
+$nav_prev = get_previous_posts_link(__('Newer Reviews', 'om_theme'), 20);
+$nav_next = get_next_posts_link(__('Older Reviews', 'om_theme'), 20);
+if( $nav_prev || $nav_next ) {
+	?>
+<div class="navigation-prev-next">
+	<?php if($nav_prev){?>
+	<div class="navigation-prev">
+		<?php echo $nav_prev; ?>
+	</div>
+	<?php } ?>
+	<?php if($nav_next){?>
+	<div class="navigation-next">
+		<?php echo $nav_next; ?>
+	</div>
+	<?php } ?>
+	<div class="clear"></div>
+</div>
+<?php
+}
+?>
+<?php 
+endif;
 	}
 	else
 	{
@@ -597,8 +616,8 @@ function show_bookreview_view($attr)
 		{
 			echo '</ul></div><div class="clearfix clear"></div>';
 			echo '<div class="alert alert-info">No reviews found</div>';
-		}	
-					
+		}
+			
 	}
 }
 
@@ -607,18 +626,18 @@ add_shortcode('show_bookreview_view', 'show_bookreview_view');
 /* Delete a Review */
 function delete_bookreview()
 {
-	
+
 	//get the ID
 	$bookreview_id = $_POST['bookreview_id'];
 	//its was easy :)
 	$result = wp_delete_post($bookreview_id);
 	//$result = true;
-	
+
 	if(!$result)
 		echo '0';
-	else 
+	else
 		echo '1';
-	
+
 	die(); //!important
 
 }
@@ -627,15 +646,22 @@ add_action('wp_ajax_delete_bookreview', 'delete_bookreview');
 
 /* Book Review Icon */
 function review_icons() {
-?>
+	?>
 <style type="text/css" media="screen">
 #menu-posts-bookreview .wp-menu-image {
-	background: url(<?php bloginfo('template_url') ?>/img/bookreview-icon.png) no-repeat 6px -32px !important;
+	background: url(<? php bloginfo('template_url')?>/img/bookreview-icon.png)
+		no-repeat 6px -32px !important;
 }
-#menu-posts-bookreview:hover .wp-menu-image, #menu-posts-bookreview.wp-has-current-submenu .wp-menu-image {
-	background-position:6px 0px !important;
+
+#menu-posts-bookreview:hover .wp-menu-image,#menu-posts-bookreview.wp-has-current-submenu .wp-menu-image
+	{
+	background-position: 6px 0px !important;
 }
-#icon-edit.icon32-posts-bookreview {background: url(<?php bloginfo('template_url') ?>/img/bookreview-32x32.png) no-repeat;}
+
+#icon-edit.icon32-posts-bookreview {
+	background: url(<? php bloginfo('template_url')?>/img/bookreview-32x32.png)
+		no-repeat;
+}
 </style>
 
 <?php }
@@ -644,35 +670,35 @@ add_action( 'admin_head', 'review_icons' );
 /* Add Book Review Profile Tab */
 function my_bp_nav_adder()
 {
-    bp_core_new_nav_item(
-        array(
-            'name' => __('Book Reviews', 'buddypress'),
-            'slug' => 'book-reviews',
-            'position' => 90,
-            'show_for_displayed_user' => true,
-            'screen_function' => 'bookreview_tab',
-            'item_css_id' => 'all-conversations'
-        ));
-        print_r($wp_filter); 
+	bp_core_new_nav_item(
+			array(
+					'name' => __('Book Reviews', 'buddypress'),
+					'slug' => 'book-reviews',
+					'position' => 90,
+					'show_for_displayed_user' => true,
+					'screen_function' => 'bookreview_tab',
+					'item_css_id' => 'all-conversations'
+			));
+	print_r($wp_filter);
 }
 function bookreview_tab () {
-    //add title and content here - last is to call the members plugin.php template
-    add_action( 'bp_template_title', 'bookreview_tab_title' );
-    add_action( 'bp_template_content', 'bookreview_tab_content' );
-    bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
+	//add title and content here - last is to call the members plugin.php template
+	add_action( 'bp_template_title', 'bookreview_tab_title' );
+	add_action( 'bp_template_content', 'bookreview_tab_content' );
+	bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
 }
 
 function bookreview_tab_title() {
-    echo 'My Book Reviews';
+	echo 'My Book Reviews';
 }
-function bookreview_tab_content() { 
+function bookreview_tab_content() {
 	echo do_shortcode('[show_bookreview_view view_page=MY_REVIEWS]');
 }
 add_action( 'bp_setup_nav', 'my_bp_nav_adder' );
 
 /*************************************************************************************
  *	Login Steps Functions
- *************************************************************************************/
+*************************************************************************************/
 function agc_login_steps_redirect_loggedin()
 {
 	if(is_page_template('template-login-steps.php'))
@@ -687,7 +713,7 @@ function agc_login_steps_redirect_loggedin()
 		{
 			wp_redirect(get_bloginfo('url')."/millennium-community/");
 			exit;
-		}			
+		}
 	}
 }
 add_action('template_redirect', 'agc_login_steps_redirect_loggedin');
@@ -705,13 +731,13 @@ function agc_login_steps_getset_step($step_number = 0,$set = false)
 {
 	$current_step = get_user_meta(bp_loggedin_user_id(),'agc_login_steps_completed',true);
 	$current_step = ($current_step)?$current_step:0;
-	
+
 	if($set)
 	{
 		update_user_meta(bp_loggedin_user_id(),'agc_login_steps_completed',$step_number,$current_step);
-		
+
 		do_action('agc_after_login_step_saved',$step_number,$current_step);
-		
+
 		return;
 	}
 	return $current_step;
@@ -721,7 +747,7 @@ function agc_login_steps_getset_step($step_number = 0,$set = false)
  * @param string $redirect_to
  * @param string $url_redirect_to
  * @param object $user
- * @return string 
+ * @return string
  */
 function agc_login_steps_redirect($redirect_to, $url_redirect_to, $user)
 {
@@ -741,7 +767,7 @@ function agc_login_steps_redirect($redirect_to, $url_redirect_to, $user)
 add_filter('login_redirect', 'agc_login_steps_redirect', 10, 3);
 /**
  * Function to get the profile group ids.
- * @return array: group ids 
+ * @return array: group ids
  */
 function agc_get_xprofile_group_ids()
 {
@@ -751,7 +777,7 @@ function agc_get_xprofile_group_ids()
 	{
 		$group_ids[] = $groups[$i]->id;
 	}
-	
+
 	return $group_ids;
 }
 
@@ -762,23 +788,23 @@ function agc_ajax_bp_xprofile_save()
 {
 	$params = array();
 	parse_str($_POST['fields'],$params);
-	
+
 	$success = array();
-	
+
 	$field_ids = explode(',',$params['field_ids']);
-	
+
 	foreach($field_ids as $field_id)
 	{
 		if($params['field_'.$field_id])
 			$value = $params['field_'.$field_id];
 		else
 			$value = null;
-		
+
 		if($params['field_'.$field_id.'_date'])
 		{
 			$value 	= date( 'Y-m-d H:i:s', strtotime( $params['field_'.$field_id.'_date'] ));
 		}
-		
+
 		$success[$field_id] = xprofile_set_field_data( $field_id, bp_loggedin_user_id(), $value , true );
 	}
 	$step 	 = $_POST['step'];
@@ -826,7 +852,7 @@ function agc_set_core_avatar_image()
 {
 	global $bp;
 	header( "Content-Type: application/json" );
-		
+
 	if (! bp_core_avatar_handle_crop( array( 'avatar_dir' => 'avatars','item_id' => bp_loggedin_user_id() , 'original_file' => $_POST['image_src'], 'crop_x' => $_POST['x'], 'crop_y' => $_POST['y'], 'crop_w' => $_POST['w'], 'crop_h' => $_POST['h'] )))
 		$result = array('status' => 'fail', 'msg' => 'There was a problem cropping your avatar, please try uploading it again','upload_path' => $_POST['image_src']);
 	else
@@ -835,7 +861,7 @@ function agc_set_core_avatar_image()
 		agc_login_steps_getset_step($step,true);
 		$result = array('status' => 'success', 'msg' => 'Your new avatar was uploaded successfully!','values' => array('x' => $_POST['x'],'y' => $_POST['y'],'w' => $_POST['w'],'h' => $_POST['h']));
 	}
-	
+
 	echo json_encode($result);
 	die();
 }
@@ -851,9 +877,9 @@ function acg_change_password()
 	$old_pass 		= $_POST['agc_old_password'];
 	$new_pass 		= $_POST['agc_new_password'];
 	$re_new_pass 	= $_POST['agc_re_new_password'];
-	
+
 	$user = get_user_by('id', bp_loggedin_user_id());
-	
+
 	if(is_user_logged_in())
 	{
 		if ( wp_check_password( $old_pass, $user->data->user_pass, $user->ID)) {
@@ -878,9 +904,9 @@ function acg_change_password()
 	{
 		$response = array('success'=> false,'msg' => 'Sorry but you need to be logged in to change your password.');
 	}
-	
-	
-	
+
+
+
 	header( "Content-Type: application/json" );
 	echo json_encode($response);
 	die();
@@ -940,7 +966,7 @@ function agc_custom_xprofile_select_button($html, $option, $field_id, $selected,
 {
 	$field_data = bp_get_profile_field_data( array('field' => $field_id, 'user_id' => bp_loggedin_user_id()));
 	$selected = ( $option->name == $field_data )?' selected="selected"':'';
-	
+
 	return  '<option' . $selected . ' value="' . esc_attr( stripslashes( $option->name ) ) . '">' . esc_attr( stripslashes( $option->name ) ) . '</option>';
 }
 add_filter('bp_get_the_profile_field_options_select', 'agc_custom_xprofile_select_button',10,5);
@@ -958,7 +984,7 @@ function agc_custom_xprofile_multi_select_button($html, $option, $field_id, $sel
 {
 	$field_data = bp_get_profile_field_data( array('field' => $field_id, 'user_id' => bp_loggedin_user_id()));
 	$selected = ( $option->name == $field_data )?' selected="selected"':'';
-	
+
 	return  '<option' . $selected . ' value="' . esc_attr( stripslashes( $option->name ) ) . '">' . esc_attr( stripslashes( $option->name ) ) . '</option>';
 }
 add_filter('bp_get_the_profile_field_options_multiselect', 'agc_custom_xprofile_multi_select_button',10,5);
@@ -974,8 +1000,8 @@ function agc_login_steps_bubbles_script()
 {
 	global $agc_login_step;
 	if(is_page_template('template-login-steps.php')):?>
-	
-	<script type="text/javascript">
+
+<script type="text/javascript">
 		jQuery(document).ready(function(){
 			jQuery('#bubbles').progressBubbles( {
 			 bubbles : [
@@ -997,7 +1023,7 @@ function agc_login_steps_bubbles_script()
 			});
 	</script>
 <?php 
-	endif;
+endif;
 }
 add_action('wp_footer','agc_login_steps_bubbles_script');
 
@@ -1007,7 +1033,7 @@ add_action('wp_footer','agc_login_steps_bubbles_script');
 function agc_login_steps_pass_change_script()
 {
 	if(is_page_template('template-login-steps.php')):?>
-	<script type="text/javascript">
+<script type="text/javascript">
 		jQuery(document).ready(function(){
 			jQuery('#agcChangePassword').click(function(){
 					jQuery('#loading-acgChangePassword').show();
@@ -1048,8 +1074,8 @@ function agc_login_steps_pass_change_script()
 				});
 			});
 	</script>
-	<?php
-	endif;	
+<?php
+endif;
 }
 add_action('wp_footer','agc_login_steps_pass_change_script');
 
@@ -1059,7 +1085,7 @@ function agc_login_steps_goto_step()
 	if(is_page_template('template-login-steps.php')):
 	$completed_steps = agc_login_steps_getset_step();
 	?>
-	<script type="text/javascript">
+<script type="text/javascript">
 	jQuery(document).ready(function(){
 		<?php for($i = 1; $i <= $completed_steps ; $i++):?>
 			jQuery('#bubbles').progressBubbles('progress');
@@ -1069,16 +1095,17 @@ function agc_login_steps_goto_step()
 		jQuery('div#step-<?php echo $completed_steps+1;?>').show();	
 	});
 	</script>
-	<?php
-	endif;
+<?php
+endif;
 }
 add_action('wp_footer','agc_login_steps_goto_step');
 
 /*************************************************************************************
  *	Photo Select Tab Function
- *************************************************************************************/
+*************************************************************************************/
 function my_photos_bp_nav()
 {
+
 	if ( bp_displayed_user_id()== bp_loggedin_user_id() || is_site_admin())
 	
 	{
@@ -1092,34 +1119,36 @@ function my_photos_bp_nav()
             'item_css_id' => 'all-conversations'
         ));
 	}
+
 }
 function my_photos_tab () {
-    //add title and content here - last is to call the members plugin.php template
-    add_action( 'bp_template_title', 'my_photos_tab_title' );
-    add_action( 'bp_template_content', 'my_photos_tab_content' );
-    bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
+	//add title and content here - last is to call the members plugin.php template
+	add_action( 'bp_template_title', 'my_photos_tab_title' );
+	add_action( 'bp_template_content', 'my_photos_tab_content' );
+	bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
 }
 
 function my_photos_tab_title() {
-    echo 'My Photos';
+	echo 'My Photos';
 }
-function my_photos_tab_content() { 
-	
+function my_photos_tab_content() {
+
 	if (wp_verify_nonce($_POST['save-my-photos'],'action-save-my-photos')  )
 	{
 		$msh_image_picker = (!isset($_POST['msh_image_picker']) || empty($_POST['msh_image_picker'])) ? array():$_POST['msh_image_picker'];
-		 
+			
 		update_user_meta(bp_displayed_user_id(),'photos_picked',$msh_image_picker);
 	}
 	global $wpdb;
 	$refid = get_user_meta(bp_displayed_user_id(),'msh_remote_refid',true);
 	if($refid)
-	{	
+	{
 		$get_gathering_images = array(
 				'function' => "getGatheringImages",
 				'refno' => $refid
 		);
 		//$remote_query = $wpdb->prepare("select phataksir_events_attachments.* from phataksirkundalievent INNER JOIN phataksir_events_attachments where mgmtgroupid REGEXP  '(^|,)".$refid."($|,)' and   eventid =  phataksirkundalievent.id");
+ 
 	 
 	 	//$remote_query = $wpdb->prepare("SELECT * FROM `phataksir_events_attachments`");
 	 	
@@ -1202,6 +1231,9 @@ function my_photos_tab_content() {
 			    </script>';
 				?>
 				<script type="text/javascript">
+ 
+
+		 
 				jQuery(document).ready(function(){
 					jQuery('#image-update').hide();
 						jQuery('.msh-photo-select-submit').click(function(e){
@@ -1214,7 +1246,7 @@ function my_photos_tab_content() {
 							});
 					});
 				</script>
-				<?php
+<?php
 		}
 	}
 }
@@ -1244,8 +1276,8 @@ function my_dvd_bp_nav()
 }
 function my_dvd_tab () {
 	//add title and content here - last is to call the members plugin.php template
-	add_action( 'bp_template_title', 'my_photos_tab_title' );
-	add_action( 'bp_template_content', 'my_photos_tab_content' );
+	add_action( 'bp_template_title', 'my_dvd_tab_title' );
+	add_action( 'bp_template_content', 'my_dvd_tab_content' );
 	bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
 }
 
@@ -1254,64 +1286,242 @@ function my_dvd_tab_title() {
 }
 function my_dvd_tab_content() {
 
-	if (wp_verify_nonce($_POST['save-my-photos'],'action-save-my-photos')  )
+	$upload_dir = wp_upload_dir();
+	$dvdpath = $upload_dir['baseurl']."/dvd/";
+	
+	if (wp_verify_nonce($_POST['save-my-dvd'],'action-save-my-dvd')  )
 	{
-		$msh_image_picker = (!isset($_POST['msh_image_picker']) || empty($_POST['msh_image_picker'])) ? array():$_POST['msh_image_picker'];
+		$msh_image_picker = (!isset($_POST['msh_dvd_picker']) || empty($_POST['msh_dvd_picker'])) ? array():$_POST['msh_image_picker'];
 			
-		update_user_meta(bp_displayed_user_id(),'photos_picked',$msh_image_picker);
+		update_user_meta(bp_displayed_user_id(),'dvd_picked',$msh_dvd_picker);
 	}
 	global $wpdb;
 	$refid = get_user_meta(bp_displayed_user_id(),'msh_remote_refid',true);
 	if($refid)
 	{
-		$get_gathering_images = array(
-				'function' => "getGatheringImages",
-				'refno' => $refid
-		);
-		//$remote_query = $wpdb->prepare("select phataksir_events_attachments.* from phataksirkundalievent INNER JOIN phataksir_events_attachments where mgmtgroupid REGEXP  '(^|,)".$refid."($|,)' and   eventid =  phataksirkundalievent.id");
-
-		//$remote_query = $wpdb->prepare("SELECT * FROM `phataksir_events_attachments`");
 		 
 
-		$result = fetch_from_local_db($get_gathering_images);
-		$selected_photos = array();
+		$selected_dvds = array();
 			
-		$selected_photos = get_user_meta(bp_displayed_user_id(),'photos_picked');
+		$selected_dvds = get_user_meta(bp_displayed_user_id(),'dvd_picked');
+		
 			
-		$selected_photos = empty($selected_photos) ? array() : $selected_photos[0];
+		$selected_dvds = empty($selected_dvds) ? array() : $selected_dvds[0];
 
 			
-		if (in_array("No rows found",$result) && count($result)==1)
+		
+		function get_dvd_content($item)
 		{
-			echo "No Photos Found!";
-		}
-		else
-		{
-
-			echo '<p>Please select photos by clicking on them, then click on choose selected below.</p>';
-			echo '<form class="image-select-form" action="" method="post">';
-			echo '<select multiple="multiple" class="image-picker show-labels show-html" name="msh_image_picker[]">';
-				
-			if($result)
-			{
-				foreach ($result as $resultdata) {
-					$show_selected = "";
-					if(in_array($resultdata->path, $selected_photos))
-					{
-						$show_selected = "selected";
-					}
-					echo '<option data-img-src="'.$resultdata->path.'" value="'.$resultdata->path.'" '.$show_selected.'>'.$resultdata->description.'</option>';
-				}
+			$str = "";
+			switch ($item == "dvd1") {
+				case "Prog no 2101 - 2112":
+					$content_array = array(
+					0 => '2101 | N3 | Lakadi ki kathi | A tribute to the ever green tak bak song',
+					1 => '2102 | N1 | Barbie Girl | Children move to the super hit song by Aqua',
+					2 => '2103 | S3 | Barfi | A cute dance performance',
+					3 => '2104 | S7 | Bhumro | A Kashmiri folk dance by our tiny tots',
+					4 => '2105 | J6 | Zoobi doobi | A fun dance to a Bollywood hit',
+					5 => '2106 | 2 | Yoga | For physical fitness and peace of mind',
+					6 => '2107 | 4A, 4B | Honesty pays | A play showing the value of Honesty ',
+					7 => '2108 | 1A, 1B | Dhoom Tana | A superb collage across different eras ',
+					8 => '2109 | 2A, 2B | I am the Best | Watch them assert their goodness!',
+					6 => '2110 | 2A, 2B | Dinus Bill | A skit about the importance of values',
+					7 => '2111 | 2C, 2D | Le gai le gai | Our tribute to the late  Yash Chopra',
+					8 => '2112 | 4C, 4D | Oh Haseena | Dance away as old is indeed, gold!',
+					);
+					
+					break;
 					
 					
+					
+		
 			}
+			
+			
+			switch ($item == "dvd2") {
+				case "Prog no 2201 - 2212":
+					$content_array = array(
+					0 => '2201 | N7 | Gore Nal | A Punjabi folk dance',
+					1 => '2202 | N2 | Rangeela Re | Swaying to the foot tapping number',
+					2 => '2203 | J1 | Gore gore | Dance away as old is indeed, gold!',
+					3 => '2204 | J2 | Aika dajiba | A Marathi super hit dance',
+					4 => '2205 | S1 | Jai ho | Swinging to the Oscar winning song',
+					5 => '2206 | 1A, 1B | Kids in the garden | Drama showing how  life is beautiful',
+					6 => '2207 | 1A, 1B | Dhadak Dhadak | Energy, power and force packed dance',
+					7 => '2208 | 3A, 3B | My Bat | Drama showing self learning is the best',
+					8 => '2209 | 3A, 3B | Ayo re maro Dholana | Children dance to the tune of the desert',
+					6 => '2210 | 6A, 6B | Barso re | A rain dance',
+					7 => '2211 | 8A, 8B | Jogan jogan | A rajasthani folk dance',
+					8 => '2212 | 9B | Kahe ched ched mohe | A classical dance',
+					8 => '2213 | 9A, 9B | Disco Diwane | Seniors boogey away to a popular hit',
+					);
+						
+					break;
+						
+						
+						
+			
+			}
+			
+			
+			switch ($item == "dvd3") {
+				case "Prog no 2101 - 2112":
+					$content_array = array(
+					0 => '2201 | N7 | Gore Nal | A Punjabi folk dance',
+					1 => '2202 | N2 | Rangeela Re | Swaying to the foot tapping number',
+					2 => '2203 | J1 | Gore gore | Dance away as old is indeed, gold!',
+					3 => '2204 | J2 | Aika dajiba | A Marathi super hit dance',
+					4 => '2205 | S1 | Jai ho | Swinging to the Oscar winning song',
+					5 => '2206 | 1A, 1B | Kids in the garden | Drama showing how  life is beautiful',
+					6 => '2207 | 1A, 1B | Dhadak Dhadak | Energy, power and force packed dance',
+					7 => '2208 | 3A, 3B | My Bat | Drama showing self learning is the best',
+					8 => '2209 | 3A, 3B | Ayo re maro Dholana | Children dance to the tune of the desert',
+					6 => '2210 | 6A, 6B | Barso re | A rain dance',
+					7 => '2211 | 8A, 8B | Jogan jogan | A rajasthani folk dance',
+					8 => '2212 | 9B | Kahe ched ched mohe | A classical dance',
+					8 => '2213 | 9A, 9B | Disco Diwane | Seniors boogey away to a popular hit',
+					);
+			
+					break;
+			
+			
+			
+						
+			}
+		
+			$str .= "<table class='sample' cellspacing=10>";
+			$str .= "<tr>";
+			$content_value = explode("|",$value);
+			$str .= "<td>Code</td>";
+			$str .= "<td>Class</td>";
+			$str .= "<td>Program</td>";
+			$str .= "<td></td>";
+			$str .= "</tr>";
+			foreach ($content_array as $key => $value) {
+				$str .= "<tr>";
+				$content_value = explode("|",$value);
+				$str .= "<td>".$content_value[0]."</td>";
+				$str .= "<td>".$content_value[1]."</td>";
+				$str .= "<td>".$content_value[2]."</td>";
+				$str .= "<td>".$content_value[3]."</td>";
+				$str .= "</tr>";
+			}
+			$str .= "</table>";
+		
+			echo $str;
+		}
+		
+			?>
+			
+			
+			<!-- HIDDEN / POP-UP DIV -->
+				    <div id="pop-up1">
+				      <h3>Prog no 2101 - 2112</h3>
+				      <p>
+				      <?php get_dvd_content("dvd1"); ?>
+				        
+				      </p>
+				    </div>
+				    <div id="pop-up2">
+				      <h3>Prog no 2201 - 2212</h3>
+				      <p>
+				        <?php get_dvd_content("dvd2"); ?>
+				      </p>
+				    </div>
+				    <div id="pop-up3">
+				      <h3>DVD 3</h3>
+				      <p>
+				        <?php get_dvd_content("dvd3"); ?>
+				      </p>
+				    </div>
+				    
+				    <div id="pop-up4">
+				      <h3>DVD 4</h3>
+				      <p>
+				        first DVD
+				      </p>
+				    </div>
+				    
+				    <div id="pop-up5">
+				      <h3>DVD 5</h3>
+				      <p>
+				        first DVD
+				      </p>
+				    </div>
+				    
+				    <div id="pop-up6">
+				      <h3>DVD 6</h3>
+				      <p>
+				        first DVD
+				      </p>
+				    </div>
+				    
+				    <div id="pop-up7">
+				      <h3>DVD 7</h3>
+				      <p>
+				        first DVD
+				      </p>
+				    </div>
+				    
+				    <div id="pop-up8">
+				      <h3>DVD 8</h3>
+				      <p>
+				        first DVD
+				      </p>
+				    </div>
+				    
+				    <div id="pop-up9">
+				      <h3>DVD 9</h3>
+				      <p>
+				        first DVD
+				      </p>
+				    </div>
+				    
+				    <div id="pop-up10">
+				      <h3>DVD 10</h3>
+				      <p>
+				        first DVD
+				      </p>
+				    </div>
+			<?php
+			
+		
+				
+
+			echo '<p>Please select DVD by clicking on them, then click on choose selected below.</p>';
+			echo '<form class="image-select-form" action="" method="post">';
+			echo '<select multiple="multiple" class="dvd-picker show-labels show-html" name="msh_dvd_picker[]">';
+
+				
+			$show_selected = "";
+			//	if(in_array($resultdata->path, $selected_dvd))
+			//	{
+			//		$show_selected = "selected";
+			//	}
+			for($i=1;$i<=10;$i++)
+			{}
+				
+				echo '<option id="div1" data-img-src="'.$dvdpath.'1.jpg" value="'.$dvdpath.'1.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'2.jpg" value="'.$dvdpath.'2.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'3.jpg" value="'.$dvdpath.'3.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'4.jpg" value="'.$dvdpath.'4.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'5.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'6.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'7.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'8.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'9.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'10.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'11.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'12.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
+			
 			echo '</select>';
+			
 			echo '<div class="display-select-info">You have selected: <span></span></div>';
 			echo '<input type="submit" class="" value="Choose Selected" />';
-			wp_nonce_field('action-save-my-photos','save-my-photos');
+			wp_nonce_field('action-save-my-dvd','save-my-dvd');
 			echo '</form>';
-			echo '<script>jQuery(document).ready(function(){jQuery("select.image-picker").imagepicker({show_label : true});});</script>';
-			echo '<script>jQuery(document).ready(function(){var $container = jQuery(".image_picker_selector");
+			echo '<script>jQuery(document).ready(function(){jQuery("select.dvd-picker").imagepicker({show_label : true});});</script>';
+			echo '<script>jQuery(document).ready(function(){var $container = jQuery(".dvd_picker_selector");
 			$container.imagesLoaded( function(){
 			$container.masonry({
 			itemSelector : "li"
@@ -1320,10 +1530,10 @@ function my_dvd_tab_content() {
 			echo '<script>
 			jQuery(document).ready(function(){
 			// This selector is called every time a select box is changed
-			jQuery("select.image-picker").change(function(){
+			jQuery("select.dvd-picker").change(function(){
 			// variable to hold string
 			var sel = "";
-			jQuery("select.image-picker option:selected").each(function(){
+			jQuery("select.dvd-picker option:selected").each(function(){
 			// when the select box is changed, we add the value text to the varible
 			sel += jQuery(this).html() + ",";
 		});
@@ -1333,20 +1543,136 @@ function my_dvd_tab_content() {
 		});
 		</script>';
 			?>
-				<script type="text/javascript">
+<script type="text/javascript">
 				jQuery(document).ready(function(){
-						jQuery('.msh-photo-select-submit').click(function(e){
+						jQuery('.msh-dvd-select-submit').click(function(e){
 								e.preventDefault(); //dont submit the form untill confirmed
-								var check = confirm('Are you sure you want to select these photos?');
+								var check = confirm('Are you sure you want to select these dvds?');
 								if(check == true)
 								{	
-									jQuery('.image-select-form').submit();
+									jQuery('.dvd-select-form').submit();
 								} 
 							});
+
+						/* var moveLeft = 0.1;
+						  var moveDown = 0.1;
+						
+						jQuery('#dvd1').mouseover(function() {
+							jQuery('div#pop-up1').show();
+						 
+							});
+
+						jQuery('#dvd1').mouseout(function() {
+							jQuery('div#pop-up1').hide();
+						 
+							});
+
+						jQuery('#dvd2').mouseover(function() {
+							jQuery('div#pop-up2').show();
+						 
+							});
+
+						jQuery('#dvd2').mouseout(function() {
+							jQuery('div#pop-up2').hide();
+
+							
+						});
+
+
+						jQuery('#dvd3').mouseover(function() {
+							jQuery('div#pop-up3').show();
+						 
+							});
+
+						jQuery('#dvd3').mouseout(function() {
+							jQuery('div#pop-up3').hide();
+
+							
+						});
+
+
+						jQuery('#dvd4').mouseover(function() {
+							jQuery('div#pop-up4').show();
+						 
+							});
+
+						jQuery('#dvd4').mouseout(function() {
+							jQuery('div#pop-up4').hide();
+
+							
+						});
+
+
+						jQuery('#dvd5').mouseover(function() {
+							jQuery('div#pop-up5').show();
+						 
+							});
+
+						jQuery('#dvd5').mouseout(function() {
+							jQuery('div#pop-up5').hide();
+
+							
+						});
+
+						jQuery('#dvd6').mouseover(function() {
+							jQuery('div#pop-up6').show();
+						 
+							});
+
+						jQuery('#dvd6').mouseout(function() {
+							jQuery('div#pop-up6').hide();
+
+							
+						});
+
+						jQuery('#dvd7').mouseover(function() {
+							jQuery('div#pop-up7').show();
+						 
+							});
+
+						jQuery('#dvd7').mouseout(function() {
+							jQuery('div#pop-up7').hide();
+
+							
+						});
+
+						jQuery('#dvd8').mouseover(function() {
+							jQuery('div#pop-up8').show();
+						 
+							});
+
+						jQuery('#dvd8').mouseout(function() {
+							jQuery('div#pop-up8').hide();
+
+							
+						});
+
+						jQuery('#dvd9').mouseover(function() {
+							jQuery('div#pop-up9').show();
+						 
+							});
+
+						jQuery('#dvd9').mouseout(function() {
+							jQuery('div#pop-up9').hide();
+
+							
+						});
+
+						jQuery('#dvd10').mouseover(function() {
+							jQuery('div#pop-up10').show();
+						 
+							});
+
+						jQuery('#dvd10').mouseout(function() {
+							jQuery('div#pop-up10').hide();
+
+							
+						});*/
+												
 					});
 				</script>
-				<?php
-		}
+<?php
+		 
 	}
 }
 add_action( 'bp_setup_nav', 'my_dvd_bp_nav' );
@@ -1369,13 +1695,13 @@ function fetch_from_local_db($data) {
 	curl_close($ch);
 	$return_value = unserialize($output);
 	return $return_value;
-		
+
 }
 
 add_filter( 'show_admin_bar', '__return_false' );
 
 function msh_display_avatar($user_id=0)
-{ 
+{
 	$refid = get_user_meta($user_id,'msh_remote_refid',true);
 
 	
@@ -1389,6 +1715,7 @@ function msh_display_avatar($user_id=0)
 		bp_displayed_user_avatar( 'type=full' );
 
 	}
-	
-	
+
+
 }
+

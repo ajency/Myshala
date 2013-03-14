@@ -217,13 +217,16 @@
         return this.opts.selected();
       }
     };
-
+    var i = 1; 
     ImagePickerOption.prototype.create_node = function() {
       var image, thumbnail;
+      var c = i++;
+      
+
       this.node = jQuery("<li/>");
       image = jQuery("<img class='image_picker_image'/>");
       image.attr("src", this.option.data("img-src"));
-      thumbnail = jQuery("<div class='thumbnail'>");
+      thumbnail = jQuery('<div class="thumbnail" id="dvd'+c+'">');
       thumbnail.click({
         option: this
       }, function(event) {
