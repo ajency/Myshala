@@ -1177,22 +1177,21 @@ function my_photos_tab_content() {
 				if($result)
 				{
 					 
-		 				foreach ($result as $resultdata) { 
+				foreach ($result as $resultdata) {
 							$show_selected = array();
+
+							$image_name= "";
+							$image_path = explode("/",$resultdata->path);
+							if (count($image_path) > 0)
+							{
+								$image_name = $image_path[count($image_path)-1];
+							}
 							if(in_array($resultdata->path, $selected_photos))
 							{
 								$show_selected = "selected";
-								$image_name= "";
-								$image_path = explode("/",$resultdata->path);
-								if (count($image_path) > 0)
-								{
-									$image_name = $image_path[count($image_path)-1];
-									$selected_images[]=$image_name;
-								
-								}
+								$selected_images[]=$image_name;
 							}
-						
-		 					 echo '<option data-img-src="'.$resultdata->path.'" value="'.$resultdata->path.'" '.$show_selected.'>'.$image_name.'</option>';
+							echo '<option data-img-src="'.$resultdata->path.'" value="'.$resultdata->path.'" '.$show_selected.'>'.$image_name.'</option>';
 							}
 						 
 						 
@@ -1297,8 +1296,8 @@ function my_dvd_tab_content() {
 	
 	if (wp_verify_nonce($_POST['save-my-dvd'],'action-save-my-dvd')  )
 	{
-		$msh_image_picker = (!isset($_POST['msh_dvd_picker']) || empty($_POST['msh_dvd_picker'])) ? array():$_POST['msh_image_picker'];
-			
+		$msh_dvd_picker = (!isset($_POST['msh_dvd_picker']) || empty($_POST['msh_dvd_picker'])) ? array():$_POST['msh_dvd_picker'];
+			//var_dump($msh_dvd_picker);
 		update_user_meta(bp_displayed_user_id(),'dvd_picked',$msh_dvd_picker);
 	}
 	global $wpdb;
@@ -1417,79 +1416,10 @@ function my_dvd_tab_content() {
 			echo $str;
 		}
 		
-			?>
+		
 			
 			
-			<!-- HIDDEN / POP-UP DIV -->
-				    <div id="pop-up1">
-				      <h3>Prog no 2101 - 2112</h3>
-				      <p>
-				      <?php get_dvd_content("dvd1"); ?>
-				        
-				      </p>
-				    </div>
-				    <div id="pop-up2">
-				      <h3>Prog no 2201 - 2212</h3>
-				      <p>
-				        <?php get_dvd_content("dvd2"); ?>
-				      </p>
-				    </div>
-				    <div id="pop-up3">
-				      <h3>DVD 3</h3>
-				      <p>
-				        <?php get_dvd_content("dvd3"); ?>
-				      </p>
-				    </div>
-				    
-				    <div id="pop-up4">
-				      <h3>DVD 4</h3>
-				      <p>
-				        first DVD
-				      </p>
-				    </div>
-				    
-				    <div id="pop-up5">
-				      <h3>DVD 5</h3>
-				      <p>
-				        first DVD
-				      </p>
-				    </div>
-				    
-				    <div id="pop-up6">
-				      <h3>DVD 6</h3>
-				      <p>
-				        first DVD
-				      </p>
-				    </div>
-				    
-				    <div id="pop-up7">
-				      <h3>DVD 7</h3>
-				      <p>
-				        first DVD
-				      </p>
-				    </div>
-				    
-				    <div id="pop-up8">
-				      <h3>DVD 8</h3>
-				      <p>
-				        first DVD
-				      </p>
-				    </div>
-				    
-				    <div id="pop-up9">
-				      <h3>DVD 9</h3>
-				      <p>
-				        first DVD
-				      </p>
-				    </div>
-				    
-				    <div id="pop-up10">
-				      <h3>DVD 10</h3>
-				      <p>
-				        first DVD
-				      </p>
-				    </div>
-			<?php
+			
 			
 		
 				
@@ -1500,30 +1430,88 @@ function my_dvd_tab_content() {
 
 				
 			$show_selected = "";
-			//	if(in_array($resultdata->path, $selected_dvd))
-			//	{
-			//		$show_selected = "selected";
-			//	}
-			for($i=1;$i<=10;$i++)
-			{}
+				if(in_array($dvdpath.'1.jpg', $selected_dvds))
+				{
+					$show_selected1 = "selected";
 				
-				echo '<option id="div1" data-img-src="'.$dvdpath.'1.jpg" value="'.$dvdpath.'1.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
-				echo '<option id="div1" data-img-src="'.$dvdpath.'2.jpg" value="'.$dvdpath.'2.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
-				echo '<option id="div1" data-img-src="'.$dvdpath.'3.jpg" value="'.$dvdpath.'3.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
-				echo '<option id="div1" data-img-src="'.$dvdpath.'4.jpg" value="'.$dvdpath.'4.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
-				echo '<option id="div1" data-img-src="'.$dvdpath.'5.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
-				echo '<option id="div1" data-img-src="'.$dvdpath.'6.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
-				echo '<option id="div1" data-img-src="'.$dvdpath.'7.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
-				echo '<option id="div1" data-img-src="'.$dvdpath.'8.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
-				echo '<option id="div1" data-img-src="'.$dvdpath.'9.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
-				echo '<option id="div1" data-img-src="'.$dvdpath.'10.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
-				echo '<option id="div1" data-img-src="'.$dvdpath.'11.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
-				echo '<option id="div1" data-img-src="'.$dvdpath.'12.jpg" value="'.$dvdpath.''.$i.'.jpg" '.$show_selected.'>Prog no 2101 - 2112</option>';
+				}
+				
+				if(in_array($dvdpath.'2.jpg', $selected_dvds))
+				{
+					$show_selected2 = "selected";
+				
+				}
+				if(in_array($dvdpath.'3.jpg', $selected_dvds))
+				{
+					$show_selected3 = "selected";
+				
+				}
+				
+				if(in_array($dvdpath.'4.jpg', $selected_dvds))
+				{
+					$show_selected4 = "selected";
+				
+				}
+				if(in_array($dvdpath.'5.jpg', $selected_dvds))
+				{
+					$show_selected5 = "selected";
+				
+				}
+				if(in_array($dvdpath.'6.jpg', $selected_dvds))
+				{
+					$show_selected6 = "selected";
+				
+				}
+				if(in_array($dvdpath.'7.jpg', $selected_dvds))
+				{
+					$show_selected7 = "selected";
+				
+				}
+				if(in_array($dvdpath.'8.jpg', $selected_dvds))
+				{
+					$show_selected8 = "selected";
+				
+				}
+				
+				if(in_array($dvdpath.'9.jpg', $selected_dvds))
+				{
+					$show_selected9 = "selected";
+				
+				}
+				if(in_array($dvdpath.'10.jpg', $selected_dvds))
+				{
+					$show_selected10 = "selected";
+				
+				}
+				if(in_array($dvdpath.'11.jpg', $selected_dvds))
+				{
+					$show_selected11 = "selected";
+				
+				}
+				
+				if(in_array($dvdpath.'12.jpg', $selected_dvds))
+				{
+					$show_selected12 = "selected";
+				
+				}
+			
+				echo '<option id="div1" data-img-src="'.$dvdpath.'1.jpg" value="'.$dvdpath.'1.jpg" '.$show_selected1.'>Prog no 2101 - 2112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'2.jpg" value="'.$dvdpath.'2.jpg" '.$show_selected2.'>Prog no 2201 - 2113</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'3.jpg" value="'.$dvdpath.'3.jpg" '.$show_selected3.'>Prog no 2301 - 2310</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'4.jpg" value="'.$dvdpath.'4.jpg" '.$show_selected4.'>Prog no 2311</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'5.jpg" value="'.$dvdpath.'5.jpg" '.$show_selected5.'>Prog no 3101 - 3111</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'6.jpg" value="'.$dvdpath.'6.jpg" '.$show_selected6.'>Prog no 3201 - 3212</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'7.jpg" value="'.$dvdpath.'7.jpg" '.$show_selected7.'>Prog no 3301 - 3311</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'8.jpg" value="'.$dvdpath.'8.jpg" '.$show_selected8.'>Prog no 3312</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'9.jpg" value="'.$dvdpath.'9.jpg" '.$show_selected9.'>Prog no 4101 - 4112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'10.jpg" value="'.$dvdpath.'10.jpg" '.$show_selected10.'>Prog no 4201 - 4212</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'11.jpg" value="'.$dvdpath.'11.jpg" '.$show_selected11.'>Prog no 4301 - 4310</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'12.jpg" value="'.$dvdpath.'12.jpg" '.$show_selected12.'>Prog no 4311</option>';
 			
 			echo '</select>';
 			
 			echo '<div class="display-select-info">You have selected: <span></span></div>';
-			echo '<input type="submit" class="" value="Choose Selected" />';
+			echo '<input type="submit" class="" value="Update" id="image-update" />';
 			wp_nonce_field('action-save-my-dvd','save-my-dvd');
 			echo '</form>';
 			echo '<script>jQuery(document).ready(function(){jQuery("select.dvd-picker").imagepicker({show_label : true});});</script>';
@@ -1537,6 +1525,7 @@ function my_dvd_tab_content() {
 			jQuery(document).ready(function(){
 			// This selector is called every time a select box is changed
 			jQuery("select.dvd-picker").change(function(){
+			jQuery("#image-update").show();
 			// variable to hold string
 			var sel = "";
 			jQuery("select.dvd-picker option:selected").each(function(){
@@ -1551,6 +1540,7 @@ function my_dvd_tab_content() {
 			?>
 <script type="text/javascript">
 				jQuery(document).ready(function(){
+					jQuery('#image-update').hide();
 						jQuery('.msh-dvd-select-submit').click(function(e){
 								e.preventDefault(); //dont submit the form untill confirmed
 								var check = confirm('Are you sure you want to select these dvds?');
@@ -1560,120 +1550,7 @@ function my_dvd_tab_content() {
 								} 
 							});
 
-						/* var moveLeft = 0.1;
-						  var moveDown = 0.1;
-						
-						jQuery('#dvd1').mouseover(function() {
-							jQuery('div#pop-up1').show();
-						 
-							});
-
-						jQuery('#dvd1').mouseout(function() {
-							jQuery('div#pop-up1').hide();
-						 
-							});
-
-						jQuery('#dvd2').mouseover(function() {
-							jQuery('div#pop-up2').show();
-						 
-							});
-
-						jQuery('#dvd2').mouseout(function() {
-							jQuery('div#pop-up2').hide();
-
-							
-						});
-
-
-						jQuery('#dvd3').mouseover(function() {
-							jQuery('div#pop-up3').show();
-						 
-							});
-
-						jQuery('#dvd3').mouseout(function() {
-							jQuery('div#pop-up3').hide();
-
-							
-						});
-
-
-						jQuery('#dvd4').mouseover(function() {
-							jQuery('div#pop-up4').show();
-						 
-							});
-
-						jQuery('#dvd4').mouseout(function() {
-							jQuery('div#pop-up4').hide();
-
-							
-						});
-
-
-						jQuery('#dvd5').mouseover(function() {
-							jQuery('div#pop-up5').show();
-						 
-							});
-
-						jQuery('#dvd5').mouseout(function() {
-							jQuery('div#pop-up5').hide();
-
-							
-						});
-
-						jQuery('#dvd6').mouseover(function() {
-							jQuery('div#pop-up6').show();
-						 
-							});
-
-						jQuery('#dvd6').mouseout(function() {
-							jQuery('div#pop-up6').hide();
-
-							
-						});
-
-						jQuery('#dvd7').mouseover(function() {
-							jQuery('div#pop-up7').show();
-						 
-							});
-
-						jQuery('#dvd7').mouseout(function() {
-							jQuery('div#pop-up7').hide();
-
-							
-						});
-
-						jQuery('#dvd8').mouseover(function() {
-							jQuery('div#pop-up8').show();
-						 
-							});
-
-						jQuery('#dvd8').mouseout(function() {
-							jQuery('div#pop-up8').hide();
-
-							
-						});
-
-						jQuery('#dvd9').mouseover(function() {
-							jQuery('div#pop-up9').show();
-						 
-							});
-
-						jQuery('#dvd9').mouseout(function() {
-							jQuery('div#pop-up9').hide();
-
-							
-						});
-
-						jQuery('#dvd10').mouseover(function() {
-							jQuery('div#pop-up10').show();
-						 
-							});
-
-						jQuery('#dvd10').mouseout(function() {
-							jQuery('div#pop-up10').hide();
-
-							
-						});*/
+					
 												
 					});
 				</script>
