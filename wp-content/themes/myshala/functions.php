@@ -1318,100 +1318,306 @@ function my_dvd_tab_content() {
 		function get_dvd_content($item)
 		{
 			$str = "";
-			switch ($item == "dvd1") {
-				case "Prog no 2101 - 2112":
+			switch ($item) {
+				case "dvd1":
 					$content_array = array(
-					0 => '2101 | N3 | Lakadi ki kathi | A tribute to the ever green tak bak song',
-					1 => '2102 | N1 | Barbie Girl | Children move to the super hit song by Aqua',
-					2 => '2103 | S3 | Barfi | A cute dance performance',
-					3 => '2104 | S7 | Bhumro | A Kashmiri folk dance by our tiny tots',
-					4 => '2105 | J6 | Zoobi doobi | A fun dance to a Bollywood hit',
-					5 => '2106 | 2 | Yoga | For physical fitness and peace of mind',
-					6 => '2107 | 4A, 4B | Honesty pays | A play showing the value of Honesty ',
-					7 => '2108 | 1A, 1B | Dhoom Tana | A superb collage across different eras ',
-					8 => '2109 | 2A, 2B | I am the Best | Watch them assert their goodness!',
-					6 => '2110 | 2A, 2B | Dinus Bill | A skit about the importance of values',
-					7 => '2111 | 2C, 2D | Le gai le gai | Our tribute to the late  Yash Chopra',
-					8 => '2112 | 4C, 4D | Oh Haseena | Dance away as old is indeed, gold!',
+					0 => ' N3 |2101 | Lakadi ki kathi | A tribute to the ever green tak bak song',
+					1 => 'N1 |2102 |  Barbie Girl | Children move to the super hit song by Aqua',
+					2 => ' S3 |2103 | Barfi | A cute dance performance',
+					3 => 'S7 | 2104 | Bhumro | A Kashmiri folk dance by our tiny tots',
+					4 => ' J6 | 2105 |Zoobi doobi | A fun dance to a Bollywood hit',
+					5 => ' 2 | 2106 |Yoga | For physical fitness and peace of mind',
+					6 => '4A, 4B |2107 |  Honesty pays | A play showing the value of Honesty ',
+					7 => '1A, 1B | 2108 | Dhoom Tana | A superb collage across different eras ',
+					8 => ' 2A, 2B | 2109 |I am the Best | Watch them assert their goodness!',
+					9 => '2A, 2B | 2110 | Dinus Bill | A skit about the importance of values',
+					10 => ' 2C, 2D | 2111 |Le gai le gai | Our tribute to the late  Yash Chopra',
+					11 => ' 4C, 4D | 2112 |Oh Haseena | Dance away as old is indeed, gold!',
 					);
 					
 					break;
 					
-					
-					
-		
-			}
-			
-			
-			switch ($item == "dvd2") {
-				case "Prog no 2201 - 2212":
+				case "dvd2":
 					$content_array = array(
-					0 => '2201 | N7 | Gore Nal | A Punjabi folk dance',
-					1 => '2202 | N2 | Rangeela Re | Swaying to the foot tapping number',
-					2 => '2203 | J1 | Gore gore | Dance away as old is indeed, gold!',
-					3 => '2204 | J2 | Aika dajiba | A Marathi super hit dance',
-					4 => '2205 | S1 | Jai ho | Swinging to the Oscar winning song',
-					5 => '2206 | 1A, 1B | Kids in the garden | Drama showing how  life is beautiful',
-					6 => '2207 | 1A, 1B | Dhadak Dhadak | Energy, power and force packed dance',
-					7 => '2208 | 3A, 3B | My Bat | Drama showing self learning is the best',
-					8 => '2209 | 3A, 3B | Ayo re maro Dholana | Children dance to the tune of the desert',
-					6 => '2210 | 6A, 6B | Barso re | A rain dance',
-					7 => '2211 | 8A, 8B | Jogan jogan | A rajasthani folk dance',
-					8 => '2212 | 9B | Kahe ched ched mohe | A classical dance',
-					8 => '2213 | 9A, 9B | Disco Diwane | Seniors boogey away to a popular hit',
+					0 => 'N7 | 2201 | Gore Nal | A Punjabi folk dance',
+					1 => ' N2 |2202 | Rangeela Re | Swaying to the foot tapping number',
+					2 => 'J1 |2203 |  Gore gore | Dance away as old is indeed, gold!',
+					3 => 'J2 |2204 |  Aika dajiba | A Marathi super hit dance',
+					4 => 'S1 |2205 |  Jai ho | Swinging to the Oscar winning song',
+					5 => '1A, 1B |2206 |  Kids in the garden | Drama showing how  life is beautiful',
+					6 => '1A, 1B |2207 |  Dhadak Dhadak | Energy, power and force packed dance',
+					7 => '3A, 3B |2208 |  My Bat | Drama showing self learning is the best',
+					8 => '3A, 3B |2209 |  Ayo re maro Dholana | Children dance to the tune of the desert',
+					6 => '6A, 6B |2210 |  Barso re | A rain dance',
+					7 => '8A, 8B |2211 |  Jogan jogan | A rajasthani folk dance',
+					8 => '9B |2212 |  Kahe ched ched mohe | A classical dance',
+					9 => '9A, 9B |2213 |  Disco Diwane | Seniors boogey away to a popular hit',
 					);
 						
 					break;
-						
-						
-						
+
 			
-			}
-			
-			
-			switch ($item == "dvd3") {
-				case "Prog no 2101 - 2112":
+				case "dvd3":
 					$content_array = array(
-					0 => '2201 | N7 | Gore Nal | A Punjabi folk dance',
-					1 => '2202 | N2 | Rangeela Re | Swaying to the foot tapping number',
-					2 => '2203 | J1 | Gore gore | Dance away as old is indeed, gold!',
-					3 => '2204 | J2 | Aika dajiba | A Marathi super hit dance',
-					4 => '2205 | S1 | Jai ho | Swinging to the Oscar winning song',
-					5 => '2206 | 1A, 1B | Kids in the garden | Drama showing how  life is beautiful',
-					6 => '2207 | 1A, 1B | Dhadak Dhadak | Energy, power and force packed dance',
-					7 => '2208 | 3A, 3B | My Bat | Drama showing self learning is the best',
-					8 => '2209 | 3A, 3B | Ayo re maro Dholana | Children dance to the tune of the desert',
-					6 => '2210 | 6A, 6B | Barso re | A rain dance',
-					7 => '2211 | 8A, 8B | Jogan jogan | A rajasthani folk dance',
-					8 => '2212 | 9B | Kahe ched ched mohe | A classical dance',
-					8 => '2213 | 9A, 9B | Disco Diwane | Seniors boogey away to a popular hit',
+					0 => 'N1 | 2301 | Barbie girl | Children move to the super hit song by Aqua',
+					1 => ' J4 |2302 | Zoobi doobi | A fun dance to a Bollywood hit',
+					2 => 'S8 |2303 |  Sha la la | Energetic dance to the popular Vengaboys tune',
+					3 => '3A, 3B |2304 |  My Bat | Drama showing self learning is the best',
+					4 => '4A, 4B |2305 |  Barso re | A dance to the tune of a popular rain song',
+					5 => '4A, 4B |2306 |  Honesty pays | A play showing the value of Honesty',
+					6 => '5A, 5B |2307 |  Bachana ae Hasino | A dance to a medley of old tunes',
+					7 => '6C | 2308 | Lallati Bhandar | A gondhal, a marathi folk dance ',
+					8 => ' 7A, 7B | 2309 |Aaja nachale | Dancing to the beat of the dancing queen',
+					9 => '5 to 9 | 2310 | Orchestra | Be dazzled by a breathtaking ensemble',
+					
+					
 					);
 			
-					break;
-			
-			
-			
+					break;	
+					
+					
+					case "dvd4":
+						$content_array = array(
 						
+						0 => ' 5 to 9 | 2311 |Gata Shivajichi | A one hour Marathi play showcasing the life and times of Shivaji Maharaj',
+							
+						);
+							
+						break;
+					
+					case "dvd5":
+					$content_array = array(
+					0 => 'N6 | 3101 | Rangeela Re |Swaying to the foot tapping number',
+					1 => ' J4 |3102 | Zoobi doobi | A fun dance to a Bollywood hit',
+					2 => 'S4 |3103 |  Bhumro | A Kashmiri folk dance by our tiny tots',
+					3 => 'S6, 3B |3104 |  Jai ho | Swinging to the Oscar winning song',
+					4 => '1C, 1D |3105 |  Dhadak Dhadak | Energy, power and force packed dance',
+					5 => '3C, 3D |3106 |  Ayo re maro Dholana | Children dance to the tune of the desert',
+					6 => '3A, 3B |3107 |  Koi yaha waha naache | Disco Dancing',
+					7 => '3C, 3D | 3108 | My Bat | Drama showing self learning is the best ',
+					8 => ' 5C, 5D | 3109 |Jambhul | A typical Marathi folk dance',
+					9 => '3 | 3110 | Gymnastics | Sports demo',
+					10 => ' 8A, 8B | 3111 |Jogan jogan | A traditional rajasthani folk dance',
+					
+					);
+			
+					break;	
+						
+					
+					case "dvd6":
+						$content_array = array(
+						0 => 'N2 | 3201 | Rangeela Re |Swaying to the foot tapping number',
+						1 => ' N7 |3202 | Gul Nal Ishq Mitha | A north Indian folk dance',
+						2 => 'J7 |3203 |  Aika dajiba | A Marathi super hit dance',
+						3 => 'J8 |3204 |  Chanda chamke | A twisting dance to a popular number',
+						4 => 'S1 |3205 |  Jai ho | Energy, Swinging to the Oscar winning song',
+						5 => 'S5 |3206 |  Barfi | A cute dance performance',
+						6 => '1A, 1B |3207 | My Bat | Drama showing how  life is beautiful',
+						7 => '4C, 4D | 3208 | Oh Haseena | Dance away as old is indeed, gold!',
+						8 => ' 5C, 5D | 3209 |Koli Medley | The Marathi coastal culture in a dance',
+						9 => '4D | 3210 | Honesty pays | A play showing the value of Honesty',
+						10 => ' 6A, 6B | 3211 |Barso re | A rain dance',
+						11 => ' 4 | 3212 |Rope Gymnastics | Our girls stretch and flip in mid air!',
+							
+						);
+							
+						break;
+						
+						
+						case "dvd7":
+							$content_array = array(
+							0 => 'N3 | 3301 | Lakadi ki kathi |Swaying to the foot tapping number',
+							1 => ' S2 |3302 | Sha la la | A north Indian folk dance',
+							2 => 'J7 |3303 |  Aika dajiba | A Marathi super hit dance',
+							3 => '2 |3304 |  Karate Demo | A twisting dance to a popular number',
+							4 => '1A, 1B |3305 |  Koi Mil Gaya | Energy, Swinging to the Oscar winning song',
+							5 => '1C, 1D |3306 |  Kids in the garden | A cute dance performance',
+							6 => '2A, 2B |3307 | Aaj kal tere mere | Drama showing how  life is beautiful',
+							7 => '7A, 7B | 3308 | Aaja Nachle | Dance away as old is indeed, gold!',
+							8 => ' 9A, 9B | 3309 |The Mob | The Marathi coastal culture in a dance',
+							9 => '11A | 3310 | Fraud gurus & blind faith  | A play showing the value of Honesty',
+							10 => ' 5 to 9 | 3311 |Orchestra | A rain dance',
+							11 => ' 5 to 9 | 3312 |Gata Shivajichi | Our girls stretch and flip in mid air!',
+								
+							);
+								
+							break;
+							
+							case "dvd8":
+								$content_array = array(							
+								0 => ' 5 to 9 | 3312 |Gata Shivajichi | Our girls stretch and flip in mid air!',					
+								);
+							
+								break;
+								
+								case "dvd9":
+									$content_array = array(
+									0 => 'N4 | 4101 | Barbie girl |Children move to the super hit song by Aqua',
+									1 => ' N6 |4102 | Rangeela Re | Swaying to the foot tapping number',
+									2 => 'J8 |4103 |  Chanda chamke| A twisting dance to a popular number',
+									3 => 'S3 |4104 |  Barfi | A cute dance performance',
+									4 => 'S7 |4105 |  Bhumro| A Kashmiri folk dance by our tiny tots',
+									5 => 'J6 |4106 |  Zoobi doobi | A fun dance to a Bollywood hit',
+									6 => '2A, 2B |4107 | Aaj kal tere mere | A tribute to Shammi Kapoor',
+									7 => '3C, 3D | 4108 | Koi yaha waha naache | Disco Dancing',
+									8 => ' 5C, 5D | 4109 |Koli Medley| The Marathi coastal culture in a dance',
+									9 => '5A, 5B | 4110 | Bachana ae Hasino  | A dance to a medley of old tunes',
+									10 => ' 6C | 4111 |Lallati Bhandar | A gondhal, a marathi folk dance',
+									11 => ' 7A, 7B | 4112 |Dola re dola | A hypnotizing dance to a melodious tune',
+								
+									);
+								
+									break;
+									
+									
+									
+									case "dvd10":
+										$content_array =
+										array(
+										0 => 'N8 | 4201 | Gul Nal Ishq Mitha |A north Indian folk dance',
+										1 => 'J5 | 4202 | Chanda chamke | A twisting dance to a popular number',
+										2 => 'N4 | 4203 | Barbie girl | Children move to the super hit by Aqua',
+										3 => 'J3 | 4204 | Gore gore | Dance away as old is indeed, gold!',
+										4 => 'S4 | 4205 | Bhumro |A dance to free you from all your stress.Kashmiri folk dance by our tiny tots',
+										5 => ' S8 | 4206 | Sha la la | Energetic dance to the Vengaboys',
+										6 => '2C, 2D | 4207 |Dinus Bill |A skit about the importance of values',
+										7 => '4C, 4D | 4208 | Oh Haseena | A tribute to Shammi Kapoor',
+										8 => '4A, 4B | 4209 | Honesty pays |A play showing the value of Honesty',
+										9 => '4| 4210 | Skating Demo | A fusion of folk and bollywood',
+										10 => '3A, 3B | 4211 | My Bat |Drama showing self learning is the best',
+										11 => '9A, 9B | 4212 | Gangnam Style | Groovy steps to a groovy tune',
+									
+									
+										);
+										
+										break;
+										
+										
+										case "dvd11":
+											$content_array =
+											array(
+											0 => 'J1 | 4301 | Gore gore |Dance away as old is indeed, gold!',
+											1 => 'S5 | 4302 | Barfi | A cute dance performance',
+											2 => '1C, 1D | 4303 | Kids in the garden | Drama showing how life is beautiful',
+											3 => '1C, 1D | 4304 | Koi Mil Gaya | Kids do an endearing dance',
+											4 => '5 | 4305 | All is well |A dance to free you from all your stress.',
+											5 => '3C, 3D | 4306 | My Bat | Drama showing self learning is the best',
+											6 => '1 | 4307 |Karate Demo |Kids take on super human challenges',
+											7 => '7A, 7B | 4308 | Dola re dola | A hypnotizing dance to a melodious tune',
+											8 => '9A, 9B | 4309 | Turn up the music |Dancing to a medley of songs',
+											9 => '9B| 4310 | Bollywood Lavani | A fusion of folk and bollywood'
+										
+										
+											);
+											
+											break;
+										
+										case "dvd12":
+											$content_array = 
+											array(
+											 0 => '5 to 9 | 4311 | Ghatha Shivajichi |A one hour play showcasing the life and times of Shivaji Maharaj'
+											
+											);
+																						
+ 											 
+ 											 break;
+ 											 
+ 											 
+ 											 case "dvd13":
+ 											 	$content_array =
+ 											 	array(
+ 											 
+ 											 	0 => 'N8| 5101 | Gul Nal Ishq Mitha| A north Indian folk dance',
+ 											 	1 => 'N5|5102 | Lakadi ki kathi|A tribute to the ever green tak bak song',
+ 											 	2 => 'J3|5103|Gore gore|Dance away as old is indeed, gold!',
+ 											 	3 => 'J2|5104|Aika dajiba|A Marathi super hit dance',
+ 											 	4 => 'S6|5105|Jai ho|Swinging to the Oscar winning song',
+ 											 	5 => '1C, 1D|5106|Dhoom Tana|A superb collage across different eras',
+ 											 	6 => '2C, 2D|5107|Aaj kal tere mere|A tribute to Shammi Kapoor',
+ 											 	7 => '2A, 2B|5108|Dinus Bill|A skit about the importance of values',
+ 											 	8 => '4A, 4B|5109|Oh Haseena|Dance away as old is indeed, gold!',
+ 											 	9 => '5C|5110|Takshak|A high energy group dance',
+ 											 	10 => '5|5111|All is well|A dance to free you from all your stress.',
+ 											 	11 => '5C, 5D|5112|Jambhul|A typical Marathi folk dance'
+ 											 
+ 											 	);
+ 											 	
+ 											 	break;
+ 											 	
+ 											 	
+ 											 	case "dvd14":
+ 											 		$content_array =
+ 											 		array(							 	
+ 											 	
+ 											 		0 => 'N5 | 5201 | Lakadi ki kathi | A tribute to the ever green tak bak song',											 	
+ 											 		1 => 'J5 | 5202 | Chanda chamke | A twisting dance to a popular number', 											 	
+ 											 		2 => 'S2 | 5203 | Sha la la | Energetic dance to the Vengaboys tune', 											 	
+ 											 		3 => '2C, 2D | 5204 | Dinus Bill | A skit about the importance of values', 											 	
+ 											 		4 => '4A, 4B | 5205 | Oh Haseena | Dance away as old is indeed, gold!', 											 	
+ 											 		5 => '4C, 4D | 5206 | Honesty pays | A play showing the value of Honesty', 											 	
+ 											 		6 => '3A, 3B | 5207 | Ayo re maro Dholana | Children dance to the desert tune', 											 	
+ 											 		7 => '7C | 5208 | Bachana ae Hasino | A dance to a medley of old tunes', 											 	
+ 											 		8 => '4 | 5209 | Mallakhamb | Our boys defy gravity and reason!', 											 	
+ 											 		);
+ 											 		
+ 											 		
+ 											 		break;
+ 											 		
+ 											 		case "dvd15":
+ 											 			$content_array =
+ 											 			array(
+ 											 			0 => '1 | 5301 | Yoga | For physical fitness and peace of mind',
+ 											 			1 => '2C, 2D | 5302 | Aaj kal tere mere | A tribute to Shammi Kapoor',
+ 											 			2 => '3C, 3D | 5303 | Ayo re maro Dholana | Children dance to the desert tune',
+ 											 			3 => '3C, 3D | 5304 | My Bat | Drama showing self learning is the best',
+ 											 			4 => '4C, 4D | 5305 | Barso re | A rain dance to a melodious tune',
+ 											 			5 => '5A, 5B | 5306 | Bachana ae Hasino | A dance to a medley of old tunes',
+ 											 			6 => '9B | 5307 | Break Dance | Watch the boys go all out!'
+ 											 			);
+ 											 			
+ 											 			
+ 											 			break;
+ 											 			
+ 											 			
+ 											 			case "dvd16":
+ 											 				$content_array =
+ 											 				array(
+ 											 			
+ 											 				0 => '5 to 9 | 5308 | Gatha Shivajicha | A one hour play showcasing the life and times of Shivaji Maharaj'
+ 											 				);
+ 											 			
+ 											 				break;
+ 											 				
+ 	 
+ 	 
 			}
-		
-			$str .= "<table class='sample' cellspacing=10>";
-			$str .= "<tr>";
-			$content_value = explode("|",$value);
-			$str .= "<td>Code</td>";
-			$str .= "<td>Class</td>";
-			$str .= "<td>Program</td>";
-			$str .= "<td></td>";
-			$str .= "</tr>";
-			foreach ($content_array as $key => $value) {
-				$str .= "<tr>";
-				$content_value = explode("|",$value);
-				$str .= "<td>".$content_value[0]."</td>";
-				$str .= "<td>".$content_value[1]."</td>";
-				$str .= "<td>".$content_value[2]."</td>";
-				$str .= "<td>".$content_value[3]."</td>";
-				$str .= "</tr>";
-			}
+			
+			if($content_array)
+			{
+				
+			$str .= '<table class="table table-bordered table-striped">';
+			$str .= "<thead><tr>";
+			$str .= "<th>Class</th>";
+			$str .= "<th>Code</th>";
+			$str .= "<th>Program</th>";
+			$str .= "<th></th>";
+			$str .= "</tr></thead>";
+			
+			
+				foreach ($content_array as $key => $value) {
+					$str .= "<tbody><tr>";
+					$content_value = explode("|",$value);
+					$str .= "<td>".$content_value[0]."</td>";
+					$str .= "<td>".$content_value[1]."</td>";
+					$str .= "<td>".$content_value[2]."</td>";
+					$str .= "<td>".$content_value[3]."</td>";
+					$str .= "</tr></tbody>";
+				}
+			
 			$str .= "</table>";
+			}else{
+				$str = '<h2>No Playlist Found</h2>';
+			}
 		
 			echo $str;
 		}
@@ -1430,68 +1636,109 @@ function my_dvd_tab_content() {
 
 				
 			$show_selected = "";
+			$selected_dvds_disp = array();
 				if(in_array($dvdpath.'1.jpg', $selected_dvds))
 				{
 					$show_selected1 = "selected";
-				
+					$selected_dvds_disp[] = "Prog no 2101 - 2112";
 				}
 				
 				if(in_array($dvdpath.'2.jpg', $selected_dvds))
 				{
 					$show_selected2 = "selected";
+					$selected_dvds_disp[] = "Prog no 2201 - 2113";
 				
 				}
 				if(in_array($dvdpath.'3.jpg', $selected_dvds))
 				{
 					$show_selected3 = "selected";
+					$selected_dvds_disp[] = "Prog no 2301 - 2310";
 				
 				}
 				
 				if(in_array($dvdpath.'4.jpg', $selected_dvds))
 				{
 					$show_selected4 = "selected";
+					$selected_dvds_disp[] = "Prog no 2311";
+					
 				
 				}
 				if(in_array($dvdpath.'5.jpg', $selected_dvds))
 				{
+					$selected_dvds_disp[] = "Prog no 3101 - 3111";
 					$show_selected5 = "selected";
 				
 				}
 				if(in_array($dvdpath.'6.jpg', $selected_dvds))
 				{
+					$selected_dvds_disp[] = "Prog no 3201 - 3212";
 					$show_selected6 = "selected";
 				
 				}
 				if(in_array($dvdpath.'7.jpg', $selected_dvds))
 				{
+					$selected_dvds_disp[] = "Prog no 3301 - 3311";
 					$show_selected7 = "selected";
 				
 				}
 				if(in_array($dvdpath.'8.jpg', $selected_dvds))
 				{
+					$selected_dvds_disp[] = "Prog no 3312 ";
 					$show_selected8 = "selected";
 				
 				}
 				
 				if(in_array($dvdpath.'9.jpg', $selected_dvds))
 				{
+					$selected_dvds_disp[] = "Prog no 4101 - 4112";
 					$show_selected9 = "selected";
 				
 				}
 				if(in_array($dvdpath.'10.jpg', $selected_dvds))
 				{
+					$selected_dvds_disp[] = "Prog no 4201 - 4212";
 					$show_selected10 = "selected";
 				
 				}
 				if(in_array($dvdpath.'11.jpg', $selected_dvds))
 				{
+					$selected_dvds_disp[] = "Prog no 4301 - 4310";
 					$show_selected11 = "selected";
 				
 				}
 				
 				if(in_array($dvdpath.'12.jpg', $selected_dvds))
 				{
+					$selected_dvds_disp[] = "Prog no 4311";
 					$show_selected12 = "selected";
+				
+				}
+				
+				if(in_array($dvdpath.'13.jpg', $selected_dvds))
+				{
+					$selected_dvds_disp[] = "Prog no 5101 - 5112";
+					$show_selected13 = "selected";
+				
+				}
+				
+				if(in_array($dvdpath.'14.jpg', $selected_dvds))
+				{
+					$selected_dvds_disp[] = "Prog no 5201 - 5209";
+					$show_selected14 = "selected";
+				
+				}
+				
+				if(in_array($dvdpath.'15.jpg', $selected_dvds))
+				{
+					$selected_dvds_disp[] = "Prog no 5301 - 5307";
+					$show_selected15 = "selected";
+				
+				}
+				
+				if(in_array($dvdpath.'16.jpg', $selected_dvds))
+				{
+					$selected_dvds_disp[] = "Prog no 5308";
+					$show_selected16 = "selected";
 				
 				}
 			
@@ -1507,14 +1754,25 @@ function my_dvd_tab_content() {
 				echo '<option id="div1" data-img-src="'.$dvdpath.'10.jpg" value="'.$dvdpath.'10.jpg" '.$show_selected10.'>Prog no 4201 - 4212</option>';
 				echo '<option id="div1" data-img-src="'.$dvdpath.'11.jpg" value="'.$dvdpath.'11.jpg" '.$show_selected11.'>Prog no 4301 - 4310</option>';
 				echo '<option id="div1" data-img-src="'.$dvdpath.'12.jpg" value="'.$dvdpath.'12.jpg" '.$show_selected12.'>Prog no 4311</option>';
-			
+				echo '<option id="div1" data-img-src="'.$dvdpath.'13.jpg" value="'.$dvdpath.'13.jpg" '.$show_selected13.'>Prog no 5101 - 5112</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'14.jpg" value="'.$dvdpath.'14.jpg" '.$show_selected14.'>Prog no 5201 - 5209
+				</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'15.jpg" value="'.$dvdpath.'15.jpg" '.$show_selected15.'>Prog no 5301 - 5307</option>';
+				echo '<option id="div1" data-img-src="'.$dvdpath.'16.jpg" value="'.$dvdpath.'16.jpg" '.$show_selected16.'>Prog no 5308</option>';
 			echo '</select>';
-			
-			echo '<div class="display-select-info">You have selected: <span></span></div>';
+			if(count($selected_dvds_disp) !=0 )
+			{
+				$selected_dvds_disp = implode("<br>",$selected_dvds_disp);
+			}
+			else
+			{
+				$selected_dvds_disp ="";
+			}
+			echo '<div class="display-select-info">You have selected:<br> <span>'.$selected_dvds_disp.'</span></div>';
 			echo '<input type="submit" class="" value="Update" id="image-update" />';
 			wp_nonce_field('action-save-my-dvd','save-my-dvd');
 			echo '</form>';
-			echo '<script>jQuery(document).ready(function(){jQuery("select.dvd-picker").imagepicker({show_label : true});});</script>';
+			echo '<script>jQuery(document).ready(function(){jQuery("select.dvd-picker").imagepicker({show_label : true,show_desc_link: true});});</script>';
 			echo '<script>jQuery(document).ready(function(){var $container = jQuery(".dvd_picker_selector");
 			$container.imagesLoaded( function(){
 			$container.masonry({
@@ -1530,30 +1788,50 @@ function my_dvd_tab_content() {
 			var sel = "";
 			jQuery("select.dvd-picker option:selected").each(function(){
 			// when the select box is changed, we add the value text to the varible
-			sel += jQuery(this).html() + ",";
+			sel += jQuery(this).html() + "<br>";
 		});
 		// then display it in the following class
-		jQuery(".display-select-info span").html(sel);
+		jQuery(".display-select-info span").html("<br>"+sel);
 		});
 		});
 		</script>';
 			?>
-<script type="text/javascript">
-				jQuery(document).ready(function(){
-					jQuery('#image-update').hide();
-						jQuery('.msh-dvd-select-submit').click(function(e){
-								e.preventDefault(); //dont submit the form untill confirmed
-								var check = confirm('Are you sure you want to select these dvds?');
-								if(check == true)
-								{	
-									jQuery('.dvd-select-form').submit();
-								} 
-							});
+			
+<?php //Add loop here to add the dvd contents into and js array
+$countDvd = 16;//The count of the dvds.
 
+for($i = 1 ; $i<= $countDvd; $i++):
+	echo '<div id="dvdPlaylist-'.$i.'" style="display:none;">';
+	echo '<div class="sixteen columns table_res">';
+		get_dvd_content('dvd'.$i);
+	echo '</div>';
+	echo '</div>';
+ endfor;
+ ?>			
+<script type="text/javascript">
+ //Function to initialize the popup for the playlist.
+function getDvdPlaylist(dvdid,aInstance) {
+	aInstance.speedoPopup({htmlContent: jQuery('#dvdPlaylist-'+dvdid).html()});
+};
+jQuery(document).ready(function(){
+	
+		jQuery('.ms_advd').live('click',function (){
+			console.log(jQuery(this).attr('data-id'));
+			getDvdPlaylist(jQuery(this).attr('data-id'),jQuery(this));
+		});
 					
-												
-					});
-				</script>
+		jQuery('#image-update').hide();
+			jQuery('.msh-dvd-select-submit').click(function(e){
+					e.preventDefault(); //dont submit the form untill confirmed
+					var check = confirm('Are you sure you want to select these dvds?');
+					if(check == true)
+					{	
+						jQuery('.dvd-select-form').submit();
+					} 
+				});
+						
+		});
+</script>
 <?php
 		 
 	}

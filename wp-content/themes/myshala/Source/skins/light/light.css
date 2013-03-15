@@ -1,0 +1,73 @@
+.speedo-theme-light.speedo-container
+{
+	-webkit-box-shadow: 0 4px 16px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 4px 16px rgba(0,0,0,.2);
+	box-shadow: 0 4px 16px rgba(0,0,0,.2);
+	background: #fff url('images/bg.jpg') repeat-x scroll 0 0;
+	background-clip: padding-box;
+	border: 1px solid #424242;
+	outline: 0;
+	position: fixed;
+	padding: 60px 24px 24px;
+	z-index: 100004;
+	left: 50%;
+	top: 50%;	
+}
+
+.speedo-theme-light .speedo-popup-caption
+{
+	position: absolute;
+	left: 10px;
+	top: 4px;
+	padding: 0;
+	/*margin: -1.8em 0 0;*/
+	margin: 0;
+	color: #ccc;
+}
+
+.speedo-theme-light .speedo-popup-drag-area
+{
+	cursor: move;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 31px;
+	z-index: 100;
+}
+
+.speedo-theme-light .speedo-ui-close
+{
+	position: absolute;
+	background: transparent url('images/close-btn.png') no-repeat center center;
+	right: 0px;
+	top: 0px;
+	/*width: 46px;
+	height: 46px;*/
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.speedo-theme-light .speedo-content-holder
+{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	color: #333;
+}
+
+.speedo-theme-light.speedo-overlay
+{
+	background-color: #2e2e2e;
+	filter: alpha(opacity=80);
+	-moz-opacity: .80;
+    z-index: 10000;
+	height: 100%;
+    left: 0;
+    opacity: 0.8;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}

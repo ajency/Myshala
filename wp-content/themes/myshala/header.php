@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+
+
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -35,7 +37,10 @@
 		
 		</style>
 	<![endif]-->
-
+	
+	
+	
+	
 	<?php
 		$custom_css=get_option(OM_THEME_PREFIX . 'code_custom_css');
 		if($custom_css)
@@ -47,6 +52,8 @@
 	<?php wp_head(); ?>
 	<?php if (is_page('eligibility') ) { ?>
 <!--home page custom JS-->
+	
+	
     <script type="text/javascript">
 <!--
   function validateR(){
@@ -124,6 +131,20 @@
   }
 --></script>
 <?php } ?>
+	
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/source/PopUp.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/source/skins/default/default.css"></link>
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/source/skins/metro/metro.css"></link>
+	
+	<script type="text/javascript">
+	/*$(functtion () {
+	       $(this).speedoPopup({htmlContent: "<p> I'm a simple content </p>"});
+	    });*/
+</script>
+	
+	
 	
 </head>
 <?php

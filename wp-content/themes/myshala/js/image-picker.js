@@ -31,6 +31,7 @@
     default_options = {
       hide_select: true,
       show_label: false,
+      show_desc_link: false,
       initialized: void 0,
       changed: void 0,
       clicked: void 0,
@@ -221,10 +222,9 @@
     ImagePickerOption.prototype.create_node = function() {
       var image, thumbnail;
       var c = i++;
-      
-
+       
       this.node = jQuery("<li/>");
-      image = jQuery("<img class='image_picker_image'/>");
+      image = jQuery("<img  data-id="+c+" class='image_picker_image'/>");
       image.attr("src", this.option.data("img-src"));
       thumbnail = jQuery('<div class="thumbnail" id="dvd'+c+'">');
       thumbnail.click({
@@ -236,7 +236,15 @@
       if (this.opts.show_label) {
         thumbnail.append(jQuery("<p/>").html(this.label()));
       }
+  
       this.node.append(thumbnail);
+      if(this.opts.show_desc_link==true)
+ 	 {
+    	  var label = this.label();
+    	  var atag = '<a href="javascript:void(0);" id="a_dvd'+c+'" data-id="'+ c +'" class="ms_advd">'+ label + '</a>';
+    	  this.node.append(atag);
+ 	 }
+     
       return this.node;
     };
 
