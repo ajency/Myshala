@@ -547,3 +547,7 @@ input[type=reset]:hover,
 {
 	color:<?php echo $footer_side_text_color ?>;
 }
+
+
+
+

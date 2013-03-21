@@ -6511,3 +6511,268 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected p {
 	font-weight: bold;
 	font-style: italic;
 }
+
+/* HOVER STYLES */
+
+.sample
+{text-align:left;}
+
+
+
+div#pop-up1 {
+
+		display: none;
+		left: 402px;
+		top: 155px;
+		position: absolute;
+		
+		line-height: 20px;
+		padding: 10px;
+		font-size: 14px;
+		text-align: center;
+		background: #E3EBE3;
+		border-radius: 5px;
+		text-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 1px;
+		box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
+}
+
+div#pop-up1:after {
+       content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-width: 30px;
+		border-style: solid;
+		border-color: transparent #E3EBE3 transparent transparent;
+		top: 65px;
+		left: -60px;
+}
+
+
+
+div#pop-up2 {
+      	display: none;
+		left: -27px;
+		top: 172px;
+		width: 359px;
+		position: absolute;
+		line-height: 20px;
+		padding: 10px;
+		font-size: 14px;
+		text-align: center;
+		background: #E3EBE3;
+		border-radius: 5px;
+		text-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 1px;
+		box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
+}
+
+div#pop-up2:after {
+       content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-width: 30px;
+		border-style: solid;
+		border-color: transparent transparent transparent #E3EBE3;
+		top: 42px;
+		left: 379px;
+}
+
+
+
+div#pop-up3{
+      display: none;
+		left: 262px;
+		top: 220px;
+		position: absolute;
+		
+		line-height: 20px;
+		padding: 10px;
+		font-size: 14px;
+		text-align: center;
+		background: #E3EBE3;
+		border-radius: 5px;
+		text-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 1px;
+		box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
+}
+
+div#pop-up3:after {
+       content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-width: 30px;
+		border-style: solid;
+		border-color: transparent transparent transparent #E3EBE3;
+		top: 13px;
+		left: 300px;
+
+}
+
+
+
+
+
+
+div#pop-up4 {
+  display: none;
+  position: absolute;
+  width: 280px;
+  padding: 10px;
+  background: #E3EBE3;
+color: #000000;
+border: 1px solid #DDDDDD;
+  font-size: 90%;
+  left: 386px;
+top: 407px;
+}
+
+div#pop-up5 {
+  display: none;
+  position: absolute;
+  width: 280px;
+  padding: 10px;
+  background: #fff;
+color: #000000;
+border: 1px solid #DDDDDD;
+  font-size: 90%;
+ left: 70px;
+top: 407px;
+}
+
+div#pop-up6 {
+  display: none;
+  position: absolute;
+  width: 280px;
+  padding: 10px;
+  background: #fff;
+color: #000000;
+border: 1px solid #DDDDDD;
+  font-size: 90%;
+  left: 276px;
+  top: 407px;
+}
+
+div#pop-up7 {
+  display: none;
+  position: absolute;
+  width: 280px;
+  padding: 10px;
+  background: #fff;
+color: #000000;
+border: 1px solid #DDDDDD;
+  font-size: 90%;
+  left: 386px;
+  top: 644px;
+}
+
+div#pop-up8 {
+  display: none;
+  position: absolute;
+  width: 280px;
+  padding: 10px;
+  background: #fff;
+color: #000000;
+border: 1px solid #DDDDDD;
+  font-size: 90%;
+  left: 70px;
+  top: 644px;
+}
+
+div#pop-up9 {
+  display: none;
+  position: absolute;
+  width: 280px;
+  padding: 10px;
+  background: #fff;
+	color: #000000;
+	border: 1px solid #DDDDDD;
+  font-size: 90%;
+  left: 276px;
+  top: 644px;
+}
+
+div#pop-up10 {
+  display: none;
+  position: absolute;
+  width: 280px;
+  padding: 10px;
+ background: #fff;
+color: #000000;
+border: 1px solid #DDDDDD;
+  font-size: 90%;
+  left: 70px;
+  top: 129px;
+}
+
+
+
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+ }
+  
+ .table {
+  width: 100%;
+  margin-bottom: 18px;
+ }
+  
+ .table th,
+ .table td {
+  padding: 8px;
+  line-height: 18px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px dotted #d1d7dc;
+ }
+  
+ .table th {
+  font-weight: bold;
+ }
+  
+ .table thead th {
+  vertical-align: bottom;
+  border-top:0 none;
+  background:#f8fbfc;
+ }
+  
+  
+ .table tbody + tbody {
+  border-top: 2px solid #d1d7dc;
+ }
+  
+ .table-condensed th,
+ .table-condensed td {
+  padding: 4px 5px;
+ }
+  
+ .table-bordered {
+  border: 1px solid #d1d7dc;
+  border-collapse: separate;
+  *border-collapse: collapsed;
+  border-left: 0;
+  -webkit-border-radius: 4px;
+ 	 -moz-border-radius: 4px;
+ 	 border-radius: 4px;
+ }
+  
+ .table-bordered th,
+ .table-bordered td {
+  border-left: 1px solid #d1d7dc;
+ }
+  
+  
+ .table tbody tr:hover td,
+ .table tbody tr:hover th {
+  background-color: #fafcfd;
+ }
+ 
+ 
+ 
+ ul.thumbnails.image_picker_selector li {
+margin: 0px 12px 12px 0px;
+float: left;
+width: 30%;
+}
