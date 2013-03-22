@@ -263,6 +263,28 @@ if(!function_exists('om_enqueue_scripts')) {
 		wp_enqueue_style('prettyPhoto');
 		wp_register_style('image-picker', TEMPLATE_DIR_URI.'/css/image-picker.css');
 		wp_enqueue_style('image-picker');
+		
+		// Enqueue the global JS - Ajax will not work without it
+		wp_enqueue_script( 'dtheme-ajax-js', get_template_directory_uri() . '/_inc/global.js', array( 'jquery' ), bp_get_version() );
+		
+		// Add words that we need to use in JS to the end of the page so they can be translated and still used.
+		$params = array(
+				'my_favs'           => __( 'My Favorites', 'buddypress' ),
+				'accepted'          => __( 'Accepted', 'buddypress' ),
+				'rejected'          => __( 'Rejected', 'buddypress' ),
+				'show_all_comments' => __( 'Show all comments for this thread', 'buddypress' ),
+				'show_all'          => __( 'Show all', 'buddypress' ),
+				'comments'          => __( 'comments', 'buddypress' ),
+				'close'             => __( 'Close', 'buddypress' ),
+				'view'              => __( 'View', 'buddypress' ),
+				'mark_as_fav'	    => __( 'Favorite', 'buddypress' ),
+				'remove_fav'	    => __( 'Remove Favorite', 'buddypress' )
+		);
+		wp_localize_script( 'dtheme-ajax-js', 'BP_DTheme', $params );
+		
+		// Maybe enqueue comment reply JS
+		if ( is_singular() && bp_is_blog_page() && get_option( 'thread_comments' ) )
+			wp_enqueue_script( 'comment-reply' );
 
 	}
 

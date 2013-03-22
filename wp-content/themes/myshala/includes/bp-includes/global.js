@@ -115,7 +115,7 @@ jq(document).ready( function() {
 					if ( ltext != '' )
 						u = l + ' ';
 
-				 	u += '<a href="' + v + '" rel="nofollow">' + BP_DTheme.view + '</a>';
+				 u += '<a href="' + v + '" rel="nofollow">' + BP_DTheme.view + '</a>';
 
 					jq("#latest-update").slideUp(300,function(){
 						jq("#latest-update").html( u );
