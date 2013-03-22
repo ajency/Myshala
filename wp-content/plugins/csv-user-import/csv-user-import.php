@@ -27,8 +27,8 @@ function csvuserimport_mailer_updater($user_refid = null,$user_id=null,$user_ema
 		return;
 
 	//Update the user meta here and send mail
-	update_user_meta($user_id, 'msh_remote_refid', $user_refid);
-
+	update_user_meta($user_id, 'msh_remote_refid', $user_refid); 
+	
 	if(!empty($user_email) && !empty($user_pass) && !empty($user_name))
 	{
 		$message = __( 'Hi,
@@ -42,6 +42,8 @@ function csvuserimport_mailer_updater($user_refid = null,$user_id=null,$user_ema
 				Password:	%4$s
 					
 				Please login to the site by clicking %6$s and following the login steps' );
+				
+				echo $message;
 		add_filter('wp_mail_content_type',create_function('', 'return "text/html";'));
 		wp_mail( $user_email, sprintf( __( '[%s] Registration' ), get_option( 'blogname' ) ), sprintf($message, get_option('blogname'), home_url(), $user_email ,$user_pass ,$user_name ,  home_url()));
 	}

@@ -100,6 +100,20 @@
 	});
 </script>
 <script type="text/javascript">
+
+jQuery(document).ready(function($){
+
+        $(".activity-comments").hide();
+        $("a.acomment-reply").show();
+
+	$('a.acomment-reply').click(function(){
+		$(this).closest('.activity-content').next().next('.activity-comments').slideToggle();
+	});
+
+});
+
+</script>
+<script type="text/javascript">
 jQuery(window).scroll(function () {
 
         if (jQuery(window).scrollTop() < 600) {

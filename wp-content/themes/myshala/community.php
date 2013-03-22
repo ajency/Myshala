@@ -39,14 +39,7 @@ get_header(); ?>
 						<?php echo get_option(OM_THEME_PREFIX . 'code_after_page_content'); ?>
 						
 						<?php wp_link_pages(array('before' => '<div class="navigation-pages"><span class="title">'.__('Pages:', 'om_theme').'</span>', 'after' => '</div>', 'pagelink' => '<span class="item">%</span>', 'next_or_number' => 'number')); ?>
-			<h3 style="float: left;">Recent Activity</h3><img src="<?php echo get_template_directory_uri(); ?>/img/recentactivity.png"/ style="float: right;">
-<hr class="clear">			
-	<div id="content_1" class="content">			
-<div class="activity" role="main">
-<?php locate_template( array( 'activity/activity-loop.php' ), true ); ?>
-</div>
-
-</div>
+	
 <h2>BOOK REVIEWS</h2>
 <?php echo do_shortcode('[show_bookreview_view view_page=MY_REVIEWS]'); ?>
 			</div>
@@ -74,7 +67,7 @@ get_header(); ?>
 
 
 		<div class="block-3 no-mar sidebar">
-			<?php
+		<?php
 				// alternative sidebar
 				$alt_sidebar=intval(get_post_meta($post->ID, OM_THEME_SHORT_PREFIX.'sidebar', true));
 				if($alt_sidebar && $alt_sidebar <= intval(get_option(OM_THEME_PREFIX."sidebars_num")) ) {

@@ -73,7 +73,7 @@ class AGC_MEMBERS_WIDGET extends WP_Widget {
 							<?php while ( bp_members() ) : bp_the_member(); ?>
 									<li class="recent-style">
 										<div class="user-thumb">
-											<a href="<?php bp_member_permalink(); ?>"><?php bp_member_avatar(array('class' => 'avatar small-img img-rounded')); ?></a>
+											<a href="<?php bp_member_permalink(); ?>"><?php echo  msh_display_avatar(bp_get_member_user_id()); ?></a>
 										</div>
 										<div class="user-activity">
 											<a href="<?php bp_member_permalink(); ?>"><span><?php bp_member_name()?></span></a>
