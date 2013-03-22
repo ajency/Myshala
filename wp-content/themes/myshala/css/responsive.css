@@ -473,6 +473,86 @@ color: #555;
 
 @media only screen and (min-width: 1270px) and (max-width: 1419px)
 {
+		
+.execphpwidget .activity  ul li{background:none !important;}
+		
+.execphpwidget .activity  #activity-stream li .activity-avatar {
+width: 5%;
+padding: 3px;
+float: left;
+margin-right: 15px;
+text-align: right;
+}		
+.execphpwidget .activity  #activity-stream li .activity-content .activity-header .says {	background:none !important;}	
+.execphpwidget .activity  #activity-stream li .activity-content {
+width: 86%!important;
+padding:0px !important;
+float: left;
+border: 0px !important;
+}	
+.execphpwidget  #activity-stream li .activity-content .activity-header a {font-weight:normal!important; font-size:10px;}	
+.execphpwidget  #activity-stream li .activity-content .activity-header p {font-weight:bold;}	
+
+.execphpwidget .activity  #activity-stream li .activity-content .activity-header p {
+margin: 0px 0!important;
+line-height:17px;
+}
+.execphpwidget #activity-stream li {
+padding: 0px 0;}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner p {
+margin: 0px 0!important;
+line-height:17px;
+font-size: 12px;
+}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner a{font-weight:bold;}
+.execphpwidget .content{height:480px;}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner  {
+border-bottom: 0px !important;
+}
+.execphpwidget .activity  #activity-stream li  .activity-meta .crossbutton {
+background: url('../img/cross_icon.png')no-repeat;margin-bottom: -2px; height:15px;}
+.execphpwidget #activity-stream li .activity-comments form {
+width: 368px;
+padding: 10px;
+float: left;
+font-size: 12px;
+margin-top: 10px;
+background: white;
+}
+.execphpwidget .activity  #activity-stream li  .activity-meta {display:none;height: 32px;}
+.execphpwidget #activity-stream li .activity-content .activity-header a.activity-time-since {
+color: #CCCBCB;
+font-size: 9px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments {
+margin: 9px 0px 0px 40px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment { 
+width: 88.4%;
+padding:7px;
+margin-top: 12px;
+margin-bottom:6px;
+background: #F8F8F8;
+border:0px;
+font-size: 11px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment .acomment-content p { 
+margin: 0px 0!important;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment .acomment-avatar img{ 
+width:20px;
+}
+.execphpwidget #activity-stream li:hover{cursor:pointer;}
+.execphpwidget .activity #activity-stream .activity-comments ul li{border-bottom:0px!important;}
+.execphpwidget #activity-stream li:hover .activity-meta { cursor:pointer;display:block!important; float:left;}
+.execphpwidget #activity-stream li.mini {padding:5px 0!important;}
+.execphpwidget #activity-stream li.mini .activity-header {border-bottom:0px;}
+.execphpwidget .activity #activity-stream li.mini .activity-content .activity-header p {
+margin: 10px 0!important;
+}
+.execphpwidget #activity-stream li .activity-comments form .ac-reply-avatar {
+width: 29px;
+}		
 		div.col-4 #nak-gpv img {
 width: 26%;
 padding: 0px;
@@ -901,7 +981,90 @@ color: #555;
 }
 @media only screen and (min-width: 980px) and (max-width: 1269px)
 {
-		div.col-4 #nak-gpv img {
+
+.execphpwidget .activity  ul li{background:none !important;}
+		
+.execphpwidget .activity  #activity-stream li .activity-avatar {
+width: 5%;
+padding: 3px;
+float: left;
+margin-right: 15px;
+text-align: right;
+}		
+.execphpwidget .activity  #activity-stream li .activity-content .activity-header .says {	background:none !important;}	
+.execphpwidget .activity  #activity-stream li .activity-content {
+width: 81%!important;
+padding:0px !important;
+float: left;
+border: 0px !important;
+}	
+.execphpwidget  #activity-stream li .activity-content .activity-header a {font-weight:normal!important; font-size:10px;}	
+.execphpwidget  #activity-stream li .activity-content .activity-header p {font-weight:bold;}	
+
+.execphpwidget .activity  #activity-stream li .activity-content .activity-header p {
+margin: 0px 0!important;
+line-height:17px;
+}
+.execphpwidget #activity-stream li {
+padding: 0px 0;}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner p {
+margin: 0px 0!important;
+line-height:17px;
+font-size: 12px;
+}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner a{font-weight:bold;}
+.execphpwidget .content{height:480px;}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner  {
+border-bottom: 0px !important;
+}
+.execphpwidget .activity  #activity-stream li  .activity-meta .crossbutton {
+background: url('../img/cross_icon.png')no-repeat;margin-bottom: -2px; height:15px;}
+.execphpwidget #activity-stream li .activity-comments form {
+width: 368px;
+padding: 10px;
+float: left;
+font-size: 12px;
+margin-top: 10px;
+background: white;
+}
+.execphpwidget .activity  #activity-stream li  .activity-meta {display:none;height: 32px;}
+.execphpwidget #activity-stream li .activity-content .activity-header a.activity-time-since {
+color: #CCCBCB;
+font-size: 9px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments {
+margin: 9px 0px 0px 40px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment { 
+width: 88.4%;
+padding:7px;
+margin-top: 12px;
+margin-bottom:6px;
+background: #F8F8F8;
+border:0px;
+font-size: 11px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment .acomment-content p { 
+margin: 0px 0!important;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment .acomment-avatar img{ 
+width:20px;
+}
+.execphpwidget #activity-stream li:hover{cursor:pointer;}
+.execphpwidget .activity #activity-stream .activity-comments ul li{border-bottom:0px!important;}
+.execphpwidget #activity-stream li:hover .activity-meta { cursor:pointer;display:block!important; float:left;}
+.execphpwidget #activity-stream li.mini {padding:5px 0!important;}
+.execphpwidget #activity-stream li.mini .activity-header {border-bottom:0px;}
+.execphpwidget .activity #activity-stream li.mini .activity-content .activity-header p {
+margin: 10px 0!important;
+}
+.execphpwidget #activity-stream li .activity-comments form .ac-reply-avatar {
+width: 29px;
+}	
+
+
+
+div.col-4 #nak-gpv img {
 width: 24%;
 padding: 0px;
 margin: 5px;
@@ -916,6 +1079,71 @@ padding-left:0px !important;}
 
 @media only screen and (min-width: 660px) and (max-width: 940px)
 {
+		
+.execphpwidget .activity  ul li{background:none !important;}
+		
+.execphpwidget .activity  #activity-stream li .activity-avatar {
+width: 7%;
+padding: 3px;
+float: left;
+margin-right: 15px;
+text-align: right;
+}		
+.execphpwidget .activity  #activity-stream li .activity-content .activity-header .says {	background:none !important;}	
+.execphpwidget .activity  #activity-stream li .activity-content {
+width: 81%!important;
+padding:0px !important;
+float: left;
+border: 0px !important;
+}		
+.execphpwidget .activity  #activity-stream li .activity-content .activity-header p {
+margin: 0px 0!important;
+line-height:17px;
+}
+.execphpwidget #activity-stream li {
+padding: 0px 0;height: 40px;}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner p {
+margin: 0px 0!important;
+line-height:17px;
+font-size: 11px;
+}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner  {
+border-bottom: 0px !important;
+
+}
+.execphpwidget .activity  #activity-stream li  .activity-meta {display:none;}
+.execphpwidget .activity  #activity-stream .activity-comments {
+margin: 9px 0px 0px 40px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment { 
+width: 88.4%;
+padding:7px;
+margin-top: 12px;
+margin-bottom:6px;
+background: #F8F8F8;
+border:0px;
+font-size: 11px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment .acomment-content p { 
+margin: 0px 0!important;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment .acomment-avatar img{ 
+width:20px;
+}
+.execphpwidget .activity #activity-stream .activity-comments ul li{border-bottom:0px!important;}
+.execphpwidget #activity-stream li:hover .activity-meta { cursor:pointer;display:block!important; float:left;}
+.execphpwidget #activity-stream li.mini {padding:5px 0!important;}
+.execphpwidget #activity-stream li.mini .activity-header {border-bottom:0px;}
+.execphpwidget .activity #activity-stream li.mini .activity-content .activity-header p {
+margin: 10px 0!important;
+}
+.execphpwidget #activity-stream li .activity-comments form .ac-reply-avatar {
+width: 29px;
+}
+		
+		
+		
+		
 		div.col-4 #nak-gpv img {
 width: 24%;
 padding: 0px;
@@ -933,6 +1161,88 @@ div.grid_gallery {width:100%;margin:0px auto;padding-left:35px;}
 
 @media only screen and (min-width: 768px) and (max-width: 979px)
 {
+.execphpwidget .activity  ul li{background:none !important;}
+		
+.execphpwidget .activity  #activity-stream li .activity-avatar {
+width: 5%;
+padding: 3px;
+float: left;
+margin-right: 15px;
+text-align: right;
+}		
+.execphpwidget .activity  #activity-stream li .activity-content .activity-header .says {	background:none !important;}	
+.execphpwidget .activity  #activity-stream li .activity-content {
+width: 81%!important;
+padding:0px !important;
+float: left;
+border: 0px !important;
+}	
+.execphpwidget  #activity-stream li .activity-content .activity-header a {font-weight:normal!important; font-size:10px;}	
+.execphpwidget  #activity-stream li .activity-content .activity-header p {font-weight:bold;}	
+
+.execphpwidget .activity  #activity-stream li .activity-content .activity-header p {
+margin: 0px 0!important;
+line-height:17px;
+}
+.execphpwidget #activity-stream li {
+padding: 0px 0;}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner p {
+margin: 0px 0!important;
+line-height:17px;
+font-size: 12px;
+}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner a{font-weight:bold;}
+.execphpwidget .content{height:480px;}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner  {
+border-bottom: 0px !important;
+}
+.execphpwidget .activity  #activity-stream li  .activity-meta .crossbutton {
+background: url('../img/cross_icon.png')no-repeat;margin-bottom: -2px; height:15px;}
+.execphpwidget #activity-stream li .activity-comments form {
+width: 368px;
+padding: 10px;
+float: left;
+font-size: 12px;
+margin-top: 10px;
+background: white;
+}
+.execphpwidget .activity  #activity-stream li  .activity-meta {display:none;height: 32px;}
+.execphpwidget #activity-stream li .activity-content .activity-header a.activity-time-since {
+color: #CCCBCB;
+font-size: 9px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments {
+margin: 9px 0px 0px 40px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment { 
+width: 88.4%;
+padding:7px;
+margin-top: 12px;
+margin-bottom:6px;
+background: #F8F8F8;
+border:0px;
+font-size: 11px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment .acomment-content p { 
+margin: 0px 0!important;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment .acomment-avatar img{ 
+width:20px;
+}
+.execphpwidget #activity-stream li:hover{cursor:pointer;}
+.execphpwidget .activity #activity-stream .activity-comments ul li{border-bottom:0px!important;}
+.execphpwidget #activity-stream li:hover .activity-meta { cursor:pointer;display:block!important; float:left;}
+.execphpwidget #activity-stream li.mini {padding:5px 0!important;}
+.execphpwidget #activity-stream li.mini .activity-header {border-bottom:0px;}
+.execphpwidget .activity #activity-stream li.mini .activity-content .activity-header p {
+margin: 10px 0!important;
+}
+.execphpwidget #activity-stream li .activity-comments form .ac-reply-avatar {
+width: 29px;
+}	
+
+
+
 	div.col-4 #nak-gpv img {
 width: 24%;
 padding: 0px;
@@ -1388,6 +1698,86 @@ color: #555;
 	
 @media only screen and (max-width: 767px)
 {
+.execphpwidget .activity  ul li{background:none !important;}
+		
+.execphpwidget .activity  #activity-stream li .activity-avatar {
+width: 5%;
+padding: 3px;
+float: left;
+margin-right: 15px;
+text-align: right;
+}		
+.execphpwidget .activity  #activity-stream li .activity-content .activity-header .says {	background:none !important;}	
+.execphpwidget .activity  #activity-stream li .activity-content {
+width: 86%!important;
+padding:0px !important;
+float: left;
+border: 0px !important;
+}	
+.execphpwidget  #activity-stream li .activity-content .activity-header a {font-weight:normal!important; font-size:10px;}	
+.execphpwidget  #activity-stream li .activity-content .activity-header p {font-weight:bold;}	
+
+.execphpwidget .activity  #activity-stream li .activity-content .activity-header p {
+margin: 0px 0!important;
+line-height:17px;
+}
+.execphpwidget #activity-stream li {
+padding: 0px 0;}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner p {
+margin: 0px 0!important;
+line-height:17px;
+font-size: 12px;
+}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner a{font-weight:bold;}
+.execphpwidget .content{height:480px;}
+.execphpwidget .activity  #activity-stream li .activity-content .activity-inner  {
+border-bottom: 0px !important;
+}
+.execphpwidget .activity  #activity-stream li  .activity-meta .crossbutton {
+background: url('../img/cross_icon.png')no-repeat;margin-bottom: -2px; height:15px;}
+.execphpwidget #activity-stream li .activity-comments form {
+width: 368px;
+padding: 10px;
+float: left;
+font-size: 12px;
+margin-top: 10px;
+background: white;
+}
+.execphpwidget .activity  #activity-stream li  .activity-meta {display:none;height: 32px;}
+.execphpwidget #activity-stream li .activity-content .activity-header a.activity-time-since {
+color: #CCCBCB;
+font-size: 9px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments {
+margin: 9px 0px 0px 40px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment { 
+width: 88.4%;
+padding:7px;
+margin-top: 12px;
+margin-bottom:6px;
+background: #F8F8F8;
+border:0px;
+font-size: 11px;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment .acomment-content p { 
+margin: 0px 0!important;
+}
+.execphpwidget .activity  #activity-stream .activity-comments .bp_comment .acomment-avatar img{ 
+width:20px;
+}
+.execphpwidget #activity-stream li:hover{cursor:pointer;}
+.execphpwidget .activity #activity-stream .activity-comments ul li{border-bottom:0px!important;}
+.execphpwidget #activity-stream li:hover .activity-meta { cursor:pointer;display:block!important; float:left;}
+.execphpwidget #activity-stream li.mini {padding:5px 0!important;}
+.execphpwidget #activity-stream li.mini .activity-header {border-bottom:0px;}
+.execphpwidget .activity #activity-stream li.mini .activity-content .activity-header p {
+margin: 10px 0!important;
+}
+.execphpwidget #activity-stream li .activity-comments form .ac-reply-avatar {
+width: 29px;
+}	
+
 	div.col-4 #nak-gpv img {
 width: 26%;
 padding: 0px;
