@@ -30,7 +30,7 @@ class GAL_LOGIN_WIDGET extends WP_Widget {
 					
 					<div class="gal-left_div">
 						<a href="<?php echo bp_core_get_user_domain($id);?>">
-							<?php echo bp_core_fetch_avatar($args);?>
+							<?php echo  msh_display_avatar($id);?>
 						</a>
 					</div>
 					<div class="gal-right_div">

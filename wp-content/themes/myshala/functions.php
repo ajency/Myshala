@@ -1880,3 +1880,10 @@ function msh_display_avatar($user_id=0)
 
 }
 
+function custom_login_logo() { 
+	echo '<style type="text/css">
+h1 a { background-image: url('.get_bloginfo('template_directory').'/img/myshala-logo-login.png) !important; }
+</style>';
+}
+add_action('login_head', 'custom_login_logo');
+

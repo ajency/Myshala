@@ -50,6 +50,7 @@ jq(document).ready( function() {
 
 	/* New posts */
 	jq("input#aw-whats-new-submit").click( function() {
+		
 		var button = jq(this);
 		var form = button.parent().parent().parent().parent();
 
@@ -114,7 +115,7 @@ jq(document).ready( function() {
 					if ( ltext != '' )
 						u = l + ' ';
 
-					u += '<a href="' + v + '" rel="nofollow">' + BP_DTheme.view + '</a>';
+				 	u += '<a href="' + v + '" rel="nofollow">' + BP_DTheme.view + '</a>';
 
 					jq("#latest-update").slideUp(300,function(){
 						jq("#latest-update").html( u );
@@ -131,6 +132,7 @@ jq(document).ready( function() {
 				height:'20px'
 			});
 			jq("#aw-whats-new-submit").prop("disabled", true).removeClass('loading');
+			 
 		});
 
 		return false;
