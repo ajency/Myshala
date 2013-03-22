@@ -81,5 +81,20 @@ get_header( 'buddypress' ); ?>
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
-<?php get_sidebar( 'buddypress' ); ?>
-<?php get_footer( 'buddypress' ); ?>
+	<div class="block-3 no-mar sidebar">
+		<?php
+			// alternative sidebar
+			$alt_sidebar=intval(get_post_meta($post->ID, OM_THEME_SHORT_PREFIX.'sidebar', true));
+			if($alt_sidebar && $alt_sidebar <= intval(get_option(OM_THEME_PREFIX."sidebars_num")) ) {
+				if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'alt-sidebar-'.$alt_sidebar ) ) ;
+			} else {
+				get_sidebar();
+			}
+			?>
+	</div>
+	
+	<!-- /Content -->
+	
+	<div class="clear anti-mar">&nbsp;</div>
+
+<?php get_footer(); ?>

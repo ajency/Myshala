@@ -27,44 +27,44 @@ get_header( 'buddypress' ); ?>
 				<?php bp_directory_members_search_form(); ?>
 
 			</div>--><!-- #members-dir-search -->
-<div id="item-body">
-			<div class="item-list-tabs" role="navigation" id="subnav" >
-				<ul style="float: left;">
-					<li class="selected" id="members-all"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/' . bp_get_members_root_slug() ); ?>"><?php printf( __( 'All Members <span>%s</span>', 'buddypress' ), bp_get_total_member_count() ); ?></a></li>
+			<div id="item-body">
+				<div class="item-list-tabs" role="navigation" id="subnav" >
+					<ul style="float: left;">
+						<li class="selected" id="members-all"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/' . bp_get_members_root_slug() ); ?>"><?php printf( __( 'All Members <span>%s</span>', 'buddypress' ), bp_get_total_member_count() ); ?></a></li>
 
-					<?php if ( is_user_logged_in() && bp_is_active( 'friends' ) && bp_get_total_friend_count( bp_loggedin_user_id() ) ) : ?>
+						<?php if ( is_user_logged_in() && bp_is_active( 'friends' ) && bp_get_total_friend_count( bp_loggedin_user_id() ) ) : ?>
 
-						<li id="members-personal"><a href="<?php echo bp_loggedin_user_domain() . bp_get_friends_slug() . '/my-friends/' ?>"><?php printf( __( 'My Friends <span>%s</span>', 'buddypress' ), bp_get_total_friend_count( bp_loggedin_user_id() ) ); ?></a></li>
+							<li id="members-personal"><a href="<?php echo bp_loggedin_user_domain() . bp_get_friends_slug() . '/my-friends/' ?>"><?php printf( __( 'My Friends <span>%s</span>', 'buddypress' ), bp_get_total_friend_count( bp_loggedin_user_id() ) ); ?></a></li>
 
-					<?php endif; ?>
+						<?php endif; ?>
 
-					<?php do_action( 'bp_members_directory_member_types' ); ?>
+						<?php do_action( 'bp_members_directory_member_types' ); ?>
 
-				</ul>
-				<ul>
+					</ul>
+					<ul>
 
-					<?php do_action( 'bp_members_directory_member_sub_types' ); ?>
+						<?php do_action( 'bp_members_directory_member_sub_types' ); ?>
 
-					<li id="members-order-select" class="last filter">
+						<li id="members-order-select" class="last filter">
 
-						<label for="members-order-by"><?php _e( 'Order By:', 'buddypress' ); ?></label>
-						<select id="members-order-by">
-							<option value="active"><?php _e( 'Last Active', 'buddypress' ); ?></option>
-							<option value="newest"><?php _e( 'Newest Registered', 'buddypress' ); ?></option>
+							<label for="members-order-by"><?php _e( 'Order By:', 'buddypress' ); ?></label>
+							<select id="members-order-by">
+								<option value="active"><?php _e( 'Last Active', 'buddypress' ); ?></option>
+								<option value="newest"><?php _e( 'Newest Registered', 'buddypress' ); ?></option>
 
-							<?php if ( bp_is_active( 'xprofile' ) ) : ?>
+								<?php if ( bp_is_active( 'xprofile' ) ) : ?>
 
-								<option value="alphabetical"><?php _e( 'Alphabetical', 'buddypress' ); ?></option>
+									<option value="alphabetical"><?php _e( 'Alphabetical', 'buddypress' ); ?></option>
 
-							<?php endif; ?>
+								<?php endif; ?>
 
-							<?php do_action( 'bp_members_directory_order_options' ); ?>
+								<?php do_action( 'bp_members_directory_order_options' ); ?>
 
-						</select>
-					</li>
-				</ul>
-			</div><!-- .item-list-tabs -->
-</div>
+							</select>
+						</li>
+					</ul>
+				</div><!-- .item-list-tabs -->
+			</div>
 			<div class="item-list-tabs" id="subnav" role="navigation">
 				
 			</div>

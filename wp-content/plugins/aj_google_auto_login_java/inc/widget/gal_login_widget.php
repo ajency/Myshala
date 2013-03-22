@@ -46,6 +46,7 @@ class GAL_LOGIN_WIDGET extends WP_Widget {
 				<?php else: $nonce = wp_create_nonce('gal_user_login_register'); ?>
 					<div class="gal-loader" style="display:none"><span class="gal-loader-text">Logging In... Please Wait...</span></div>
 					<div class="gal-login-google">
+						<span>Got a Google account? Just click this button to login!</span>
 						<a class="gal-links" href="javascript:void(0);" onClick="galLogin();"></a>
 						<input type="hidden" name="galnonce" id="galnonce" value="<?php echo $nonce ?>"/>
 					</div>	

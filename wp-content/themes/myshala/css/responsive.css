@@ -2,6 +2,9 @@
 
 @media only screen and (min-width: 1420px)
 {
+
+table{width: 100%;}	
+
 .textwidget div.grid_gallery {
 width:100%;
 margin:0px auto;
@@ -473,6 +476,7 @@ color: #555;
 
 @media only screen and (min-width: 1270px) and (max-width: 1419px)
 {
+<<<<<<< HEAD
 		
 .execphpwidget .activity  ul li{background:none !important;}
 		
@@ -553,6 +557,14 @@ margin: 10px 0!important;
 .execphpwidget #activity-stream li .activity-comments form .ac-reply-avatar {
 width: 29px;
 }		
+=======
+table{width: 100%;}
+.speedo-container{width: 700px!important;
+left: 291px !important;
+height: 359px !important;
+
+}
+>>>>>>> 61e9f2606f55702fe0b1759fc8e79594c92f69bc
 		div.col-4 #nak-gpv img {
 width: 26%;
 padding: 0px;
@@ -981,6 +993,7 @@ color: #555;
 }
 @media only screen and (min-width: 980px) and (max-width: 1269px)
 {
+<<<<<<< HEAD
 
 .execphpwidget .activity  ul li{background:none !important;}
 		
@@ -1062,13 +1075,11 @@ margin: 10px 0!important;
 width: 29px;
 }	
 
-
-
+table{width: 100%;}	
 div.col-4 #nak-gpv img {
 width: 24%;
 padding: 0px;
 margin: 5px;
-
 }
 div.grid_gallery {width:100%;margin:0px auto;padding-left:35px;}
 .textwidget div.grid_gallery {
@@ -1079,6 +1090,7 @@ padding-left:0px !important;}
 
 @media only screen and (min-width: 660px) and (max-width: 940px)
 {
+
 		
 .execphpwidget .activity  ul li{background:none !important;}
 		
@@ -1140,11 +1152,7 @@ margin: 10px 0!important;
 .execphpwidget #activity-stream li .activity-comments form .ac-reply-avatar {
 width: 29px;
 }
-		
-		
-		
-		
-		div.col-4 #nak-gpv img {
+div.col-4 #nak-gpv img {
 width: 24%;
 padding: 0px;
 margin: 5px;
@@ -1161,6 +1169,7 @@ div.grid_gallery {width:100%;margin:0px auto;padding-left:35px;}
 
 @media only screen and (min-width: 768px) and (max-width: 979px)
 {
+
 .execphpwidget .activity  ul li{background:none !important;}
 		
 .execphpwidget .activity  #activity-stream li .activity-avatar {
@@ -1240,10 +1249,7 @@ margin: 10px 0!important;
 .execphpwidget #activity-stream li .activity-comments form .ac-reply-avatar {
 width: 29px;
 }	
-
-
-
-	div.col-4 #nak-gpv img {
+div.col-4 #nak-gpv img {
 width: 24%;
 padding: 0px;
 margin: 5px;
@@ -1698,6 +1704,7 @@ color: #555;
 	
 @media only screen and (max-width: 767px)
 {
+
 .execphpwidget .activity  ul li{background:none !important;}
 		
 .execphpwidget .activity  #activity-stream li .activity-avatar {
@@ -1778,7 +1785,59 @@ margin: 10px 0!important;
 width: 29px;
 }	
 
-	div.col-4 #nak-gpv img {
+	
+	ul.thumbnails.image_picker_selector li {
+margin: 0px;
+float: none;
+width: 100%;
+}
+	
+	.table_res  table,.table_res thead,.table_res tbody,.table_res th,.table_res td,.table_res tr { 
+			display: block; 
+		}
+		
+		/* Hide table headers (but not display: none;, for accessibility) */
+		.table_res thead tr { 
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+		.table-striped tr td {
+
+text-align: left !important;
+
+}
+		.table_res .res_header{position: relative;top: 0;left: 0;}
+		.table_res tr { border: 1px solid #ccc;border-bottom: 4px solid #CCC; }
+		
+		.table_res td { 
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee; 
+			position: relative;
+			padding-left: 50% !important; 
+		}
+		
+		.table_res td:before { 
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 6px;
+			left: 6px;
+			width: 45%; 
+			padding-right: 10px; 
+			white-space: nowrap;
+		}
+		
+		/*
+		Label the data
+		*/
+		 .table_res td:nth-of-type(1):before { content: "Class";  font-weight:bold;}
+		.table_res td:nth-of-type(2):before { content: "Code";font-weight:bold; }
+		.table_res td:nth-of-type(3):before { content: "Program";font-weight:bold; }
+		.table_res td:nth-of-type(4):before { content: "Type"; font-weight:bold;}
+
+div.col-4 #nak-gpv img {
 width: 26%;
 padding: 0px;
 margin: 5px;
