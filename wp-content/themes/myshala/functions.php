@@ -481,7 +481,7 @@ function show_bookreview_view($attr)
 		$link = get_bloginfo('url') . '/add-review';
 		if(bp_displayed_user_id()== $user_ID)
 		{
-			echo '<a title="Add Book Review" href="'. $link .'" class="button size-mini">Add Book Review</a>';
+			echo '<a title="Add Book Review" href="'. $link .'" class="button " style="color:#fff">Add Book Review</a>';
 		}
 		echo '<div id="reviews-box" class="reviews-box-class">
 		<ul class="clearfix">';
