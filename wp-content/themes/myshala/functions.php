@@ -1911,7 +1911,7 @@ function remove_forums_profile_tab() {
 	$bp->bp_nav['forums'] = false;
 }
 
-add_action( 'bp_setup_nav', 'remove_forums_profile_tab', 999 );
+//add_action( 'bp_setup_nav', 'remove_forums_profile_tab', 999 );
 
 //Function to redirect user to their buddypress profile if they are trying to view their wp profile
  
