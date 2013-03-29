@@ -1908,10 +1908,11 @@ add_action('login_head', 'custom_login_logo');
 // FUNCTION TO REMOVE FORUMS TAB
 function remove_forums_profile_tab() {
 	global $bp;
-	$bp->bp_nav['forums'] = false;
+	//$bp->bp_nav['forums'] = false;
+	unset($bp->bp_nav['forums']);
 }
 
-//add_action( 'bp_setup_nav', 'remove_forums_profile_tab', 999 );
+add_action( 'bp_setup_nav', 'remove_forums_profile_tab', 999 );
 
 //Function to redirect user to their buddypress profile if they are trying to view their wp profile
  
