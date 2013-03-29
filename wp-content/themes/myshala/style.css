@@ -6791,7 +6791,29 @@ width: 30%;
 	border-bottom: 2px solid #CCC;
 }
 
-.sidebar #login-register-password .tabs_container_login  {
+.sidebar #login-register-password .tab_container_login  {
 	border: none;
 	border-top: 1px solid #CCC;
+	z-index: 99;
+}
+
+.sidebar #login-register-password .tab_container_login .tab_content_login  {
+	padding: 0;
+}
+
+.sidebar #login-register-password .tab_container_login .tab_content_login input[type=text],
+.sidebar #login-register-password .tab_container_login .tab_content_login input[type=password] {
+	background:#f7f7f7;
+	background-color:rgba(0,0,0,0.03);
+	border:0px;
+	padding:6px 10px;
+	margin:0;
+	font-size:100%;
+	border:1px solid transparent;
+	border-top-color:rgba(0,0,0,0.07);
+}
+
+.sidebar #login-register-password .tab_container_login .tab_content_login input[type=text]:focus,
+.sidebar #login-register-password .tab_container_login .tab_content_login input[type=password]:focus {
+	background-color:rgba(0,0,0,0.02);
 }
