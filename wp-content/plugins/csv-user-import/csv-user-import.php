@@ -41,9 +41,9 @@ function csvuserimport_mailer_updater($user_refid = null,$user_id=null,$user_ema
 				Username:	%5$s
 				Password:	%4$s
 					
-				Please login to the site by clicking %6$s and following the login steps' );
+				Please login to the site by clicking %6$s' );
 				
-				echo $message;
+				//echo $message;
 		add_filter('wp_mail_content_type',create_function('', 'return "text/html";'));
 		wp_mail( $user_email, sprintf( __( '[%s] Registration' ), get_option( 'blogname' ) ), sprintf($message, get_option('blogname'), home_url(), $user_email ,$user_pass ,$user_name ,  home_url()));
 	}
@@ -93,7 +93,7 @@ function csvuserimport_page1() {
 						$username."@donotreply.com";
 					}
  
-					$user_data = array('user_email' => $user_email,'user_login' => $user_username,'user_pass' => $user_pass,'role' => 'subscriber','first_name' =>$user_fname,'last_name' =>$user_lname );
+					$user_data = array('user_email' => $user_email,'user_login' => $user_username,'user_pass' => $user_pass,'role' => 'student','first_name' =>$user_fname,'last_name' =>$user_lname );
 
 					$user_id = wp_insert_user($user_data);
 
