@@ -1915,7 +1915,7 @@ add_action( 'bp_setup_nav', 'remove_forums_profile_tab', 999 );
 
 //Function to redirect user to their buddypress profile if they are trying to view their wp profile
  
-add_action("admin_init","bpdev_redirect_user_to_bp_profile");
+/*add_action("admin_init","bpdev_redirect_user_to_bp_profile");
  
 function bpdev_redirect_user_to_bp_profile(){
 if ( !defined('IS_PROFILE_PAGE') )
@@ -1924,4 +1924,4 @@ return false;//if this is not the profile page, do not do anything
 $current_user = wp_get_current_user();
 $bp_profile_link=bp_core_get_user_domain( $current_user->ID);
 bp_core_redirect($bp_profile_link);
-}
+}*/

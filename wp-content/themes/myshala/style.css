@@ -5985,6 +5985,7 @@ text-align: center;
 #event-cal .tab-content .tab-pane .grid-cal li div {
 width: 135px;
 height: 135px;
+overflow: hidden;
 }
 #event-cal .tab-content .tab-pane .grid-cal li.month div span {
 display: block;
@@ -6062,7 +6063,7 @@ margin: 15px 0;
 }
 #event-cal .tab-content .tab-pane .grid-cal li.date div a span.title {
 
-font-size: 18px !important;
+font-size: 16px !important;
 
 }
 #event-cal a{ text-decoration:none;}
