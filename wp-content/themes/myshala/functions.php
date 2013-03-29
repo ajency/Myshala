@@ -1860,14 +1860,6 @@ jQuery(document).ready(function(){
 }
 add_action( 'bp_setup_nav', 'my_dvd_bp_nav' );
 
-// FUNCTION TO REMOVE FORUMS TAB
-function remove_forums_profile_tab() {
-	global $bp;
-	$bp->bp_nav['forums'] = false;
-}
-
-add_action( 'bp_setup_nav', 'remove_forums_profile_tab', 999 );
-
 //function to get data from remote server
 function fetch_from_local_db($data) {
 
@@ -1913,3 +1905,10 @@ h1 a { background-image: url('.get_bloginfo('template_directory').'/img/myshala-
 }
 add_action('login_head', 'custom_login_logo');
 
+// FUNCTION TO REMOVE FORUMS TAB
+function remove_forums_profile_tab() {
+	global $bp;
+	$bp->bp_nav['forums'] = false;
+}
+
+add_action( 'bp_setup_nav', 'remove_forums_profile_tab', 999 );

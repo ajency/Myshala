@@ -6777,3 +6777,21 @@ margin: 0px 12px 12px 0px;
 float: left;
 width: 30%;
 }
+
+/****Login Widget Styles****/
+.sidebar #login-register-password {
+	height: auto;
+}
+
+.sidebar #login-register-password .tabs_login li  {
+	border: none;
+}
+
+.sidebar #login-register-password .tabs_login li.active_login  {
+	border-bottom: 2px solid #CCC;
+}
+
+.sidebar #login-register-password .tabs_container_login  {
+	border: none;
+	border-top: 1px solid #CCC;
+}
