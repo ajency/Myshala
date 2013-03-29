@@ -716,7 +716,7 @@ function bookreview_tab_title() {
 function bookreview_tab_content() {
 	echo do_shortcode('[show_bookreview_view view_page=MY_REVIEWS]');
 }
-add_action( 'bp_setup_nav', 'my_bp_nav_adder' );
+//add_action( 'bp_setup_nav', 'my_bp_nav_adder' ); // comment/uncomment to add tab to profile
 
 /*************************************************************************************
  *	Login Steps Functions
@@ -1860,9 +1860,13 @@ jQuery(document).ready(function(){
 }
 add_action( 'bp_setup_nav', 'my_dvd_bp_nav' );
 
+// FUNCTION TO REMOVE FORUMS TAB
+function remove_forums_profile_tab() {
+	global $bp;
+	$bp->bp_nav['forums'] = false;
+}
 
-
-
+add_action( 'bp_setup_nav', 'remove_forums_profile_tab', 999 );
 
 //function to get data from remote server
 function fetch_from_local_db($data) {
