@@ -773,7 +773,9 @@ function agc_login_steps_getset_step($step_number = 0,$set = false)
  */
 function agc_login_steps_redirect($redirect_to, $url_redirect_to, $user)
 {
-	$login_steps  = get_user_meta($user->ID,'agc_login_steps_completed',true);
+	/*
+	 * Removed login steps as they are not required
+	 * $login_steps  = get_user_meta($user->ID,'agc_login_steps_completed',true);
 
 	if($login_steps && $login_steps == 'completed')
 	{
@@ -784,7 +786,9 @@ function agc_login_steps_redirect($redirect_to, $url_redirect_to, $user)
 	{
 		$main_site = home_url();
 		return $main_site . "/login-steps/";
-	}
+	}*/
+	$main_site = home_url()."/millennium-community/";
+	return $main_site;
 }
 add_filter('login_redirect', 'agc_login_steps_redirect', 10, 3);
 /**
