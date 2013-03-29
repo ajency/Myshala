@@ -1908,7 +1908,6 @@ add_action('login_head', 'custom_login_logo');
 // FUNCTION TO REMOVE FORUMS TAB
 function remove_forums_profile_tab() {
 	global $bp;
-	//$bp->bp_nav['forums'] = false;
 	unset($bp->bp_nav['forums']);
 }
 
