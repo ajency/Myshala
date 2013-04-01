@@ -62,8 +62,9 @@ class tabbed_login_Widget extends WP_Widget {
 <div id="login-register-password">
 
 	<?php global $user_ID, $user_identity,$current_url;
-		  $current_url='http'.(empty($_SERVER['HTTPS'])?'':'s').'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];		
-	get_currentuserinfo(); if (!$user_ID) { ?>
+		  $current_url=get_site_url().'/millennium-community/';		
+		//var_dump( get_site_url());
+		  get_currentuserinfo(); if (!$user_ID) { ?>
 
 	<ul class="tabs_login">
 		<li class="active_login"><a href="#login" ><?php _e('Login', 'tabbed-login'); ?></a></li>
