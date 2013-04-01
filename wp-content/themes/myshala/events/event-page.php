@@ -20,7 +20,7 @@ foreach ($events as $event)
 			'date' 			=> (string)((strtotime($event_meta['from_date'].' '.$event_meta['from_time'])) * 1000 ),
 			'type' 			=> '',
 			'title'			=> $event->post_title,
-			'description'	=> $event->post_content,
+			'description'	=> substr($event->post_content,0, 30),
 			'url'			=> get_permalink($event->ID),
 			'thumb'			=> get_the_post_thumbnail( $event->ID, array(50, 50) ),
 			'days_left'		=> $e->count_days_left(),
@@ -57,30 +57,30 @@ foreach ($events as $event)
 			
 			<div id="event-cats" >
 				<div class="block-inner widgets-area">
-				<div class=" widget-header">event types
-				</div>
-				<ul class="menu">
-				<?php
-				$args = array( 'taxonomy' => 'agc_event_category' );
+					<div class=" widget-header">event types</div>
+					<ul class="menu">
+					<?php
+					$args = array( 'taxonomy' => 'agc_event_category' );
 
-				$terms = get_terms('agc_event_category', $args);
+					$terms = get_terms('agc_event_category', $args);
 
-				$count = count($terms); $i=0;
-				if ($count > 0) {
-					
-					foreach ($terms as $term) {
-						$i++;
-						$term_link = get_term_link( $term->slug , 'agc_event_category' ); 
-						$term_list .= '<li><a href="' .$term_link. '" title="' . sprintf(__('View all post filed under %s', 'buddypress'), $term->name) . '">' . $term->name . '</a></li>';
+					$count = count($terms); $i=0;
+					if ($count > 0) {
 						
+						foreach ($terms as $term) {
+							$i++;
+							$term_link = get_term_link( $term->slug , 'agc_event_category' ); 
+							$term_list .= '<li><a href="' .$term_link. '" title="' . sprintf(__('View all post filed under %s', 'buddypress'), $term->name) . '">' . $term->name . '</a></li>';
+							
+						}
+						echo $term_list;
 					}
-					echo $term_list;
-				}
-				?>
-				</ul>
+					?>
+					</ul>
 				</div>
 			</div><!-- /#event-cats -->
 			
+		</div>
 		</div>
 		
 		<!-- /Content -->
