@@ -46,16 +46,6 @@ foreach ($events as $event)
 
 		<div class="block-3  sidebar bg-color-sidebar" style="margin-top: 7px;">
 			
-			<?php
-				// alternative sidebar
-				$alt_sidebar=intval(get_post_meta($post->ID, OM_THEME_SHORT_PREFIX.'sidebar', true));
-				if($alt_sidebar && $alt_sidebar <= intval(get_option(OM_THEME_PREFIX."sidebars_num")) ) {
-					if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'alt-sidebar-'.$alt_sidebar ) ) ;
-				} else {
-					get_sidebar();
-				}
-			?>
-			
 			<div id="event-cats" >
 				<div class="block-inner widgets-area">
 					<div class=" widget-header">event types</div>
@@ -81,6 +71,19 @@ foreach ($events as $event)
 				</div>
 			</div><!-- /#event-cats -->
 			
+			<?php
+				// alternative sidebar
+				$alt_sidebar=intval(get_post_meta($post->ID, OM_THEME_SHORT_PREFIX.'sidebar', true));
+				if($alt_sidebar && $alt_sidebar <= intval(get_option(OM_THEME_PREFIX."sidebars_num")) ) {
+					if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'alt-sidebar-'.$alt_sidebar ) ) ;
+				} else {
+					get_sidebar();
+				}
+			?>
+			
+			
+			
+		</div>
 		
 		<!-- /Content -->
 		
