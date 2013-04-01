@@ -176,7 +176,7 @@ class tabbed_login_Widget extends WP_Widget {
 		<div class="userinfo">
 			<p><?php _e('You are logged in as ', 'tabbed-login'); ?> <strong><?php echo $user_identity; ?></strong></p>
 			<p>
-				<a href="<?php echo wp_logout_url($current_url); ?>"><?php _e('Log out', 'tabbed-login'); ?></a> | 
+				<a href="<?php echo wp_logout_url( get_site_url()); ?>"><?php _e('Log out', 'tabbed-login'); ?></a> | 
 				<?php if (current_user_can('manage_options')) { 
 					echo '<a href="' . admin_url() . '">' . __('Admin', 'tabbed-login') . '</a>'; } else { 
 					echo '<a href="' . admin_url() . 'profile.php">' . __('Profile', 'tabbed-login') . '</a>'; } ?>
