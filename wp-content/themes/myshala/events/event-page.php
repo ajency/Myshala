@@ -44,7 +44,7 @@ foreach ($events as $event)
 		</div>
 
 
-		<div class="block-3  sidebar bg-color-sidebar" style="margin-top: 7px;">
+		<div style="margin-top: 7px;">
 			
 			
 			
