@@ -46,30 +46,7 @@ foreach ($events as $event)
 
 		<div class="block-3  sidebar bg-color-sidebar" style="margin-top: 7px;">
 			
-			<div id="event-cats" >
-				<div class="block-inner widgets-area">
-					<div class=" widget-header">event types</div>
-					<ul class="menu">
-					<?php
-					$args = array( 'taxonomy' => 'agc_event_category' );
-
-					$terms = get_terms('agc_event_category', $args);
-
-					$count = count($terms); $i=0;
-					if ($count > 0) {
-						
-						foreach ($terms as $term) {
-							$i++;
-							$term_link = get_term_link( $term->slug , 'agc_event_category' ); 
-							$term_list .= '<li><a href="' .$term_link. '" title="' . sprintf(__('View all post filed under %s', 'buddypress'), $term->name) . '">' . $term->name . '</a></li>';
-							
-						}
-						echo $term_list;
-					}
-					?>
-					</ul>
-				</div>
-			</div><!-- /#event-cats -->
+			
 			
 			<?php
 				// alternative sidebar
