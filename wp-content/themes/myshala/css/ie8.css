@@ -34,3 +34,10 @@
 	display:inline;
 	margin:20px 0;
 }
+
+/****Calendar Styles****/
+#event-cal .tab-content .tab-pane .grid-cal li div {
+width: 128px;
+height: 128px;
+overflow: hidden;
+}
