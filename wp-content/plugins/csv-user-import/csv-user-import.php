@@ -31,21 +31,30 @@ function csvuserimport_mailer_updater($user_refid = null,$user_id=null,$user_ema
 	
 	if(!empty($user_email) && !empty($user_pass) && !empty($user_name))
 	{
-		$message = __( 'Hi,
-					
-				You\'ve been successfully registered to \'%1$s\' at
-				%2$s.
+		$message = sprintf( __( 'Hi,
 
-				Your login credentials are as follows:
 
-				Username:	%5$s
-				Password:	%4$s
+						Welcome to Millennium National School!!!
+
+						You are successfully registered to our website.
+
+						Your Username:	%1$s
+						Password:	%2$s
 					
-				Please login to the site by clicking %6$s' );
+						We are ready with our all new website which is now more attractive, user-friendly and happening! 
+
+						We have made sure that your details are secure with us and only you can access it anytime, anywhere. Your profile has features like DVDs, Photo selections and over time this will be used for announcements, events, polls, discussions and even academic tasks.
+
+
+						Any questions please contact us on +91 7798982010, +91 7798982020, +91 7798982030 
+
+
+						Thanks,
+						Millennium Nation Schools' ),$user_name ,$user_pass);
 				
 				//echo $message;
 		add_filter('wp_mail_content_type',create_function('', 'return "text/html";'));
-		wp_mail( $user_email, sprintf( __( '[%s] Registration' ), get_option( 'blogname' ) ), sprintf($message, get_option('blogname'), home_url(), $user_email ,$user_pass ,$user_name ,  home_url()));
+		wp_mail( $user_email, sprintf( __( 'Welcome to Millennium National School' ) ), $message );
 	}
 
 	return ;

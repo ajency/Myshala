@@ -62,8 +62,9 @@ class tabbed_login_Widget extends WP_Widget {
 <div id="login-register-password">
 
 	<?php global $user_ID, $user_identity,$current_url;
-		  $current_url='http'.(empty($_SERVER['HTTPS'])?'':'s').'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];		
-	get_currentuserinfo(); if (!$user_ID) { ?>
+		  $current_url=get_site_url().'/millennium-community/';		
+		//var_dump( get_site_url());
+		  get_currentuserinfo(); if (!$user_ID) { ?>
 
 	<ul class="tabs_login">
 		<li class="active_login"><a href="#login" ><?php _e('Login', 'tabbed-login'); ?></a></li>
@@ -175,7 +176,7 @@ class tabbed_login_Widget extends WP_Widget {
 		<div class="userinfo">
 			<p><?php _e('You are logged in as ', 'tabbed-login'); ?> <strong><?php echo $user_identity; ?></strong></p>
 			<p>
-				<a href="<?php echo wp_logout_url($current_url); ?>"><?php _e('Log out', 'tabbed-login'); ?></a> | 
+				<a href="<?php echo wp_logout_url( get_site_url()); ?>"><?php _e('Log out', 'tabbed-login'); ?></a> | 
 				<?php if (current_user_can('manage_options')) { 
 					echo '<a href="' . admin_url() . '">' . __('Admin', 'tabbed-login') . '</a>'; } else { 
 					echo '<a href="' . admin_url() . 'profile.php">' . __('Profile', 'tabbed-login') . '</a>'; } ?>
