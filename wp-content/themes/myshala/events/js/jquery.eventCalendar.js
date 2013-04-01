@@ -341,8 +341,11 @@
 								
 								} else {
 									eventStringDate = eventDay + "/" + eventMonthToShow + "/" + eventYear;
-									
-									events.push('<li id="' + key + '" class="'+event.type+'"><div class="event-thumb">' + event.thumb + '</div><div class="event-info"><div class="event-title"><a href="'+event.url+'" target="' + eventLinkTarget + '" class="eventTitle">' + event.title + '</a></div><div class="event-meta"><time datetime="'+eventDate+'"><em>' + eventStringDate + '</em><small>'+eventHour+":"+eventMinute+'</small></time><span class="cats">' + event.cats + '</span></div><p class="eventDesc ' + eventDescClass + '">' + event.description + '</p></div><div class="days-left">' + event.days_left + '<span>days to go</span></div></li>');
+									if(event.cats)
+										{ ct=event.cats;}
+									else
+										{ct='';}
+									events.push('<li id="' + key + '" class="'+event.type+'"><div class="event-thumb">' + event.thumb + '</div><div class="event-info"><div class="event-title"><a href="'+event.url+'" target="' + eventLinkTarget + '" class="eventTitle">' + event.title + '</a></div><div class="event-meta"><time datetime="'+eventDate+'"><em>' + eventStringDate + '</em><small>'+eventHour+":"+eventMinute+'</small></time><span class="cats">' +ct + '</span></div><p class="eventDesc ' + eventDescClass + '">' + event.description + '</p></div><div class="days-left">' + event.days_left + '<span>days to go</span></div></li>');
 									i++;
 								}
 						}
