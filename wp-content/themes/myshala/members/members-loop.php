@@ -35,12 +35,14 @@
 
 	<ul id="members-list" class="item-list" role="main">
 
-	<?php while ( bp_members() ) : bp_the_member(); ?>
+	<?php while ( bp_members() ) : bp_the_member(); 
+	 
+	?>
 
 		<li class="two-fifth last ">
 		
 			<div class="item-avatar one-sixth" >
-				<a href="<?php bp_member_permalink(); ?>"><?php bp_member_avatar(); ?></a>
+				<a href="<?php bp_member_permalink(); ?>"><?php echo msh_display_avatar( bp_get_member_user_id()); ?></a>
 			</div>
 <div class="three-fifth last" >
 			<div class="item">
