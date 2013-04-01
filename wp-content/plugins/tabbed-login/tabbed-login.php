@@ -168,7 +168,7 @@ class tabbed_login_Widget extends WP_Widget {
 			if (get_option('show_avatars')){
 		?>
 		<div class="usericon">
-			<?php global $userdata; get_currentuserinfo(); echo get_avatar($userdata->ID, 50); ?>
+			<?php global $userdata; get_currentuserinfo(); echo msh_display_avatar($userdata->ID); ?>
 		</div>
 		<?php  }else{?>		
 		<style type="text/css">.userinfo p{margin-left: 0px !important;text-align:center;}.userinfo{width:100%;}</style>

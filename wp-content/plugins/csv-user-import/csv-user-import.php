@@ -31,26 +31,30 @@ function csvuserimport_mailer_updater($user_refid = null,$user_id=null,$user_ema
 	
 	if(!empty($user_email) && !empty($user_pass) && !empty($user_name))
 	{
-		$message = sprintf( __( 'Hi,
+		$message = sprintf( __( 'Hi,<br><br>
 
 
-						Welcome to Millennium National School!!!
+						Welcome to Millennium National School!!!<br><br>
 
-						You are successfully registered to our website.
+						You are successfully registered to our website.<br><br>
 
-						Your Username:	%1$s
-						Password:	%2$s
+						Your Username:	%1$s<br>
+						Password:	%2$s<br><br>
 					
-						We are ready with our all new website which is now more attractive, user-friendly and happening! 
+						We are ready with our all new website which is now more attractive, user-friendly and happening! <br><br>
 
 						We have made sure that your details are secure with us and only you can access it anytime, anywhere. Your profile has features like DVDs, Photo selections and over time this will be used for announcements, events, polls, discussions and even academic tasks.
+						<br><br>
+
+						Any questions please contact us on +91 7798982010, +91 7798982020, +91 7798982030  <br><br>
 
 
-						Any questions please contact us on +91 7798982010, +91 7798982020, +91 7798982030 
-
-
-						Thanks,
-						Millennium Nation Schools' ),$user_name ,$user_pass);
+						Thanks,<br>
+						Millennium National School<br><br>
+				
+						<img alt="Millennium National School" src="http://myshala.com/wp-content/uploads/2012/11/millenium_school_logo1.png" width="50%" height="50%">
+					
+				' ),$user_name ,$user_pass);
 				
 				//echo $message;
 		add_filter('wp_mail_content_type',create_function('', 'return "text/html";'));
