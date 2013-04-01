@@ -44,7 +44,7 @@ foreach ($events as $event)
 		</div>
 
 
-		<div style="margin-top: 7px;">
+		<div class="block-3  sidebar bg-color-sidebar" style="margin-top: 7px;">
 			
 			<?php
 				// alternative sidebar
@@ -81,7 +81,6 @@ foreach ($events as $event)
 				</div>
 			</div><!-- /#event-cats -->
 			
-		</div>
 		
 		<!-- /Content -->
 		
