@@ -44,7 +44,7 @@ foreach ($events as $event)
 		</div>
 
 
-		<div class="block-3  sidebar bg-color-sidebar" style="margin-top: 7px;">
+		<div style="margin-top: 7px;">
 			
 			<?php
 				// alternative sidebar
@@ -55,7 +55,7 @@ foreach ($events as $event)
 					get_sidebar();
 				}
 			?>
-			</div>
+			
 			<div id="event-cats" >
 				<div class="block-inner widgets-area">
 					<div class=" widget-header">event types</div>
