@@ -5990,7 +5990,7 @@ overflow: hidden;
 #event-cal .tab-content .tab-pane .grid-cal li.month div span {
 display: block;
 font-size: 25px;
-margin: 10px 0 0;
+margin: 10px 0;
 font-weight: normal;
 }
 #event-cal .tab-content .tab-pane .grid-cal li.month div {
