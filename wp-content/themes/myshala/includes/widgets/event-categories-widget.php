@@ -44,35 +44,34 @@ class EventCatsWidget extends WP_Widget
 	
 	// Start Code	
 	echo '<div class="block-3  sidebar bg-color-sidebar">';
-	foreach ( $users as $user ) 
-		{
-			?>
-				<div id="event-cats" >
-					<div class="block-inner widgets-area">
-						<div class=" widget-header"><?php echo $title; ?></div>
-						<ul class="menu">
-						<?php
-						$args = array( 'taxonomy' => 'agc_event_category' );
 
-						$terms = get_terms('agc_event_category', $args);
+		?>
+			<div id="event-cats" >
+				<div class="block-inner widgets-area">
+					<div class=" widget-header"><?php echo $title; ?></div>
+					<ul class="menu">
+					<?php
+					$args = array( 'taxonomy' => 'agc_event_category' );
 
-						$count = count($terms); $i=0;
-						if ($count > 0) {
+					$terms = get_terms('agc_event_category', $args);
+
+					$count = count($terms); $i=0;
+					if ($count > 0) {
+						
+						foreach ($terms as $term) {
+							$i++;
+							$term_link = get_term_link( $term->slug , 'agc_event_category' ); 
+							$term_list .= '<li><a href="' .$term_link. '" title="' . sprintf(__('View all post filed under %s', 'buddypress'), $term->name) . '">' . $term->name . '</a></li>';
 							
-							foreach ($terms as $term) {
-								$i++;
-								$term_link = get_term_link( $term->slug , 'agc_event_category' ); 
-								$term_list .= '<li><a href="' .$term_link. '" title="' . sprintf(__('View all post filed under %s', 'buddypress'), $term->name) . '">' . $term->name . '</a></li>';
-								
-							}
-							echo $term_list;
 						}
-						?>
-						</ul>
-					</div>
+						echo $term_list;
+					}
+					?>
+					</ul>
 				</div>
-			<?php
-		}
+			</div>
+		<?php
+		
 	echo '</div>';
 
   }

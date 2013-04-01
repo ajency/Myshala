@@ -44,7 +44,7 @@ foreach ($events as $event)
 		</div>
 
 
-		<div style="margin-top: 7px;">
+		<div>
 			
 			
 			
