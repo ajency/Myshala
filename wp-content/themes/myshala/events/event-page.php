@@ -20,7 +20,7 @@ foreach ($events as $event)
 			'date' 			=> (string)((strtotime($event_meta['from_date'].' '.$event_meta['from_time'])) * 1000 ),
 			'type' 			=> '',
 			'title'			=> $event->post_title,
-			'description'	=> $event->post_content,
+			'description'	=> $event->post_excerpt,
 			'url'			=> get_permalink($event->ID),
 			'thumb'			=> get_the_post_thumbnail( $event->ID, array(50, 50) ),
 			'days_left'		=> $e->count_days_left(),
@@ -44,6 +44,16 @@ foreach ($events as $event)
 
 
 		<div class="block-3  sidebar bg-color-sidebar" style="margin-top: 7px;">
+			
+			<?php
+				// alternative sidebar
+				$alt_sidebar=intval(get_post_meta($post->ID, OM_THEME_SHORT_PREFIX.'sidebar', true));
+				if($alt_sidebar && $alt_sidebar <= intval(get_option(OM_THEME_PREFIX."sidebars_num")) ) {
+					if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'alt-sidebar-'.$alt_sidebar ) ) ;
+				} else {
+					get_sidebar();
+				}
+			?>
 			
 			<div id="event-cats" >
 				<div class="block-inner widgets-area">
@@ -70,16 +80,7 @@ foreach ($events as $event)
 				</ul>
 				</div>
 			</div><!-- /#event-cats -->
-			</div>
-			<?php
-				// alternative sidebar
-				$alt_sidebar=intval(get_post_meta($post->ID, OM_THEME_SHORT_PREFIX.'sidebar', true));
-				if($alt_sidebar && $alt_sidebar <= intval(get_option(OM_THEME_PREFIX."sidebars_num")) ) {
-					if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'alt-sidebar-'.$alt_sidebar ) ) ;
-				} else {
-					get_sidebar();
-				}
-				?>
+			
 		</div>
 		
 		<!-- /Content -->
