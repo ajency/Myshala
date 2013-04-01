@@ -20,7 +20,7 @@ foreach ($events as $event)
 			'date' 			=> (string)((strtotime($event_meta['from_date'].' '.$event_meta['from_time'])) * 1000 ),
 			'type' 			=> '',
 			'title'			=> $event->post_title,
-			'description'	=> $event->post_excerpt,
+			'description'	=> $event->post_content,
 			'url'			=> get_permalink($event->ID),
 			'thumb'			=> get_the_post_thumbnail( $event->ID, array(50, 50) ),
 			'days_left'		=> $e->count_days_left(),
