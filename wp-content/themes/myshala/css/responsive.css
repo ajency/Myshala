@@ -476,7 +476,6 @@ color: #555;
 
 @media only screen and (min-width: 1270px) and (max-width: 1419px)
 {
-<<<<<<< HEAD
 		
 .execphpwidget .activity  ul li{background:none !important;}
 		
@@ -557,15 +556,15 @@ margin: 10px 0!important;
 .execphpwidget #activity-stream li .activity-comments form .ac-reply-avatar {
 width: 29px;
 }		
-=======
+
 table{width: 100%;}
 .speedo-container{width: 700px!important;
 left: 291px !important;
 height: 359px !important;
 
 }
->>>>>>> 61e9f2606f55702fe0b1759fc8e79594c92f69bc
-		div.col-4 #nak-gpv img {
+
+div.col-4 #nak-gpv img {
 width: 26%;
 padding: 0px;
 margin: 5px;
@@ -993,7 +992,7 @@ color: #555;
 }
 @media only screen and (min-width: 980px) and (max-width: 1269px)
 {
-<<<<<<< HEAD
+
 
 .execphpwidget .activity  ul li{background:none !important;}
 		
