@@ -1895,7 +1895,7 @@ function msh_display_avatar($user_id=0)
 	}
 	else
 	{
-		bp_displayed_user_avatar( 'type=full' );
+		bp_member_avatar();
 
 	}
 
