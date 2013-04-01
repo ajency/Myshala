@@ -6784,6 +6784,10 @@ width: 30%;
 	height: auto;
 }
 
+.sidebar #login-register-password .tabs_login {
+	z-index: 100;
+}
+
 .sidebar #login-register-password .tabs_login li  {
 	border: none;
 }
