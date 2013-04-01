@@ -15,12 +15,13 @@ foreach ($events as $event)
 {
 	$event_meta = get_post_meta($event->ID,'agc_event_date_time',true);
 	$e = new Agc_Event($event->ID);
+	$desc = substr($event->post_content,0, 130);
 	
 	$ejson[] = array(
 			'date' 			=> (string)((strtotime($event_meta['from_date'].' '.$event_meta['from_time'])) * 1000 ),
 			'type' 			=> '',
 			'title'			=> $event->post_title,
-			'description'	=> substr($event->post_content,0, 30),
+			'description'	=> $desc,
 			'url'			=> get_permalink($event->ID),
 			'thumb'			=> get_the_post_thumbnail( $event->ID, array(50, 50) ),
 			'days_left'		=> $e->count_days_left(),
@@ -54,7 +55,7 @@ foreach ($events as $event)
 					get_sidebar();
 				}
 			?>
-			
+			</div>
 			<div id="event-cats" >
 				<div class="block-inner widgets-area">
 					<div class=" widget-header">event types</div>
@@ -80,7 +81,6 @@ foreach ($events as $event)
 				</div>
 			</div><!-- /#event-cats -->
 			
-		</div>
 		</div>
 		
 		<!-- /Content -->
