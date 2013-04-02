@@ -171,15 +171,15 @@ class tabbed_login_Widget extends WP_Widget {
 			<?php global $userdata; get_currentuserinfo(); echo msh_display_avatar($userdata->ID); ?>
 		</div>
 		<?php  }else{?>		
-		<style type="text/css">.userinfo p{margin-left: 0px !important;text-align:center;}.userinfo{width:100%;}</style>
+		<style type="text/css">.userinfo p{margin-left: 0px !important;text-align:center;}.userinfo{width:100%;}.userinfo a.button{color: #FFF !important;}</style>
 		<?php }}?>	
 		<div class="userinfo">
 			<p><?php _e('You are logged in as ', 'tabbed-login'); ?> <strong><?php echo $user_identity; ?></strong></p>
 			<p>
-				<a href="<?php echo wp_logout_url( get_site_url()); ?>" class="button size-small"><?php _e('Log out', 'tabbed-login'); ?></a> | 
+				<a href="<?php echo wp_logout_url( get_site_url()); ?>" class="button size-mini"><?php _e('Log out', 'tabbed-login'); ?></a> 
 				<?php if (current_user_can('manage_options')) { 
-					echo '<a href="' . admin_url() . '" class="button size-small">' . __('Admin', 'tabbed-login') . '</a>'; } else { 
-					echo '<a href="' . admin_url() . 'profile.php" class="button size-small">' . __('Profile', 'tabbed-login') . '</a>'; } ?>
+					echo '<a href="' . admin_url() . '" class="button size-mini">' . __('Admin', 'tabbed-login') . '</a>'; } else { 
+					echo '<a href="' . admin_url() . 'profile.php" class="button size-mini">' . __('Profile', 'tabbed-login') . '</a>'; } ?>
 
 			</p>
 		</div>
