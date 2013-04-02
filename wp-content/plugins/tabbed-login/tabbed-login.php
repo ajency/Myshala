@@ -171,7 +171,7 @@ class tabbed_login_Widget extends WP_Widget {
 			<?php global $userdata; get_currentuserinfo(); echo msh_display_avatar($userdata->ID); ?>
 		</div>
 		<?php  }else{?>		
-		<style type="text/css">.userinfo p{margin-left: 0px !important;text-align:center;}.userinfo{width:100%;}.userinfo a.button{color: #FFF !important;}</style>
+		<style type="text/css">.userinfo p{margin-left: 0px !important;text-align:center;}.userinfo{width:100%;}.userinfo p a.button.size-mini{color: #FFF !important;}</style>
 		<?php }}?>	
 		<div class="userinfo">
 			<p><?php _e('You are logged in as ', 'tabbed-login'); ?> <strong><?php echo $user_identity; ?></strong></p>
