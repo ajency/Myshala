@@ -6822,3 +6822,5 @@ width: 30%;
 .sidebar #login-register-password .tab_container_login .tab_content_login input[type=password]:focus {
 	background-color:rgba(0,0,0,0.02);
 }
+
+.sidebar #login-register-password .userinfo p a.button.size-mini {color: #FFF !important;}
