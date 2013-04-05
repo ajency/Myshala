@@ -6827,7 +6827,7 @@ width: 30%;
 
 /****Top Login Link Styles****/
 .headline {
-	margin: 0 6px 13px !important;
+	margin: 0 6px 20px !important;
 	position: relative;
 }
 
@@ -6836,9 +6836,7 @@ width: 30%;
 	position: absolute;
 	top: 0;
 	right: 0;
-	background: #485A22;
-	color: #FFF;
+	color: #9CDA15;
 	padding: 3px 6px;
-	font-size: 13px;
-	text-decoration: none;
+	font-size: 15px;
 }
