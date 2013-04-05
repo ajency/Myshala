@@ -169,6 +169,14 @@
 		<div class="headline block-full">
 			<div class="headline-text">
 				<?php echo get_option(OM_THEME_PREFIX . 'intro_text') ?>
+				<?php 
+				//DISPLAY A LOGIN LINK
+					if ( is_user_logged_in() ) {
+						//Do Nothing
+					} else {
+						echo '<a class="top-login-link" href=" '. wp_login_url( get_permalink() ) .' " title="Login">Login</a>';
+					}
+				?>
 			</div>
 		</div>
 		<!-- /Headline -->

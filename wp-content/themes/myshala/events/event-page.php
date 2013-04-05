@@ -54,7 +54,7 @@ foreach ($events as $event)
 				if($alt_sidebar && $alt_sidebar <= intval(get_option(OM_THEME_PREFIX."sidebars_num")) ) {
 					if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'alt-sidebar-'.$alt_sidebar ) ) ;
 				} else {
-					get_sidebar( 'alt-sidebar-7' );
+					get_sidebar();
 				}
 			?>
 			
