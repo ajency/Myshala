@@ -6826,13 +6826,13 @@ width: 30%;
 .sidebar #login-register-password .userinfo p a.button.size-mini {color: #FFF !important;}
 
 /****Top Login Link Styles****/
-.headline.block-full {
-	margin: 0 6px 6px;
-	padding: 0;
+.headline {
+	margin: 0 6px 6px !important;
+	padding: 0 !important;
 	position: relative;
 }
 
-.headline.block-full .headline-text .top-login-link {
+.headline .headline-text .top-login-link {
 	display: block;
 	position: absolute;
 	top: 0;
