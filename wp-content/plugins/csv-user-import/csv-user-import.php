@@ -52,7 +52,7 @@ function csvuserimport_mailer_updater($user_refid = null,$user_id=null,$user_ema
 						Thanks,<br>
 						Millennium National School<br><br>
 				
-						<img alt="Millennium National School" src="http://myshala.com/wp-content/uploads/2012/11/millenium_school_logo1.png" width="75%" height="90%">
+						<img alt="Millennium National School" src="http://myshala.com/wp-content/uploads/2012/11/millenium_school_logo1.png" width="200" >
 					
 				' ),$user_name ,$user_pass);
 				

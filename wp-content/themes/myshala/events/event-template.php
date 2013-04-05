@@ -39,7 +39,7 @@ global $event;
 					<span><?php echo $event->count_days_left(); ?></span>days left
 				</div><!-- /.count-down -->
 				
-				<?php //if(!$event->is_plusone && ( $event->count_days_left() > 0)):?>
+				<?php if ( is_user_logged_in() ) {?>
 				<div class="rsvp">
 					<span class="button size-small" id="rsvp-pop">RSVP</span>
 					<div class="btn-slide">
@@ -56,7 +56,7 @@ global $event;
 					});
 					</script>
 				</div><!-- /.rsvp --> 
-				<?php //endif;?>
+				<?php }//endif;?>
 		
 			</div><!-- /.event-actions -->
 			<div class="clearfix clear"></div>

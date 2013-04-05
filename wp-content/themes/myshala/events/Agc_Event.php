@@ -132,6 +132,7 @@ class Agc_Event
 	
 	public function generate_rsvp_box()
 	{
+		
 		$event_categories = $this->show_event_categories();
 		$event_categories = explode(', ',$event_categories);
 		
@@ -153,7 +154,8 @@ class Agc_Event
 						<a class='btn button text-dark size-small ". ($this->loggedin_user_rsvp == 'no' ? 'btn-success' : '')  ." rsvp-action '>No</a>&nbsp;
 						<a class='btn button text-dark size-small ". ($this->loggedin_user_rsvp == 'maybe' ? 'btn-success' : '') ." rsvp-action'>Maybe</a>
 					</p><p style='text-align:center;margin-top:10px' id='agc-suggest-dates-box'>".$additional_data."</p>";	
-	}
+		
+		}
 	
 	private function set_event_type()
 	{
