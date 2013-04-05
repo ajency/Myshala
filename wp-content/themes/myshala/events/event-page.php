@@ -50,13 +50,12 @@ foreach ($events as $event)
 			
 			<?php
 				// alternative sidebar
-				/*$alt_sidebar=intval(get_post_meta($post->ID, OM_THEME_SHORT_PREFIX.'sidebar', true));
+				$alt_sidebar=intval(get_post_meta($post->ID, OM_THEME_SHORT_PREFIX.'sidebar', true));
 				if($alt_sidebar && $alt_sidebar <= intval(get_option(OM_THEME_PREFIX."sidebars_num")) ) {
 					if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'alt-sidebar-'.$alt_sidebar ) ) ;
 				} else {
-					get_sidebar();
-				}*/
-				get_sidebar( 'alt-sidebar-7' );
+					get_sidebar( 'alt-sidebar-7' );
+				}
 			?>
 			
 			
