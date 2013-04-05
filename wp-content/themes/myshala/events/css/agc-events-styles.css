@@ -113,3 +113,6 @@ a#agcSendInvitesConfirmButton
 {
 	display:inline-block;
 }
+
+/****Force Login Button Text Color****/
+.sidebar #login-register-password .userinfo p a.button.size-mini {color: #FFF !important;}
