@@ -1930,10 +1930,34 @@ $bp_profile_link=bp_core_get_user_domain( $current_user->ID);
 bp_core_redirect($bp_profile_link);
 }
 
+function awm_get_current_user_role()
+{
+	global $user_ID;
+
+	$user = new WP_User( $user_ID );
+
+	$role= "";
+	if ( !empty( $user->roles ) && is_array( $user->roles ) ) {
+		foreach ( $user->roles as $role ){
+			return $role;
+		}
+			
+	}
+
+}
+
 /* FUNCTION TO DISALLOW NON ADMIN USERS TO ACCESS DASHBOARD */
  add_action('admin_init', 'no_mo_dashboard');
 function no_mo_dashboard() {
-  if (!current_user_can('manage_options') && $_SERVER['DOING_AJAX'] != '/wp-admin/admin-ajax.php') {
-  wp_redirect(home_url()); exit;
-  }
+
+	$current_user_role = awm_get_current_user_role();
+	if($current_user_role=="author" || $current_user_role=='editor' || $current_user_role=='contributor')
+	{
+		return;
+	}
+	  if (!current_user_can('manage_options') && $_SERVER['DOING_AJAX'] != '/wp-admin/admin-ajax.php') 
+	{
+	  wp_redirect(home_url()); exit;
+	  }
+	
 }
